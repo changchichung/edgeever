@@ -304,9 +304,9 @@ export const SettingsPane = ({
       </header>
 
       <div className="flex flex-1 min-h-0 min-w-0 bg-slate-50/50">
-        {/* 桌面端布局：双栏 */}
+        {/* 桌面端佈局：雙欄 */}
         <div className="hidden lg:flex flex-1 min-h-0 min-w-0 mx-auto max-w-5xl px-6 py-6 gap-6">
-          {/* 左侧垂直 Tab 栏 */}
+          {/* 左側垂直 Tab 欄 */}
           <aside className="w-52 shrink-0 flex flex-col gap-1">
             {tabItems.map((item) => {
               const Icon = item.icon;
@@ -330,7 +330,7 @@ export const SettingsPane = ({
             })}
           </aside>
 
-          {/* 右侧设置内容区 */}
+          {/* 右側設置內容區 */}
           <main className="flex-1 min-w-0 overflow-y-auto pr-2">
             <m.div key={activeTab} className="grid gap-4" {...contentEnterMotion}>
               {renderTabContent(activeTab)}
@@ -338,10 +338,10 @@ export const SettingsPane = ({
           </main>
         </div>
 
-        {/* 移动端布局 */}
+        {/* 移動端佈局 */}
         <div className="flex lg:hidden flex-1 flex-col min-h-0 min-w-0 overflow-y-auto px-4 py-4">
           {activeMobileTab === null ? (
-            /* 分类主菜单 */
+            /* 分類主菜單 */
             <div className="grid gap-2">
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
                 <button
@@ -414,7 +414,7 @@ export const SettingsPane = ({
               </div>
             </div>
           ) : (
-            /* 详情页面 */
+            /* 詳情頁面 */
             <m.div key={activeMobileTab} className="grid gap-4" {...contentEnterMotion}>
               {renderTabContent(activeMobileTab)}
             </m.div>

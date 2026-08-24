@@ -10,7 +10,7 @@ bun run release -- \
   --issue-title "Improve the release workflow" \
   --label enhancement \
   --change-en "Run required release checks in parallel." \
-  --change-zh "并行执行发布所需检查。" \
+  --change-zh "並行執行發佈所需檢查。" \
   --change-commit "abcdef1"
 ```
 

@@ -1,31 +1,31 @@
-# 移动端商店交付
+# 移動端商店交付
 
-GitHub Release 与移动端商店交付是两个独立操作：
+GitHub Release 與移動端商店交付是兩個獨立操作：
 
-- `bun run release` 只创建并审计 GitHub Release，不会访问 Google Play 或
+- `bun run release` 只創建並審計 GitHub Release，不會訪問 Google Play 或
   App Store Connect。
-- `bun run publish:stores` 针对一个已经存在的正式 Release tag，触发手动商店
+- `bun run publish:stores` 針對一個已經存在的正式 Release tag，觸發手動商店
   交付工作流。
-- 触发商店交付就代表已经授权正式提交。默认情况下，Google Play 使用
-  Production 轨道；iOS 在上传 App Store Connect 后继续提交 App Review。审核
-  通过后自动发布。
+- 觸發商店交付就代表已經授權正式提交。默認情況下，Google Play 使用
+  Production 軌道；iOS 在上傳 App Store Connect 後繼續提交 App Review。審覈
+  通過後自動發佈。
 
 ## 安全模型
 
-工作流检出不可变的 Release tag，而不是 `main`。开始任何商店构建前都会验证：
+工作流檢出不可變的 Release tag，而不是 `main`。開始任何商店構建前都會驗證：
 
-- tag 属于正式、非 Prerelease 的 GitHub Release；
-- Release 目标提交与 Git tag 指向同一个提交；
-- 与上一个正式 Release 相比，审计范围内确实包含移动端运行时代码变化；
-- 根版本和移动端 App 版本都与 Release tag 一致；
-- Android `versionCode` 已递增。
+- tag 屬於正式、非 Prerelease 的 GitHub Release；
+- Release 目標提交與 Git tag 指向同一個提交；
+- 與上一個正式 Release 相比，審計範圍內確實包含移動端運行時代碼變化；
+- 根版本和移動端 App 版本都與 Release tag 一致；
+- Android `versionCode` 已遞增。
 
-如果某个 Release 复用了上一版移动端二进制，工作流会主动拒绝。它不代表新的
-商店二进制，不应重复上传。
+如果某個 Release 複用了上一版移動端二進制，工作流會主動拒絕。它不代表新的
+商店二進制，不應重複上傳。
 
 ## 前置配置
 
-在 GitHub 仓库中配置以下 Secrets：
+在 GitHub 倉庫中配置以下 Secrets：
 
 - `EXPO_TOKEN`
 - `ANDROID_KEYSTORE_BASE64`
@@ -38,31 +38,31 @@ GitHub Release 与移动端商店交付是两个独立操作：
 - `APP_STORE_CONNECT_API_ISSUER_ID`
 - `APP_STORE_CONNECT_API_KEY_P8_BASE64`
 
-将 Google Play 服务账号密钥上传到 Android 应用的 EAS Submit Credentials，
-同时将同一份服务账号 JSON 以 base64 保存到上述仓库 Secret，并把 Play Console
-中的**应用签名证书**（不是上传证书）SHA-256 指纹保存为
-`ANDROID_PLAY_APP_SIGNER_SHA256`。在 EAS 中配置 iOS 分发凭据和 App Store
-Connect API Key。凭据和私钥禁止提交到仓库。
+將 Google Play 服務賬號密鑰上傳到 Android 應用的 EAS Submit Credentials，
+同時將同一份服務賬號 JSON 以 base64 保存到上述倉庫 Secret，並把 Play Console
+中的**應用簽名證書**（不是上傳證書）SHA-256 指紋保存爲
+`ANDROID_PLAY_APP_SIGNER_SHA256`。在 EAS 中配置 iOS 分發憑據和 App Store
+Connect API Key。憑據和私鑰禁止提交到倉庫。
 
-创建以下 GitHub Environments：
+創建以下 GitHub Environments：
 
-- `store-delivery`：用于 Android 测试轨道和 Apple App Review 交付。
-- `store-production`：用于 Google Play Production 交付。
+- `store-delivery`：用於 Android 測試軌道和 Apple App Review 交付。
+- `store-production`：用於 Google Play Production 交付。
 
-EAS Submit 要求应用已经在对应商店中创建；Google Play API 提交还要求服务账号
-拥有该应用的访问权限。配置方法参考官方
+EAS Submit 要求應用已經在對應商店中創建；Google Play API 提交還要求服務賬號
+擁有該應用的訪問權限。配置方法參考官方
 [EAS Android 提交指南](https://docs.expo.dev/submit/android/)和
-[EAS Submit 配置参考](https://docs.expo.dev/submit/eas-json/)。
+[EAS Submit 配置參考](https://docs.expo.dev/submit/eas-json/)。
 
 ## 命令
 
-同时提交 Google Play Production 和 Apple App Review：
+同時提交 Google Play Production 和 Apple App Review：
 
 ```sh
 bun run publish:stores -- --release v1.7.0
 ```
 
-只将 Android 交付到封闭测试轨道：
+只將 Android 交付到封閉測試軌道：
 
 ```sh
 bun run publish:stores -- \
@@ -71,35 +71,35 @@ bun run publish:stores -- \
   --android-track beta
 ```
 
-使用 `--dry-run` 可以只输出将要触发的 GitHub 工作流，不实际启动。
+使用 `--dry-run` 可以只輸出將要觸發的 GitHub 工作流，不實際啓動。
 
-## 各平台行为
+## 各平臺行爲
 
 ### Google Play
 
-自托管发布 Runner 会从指定 tag 构建仅含 `arm64-v8a` 的签名 AAB，验证签名和
-R8 Mapping，将两者保留为 GitHub Actions Artifacts，然后通过 EAS Submit 上传
+自託管發佈 Runner 會從指定 tag 構建僅含 `arm64-v8a` 的簽名 AAB，驗證簽名和
+R8 Mapping，將兩者保留爲 GitHub Actions Artifacts，然後通過 EAS Submit 上傳
 AAB。
 
-Google Play 处理完 AAB 后，工作流会下载由 Play 应用签名密钥签名的通用 APK，
-核对固定的应用签名证书，并替换 GitHub Release 中的 Android 资产。这样从 Play
-和 GitHub 安装的版本可以互相覆盖升级。上传的 AAB 会明确限制为
-`arm64-v8a`，因此 Play 生成的通用 APK 不会再打包无用的 32 位 ARM 或 x86
-原生库。该 Release 必须关闭 Automatic Protection；当 Play 返回带安装来源限制
-的产物时，下载器会直接失败，防止此类 APK 再次发布到 GitHub 供侧载。
+Google Play 處理完 AAB 後，工作流會下載由 Play 應用簽名密鑰簽名的通用 APK，
+覈對固定的應用簽名證書，並替換 GitHub Release 中的 Android 資產。這樣從 Play
+和 GitHub 安裝的版本可以互相覆蓋升級。上傳的 AAB 會明確限制爲
+`arm64-v8a`，因此 Play 生成的通用 APK 不會再打包無用的 32 位 ARM 或 x86
+原生庫。該 Release 必須關閉 Automatic Protection；當 Play 返回帶安裝來源限制
+的產物時，下載器會直接失敗，防止此類 APK 再次發佈到 GitHub 供側載。
 
-Internal、Alpha、Beta 和 Production 配置都会在所选轨道创建 Completed
-Release。默认命令直接使用 Production；只有明确要求测试交付时才使用
+Internal、Alpha、Beta 和 Production 配置都會在所選軌道創建 Completed
+Release。默認命令直接使用 Production；只有明確要求測試交付時才使用
 `--android-track internal`、`alpha` 或 `beta`。
 
 ### App Store Connect
 
-原生 iOS 商店二进制来自 **`apps/ios`**（SwiftUI），不再走 Expo EAS。
-在 macOS beta 本机上，Archive 必须通过 **Xcode Cloud**（仅手动触发的 Archive
-工作流），保证 `BuildMachineOSBuild` 来自正式系统镜像——见
-[iOS Xcode Cloud](ios-xcode-cloud.md)。Cloud 用产品「下一个构建版本编号」写入
-`CFBundleVersion`；配置共享环境变量后，`ci_post_xcodebuild.sh` 会用
-App Store Connect API Key 上传 App Store IPA。随后 Fastlane（`apps/ios` 的
-`submit_review`）精确选择相同的 App Version 与 Build Number，提交 App Review，
-并设置为审核通过后自动发布。元数据、协议、审核信息或凭据不完整时工作流会失败，
-不会改为提交其他构建。
+原生 iOS 商店二進制來自 **`apps/ios`**（SwiftUI），不再走 Expo EAS。
+在 macOS beta 本機上，Archive 必須通過 **Xcode Cloud**（僅手動觸發的 Archive
+工作流），保證 `BuildMachineOSBuild` 來自正式系統鏡像——見
+[iOS Xcode Cloud](ios-xcode-cloud.md)。Cloud 用產品「下一個構建版本編號」寫入
+`CFBundleVersion`；配置共享環境變量後，`ci_post_xcodebuild.sh` 會用
+App Store Connect API Key 上傳 App Store IPA。隨後 Fastlane（`apps/ios` 的
+`submit_review`）精確選擇相同的 App Version 與 Build Number，提交 App Review，
+並設置爲審覈通過後自動發佈。元數據、協議、審覈信息或憑據不完整時工作流會失敗，
+不會改爲提交其他構建。

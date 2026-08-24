@@ -102,10 +102,10 @@ export const NotesActionsModal = ({
         <View style={styles.actionSheetHandle} />
         <View style={styles.listActionSheetHeader}>
           <View style={styles.listActionSheetHeaderText}>
-            <Text numberOfLines={1} style={styles.actionSheetTitle}>列表选项</Text>
+            <Text numberOfLines={1} style={styles.actionSheetTitle}>列表選項</Text>
             <Text numberOfLines={1} style={styles.actionSheetSubtitle}>{listTitle} · {listDescription}</Text>
           </View>
-          <Pressable accessibilityLabel="关闭" accessibilityRole="button" onPress={onClose} style={styles.sheetCloseButton}>
+          <Pressable accessibilityLabel="關閉" accessibilityRole="button" onPress={onClose} style={styles.sheetCloseButton}>
             <X color="#0f172a" size={18} />
           </Pressable>
         </View>
@@ -116,30 +116,30 @@ export const NotesActionsModal = ({
                 compact
                 disabled={!canEnterSelection}
                 icon={<CheckSquare color="#0f172a" size={18} />}
-                label="选择笔记"
+                label="選擇筆記"
                 onPress={onEnterSelection}
               />
               <View style={styles.listActionDivider} />
             </>
           ) : null}
-          <Text style={styles.actionSheetSectionTitle}>显示方式</Text>
+          <Text style={styles.actionSheetSectionTitle}>顯示方式</Text>
           <SheetOptionRow
             active={memoListDensity === "preview"}
             icon={<FileText color={memoListDensity === "preview" ? "#10b981" : "#64748b"} size={18} />}
-            label="预览列表"
+            label="預覽列表"
             onPress={() => onMemoListDensityChange("preview")}
           />
           <SheetOptionRow
             active={memoListDensity === "compact"}
             icon={<List color={memoListDensity === "compact" ? "#10b981" : "#64748b"} size={18} />}
-            label="紧凑列表"
+            label="緊湊列表"
             onPress={() => onMemoListDensityChange("compact")}
           />
           <View style={styles.listActionDivider} />
           <Text style={styles.actionSheetSectionTitle}>排序方式</Text>
           <SheetOptionRow active={memoSortMode === "updated-desc"} label="最近更新" onPress={() => onSortModeChange("updated-desc")} />
-          <SheetOptionRow active={memoSortMode === "created-desc"} label="创建时间" onPress={() => onSortModeChange("created-desc")} />
-          <SheetOptionRow active={memoSortMode === "title-asc"} label="标题 A-Z" onPress={() => onSortModeChange("title-asc")} />
+          <SheetOptionRow active={memoSortMode === "created-desc"} label="創建時間" onPress={() => onSortModeChange("created-desc")} />
+          <SheetOptionRow active={memoSortMode === "title-asc"} label="標題 A-Z" onPress={() => onSortModeChange("title-asc")} />
         </ScrollView>
       </Pressable>
     </Pressable>
@@ -189,14 +189,14 @@ export const SelectionActionBar = ({
       <SelectionAction
         disabled={isBusy || !canMove}
         icon={<Folder color={canMove ? "#0f172a" : "#cbd5e1"} size={20} />}
-        label="移动"
+        label="移動"
         onPress={onMove}
       />
       <SelectionAction
         danger
         disabled={isBusy || selectedCount === 0}
         icon={<Trash2 color={selectedCount === 0 ? "#cbd5e1" : "#b91c1c"} size={20} />}
-        label={isTrashView ? "永久删除" : "删除"}
+        label={isTrashView ? "永久刪除" : "刪除"}
         onPress={onDelete}
       />
       <SelectionAction
@@ -241,9 +241,9 @@ export const SelectionMoreModal = ({
         <View style={styles.listActionSheetHeader}>
           <View style={styles.listActionSheetHeaderText}>
             <Text style={styles.actionSheetTitle}>批量操作</Text>
-            <Text style={styles.actionSheetSubtitle}>{selectedCount > 0 ? `已选择 ${selectedCount} 条` : "选择笔记"}</Text>
+            <Text style={styles.actionSheetSubtitle}>{selectedCount > 0 ? `已選擇 ${selectedCount} 條` : "選擇筆記"}</Text>
           </View>
-          <Pressable accessibilityLabel="关闭" accessibilityRole="button" onPress={onClose} style={styles.sheetCloseButton}>
+          <Pressable accessibilityLabel="關閉" accessibilityRole="button" onPress={onClose} style={styles.sheetCloseButton}>
             <X color="#0f172a" size={18} />
           </Pressable>
         </View>
@@ -259,7 +259,7 @@ export const SelectionMoreModal = ({
           label={pinLabel}
           onPress={onPin}
         />
-        <ActionSheetItem icon={<X color="#0f172a" size={18} />} label="取消选择" onPress={onClear} />
+        <ActionSheetItem icon={<X color="#0f172a" size={18} />} label="取消選擇" onPress={onClear} />
       </Pressable>
     </Pressable>
   </Modal>

@@ -1,38 +1,38 @@
-# 📣 EdgeEver Slogans & 推广文案记录仓
+# 📣 EdgeEver Slogans & 推廣文案記錄倉
 
-本文件用于统一记录和归档 EdgeEver 项目在各平台（GitHub、官网、README、各大社区）所使用的 Slogan、标语和短介绍，方便维护和推广时一站式查阅。
+本文件用於統一記錄和歸檔 EdgeEver 項目在各平臺（GitHub、官網、README、各大社區）所使用的 Slogan、標語和短介紹，方便維護和推廣時一站式查閱。
 
 ---
 
-## 🌐 官网 & README 核心 Slogan
+## 🌐 官網 & README 核心 Slogan
 
 ### 🇨🇳 中文
-> **无需服务器、0 费用、开源且原生支持 AI Agent 的自托管『印象笔记』替代品。**
-* *位置*：官网 Hero 首屏标题下、中文 README 顶部
+> **無需服務器、0 費用、開源且原生支持 AI Agent 的自託管『印象筆記』替代品。**
+* *位置*：官網 Hero 首屏標題下、中文 README 頂部
 
 ### 🇺🇸 英文
 > **A serverless, 100% free, open-source, and AI-native self-hosted Evernote alternative on Cloudflare.**
-* *位置*：官网英文版首屏、英文 README 顶部
+* *位置*：官網英文版首屏、英文 README 頂部
 
 ---
 
 ## 🐙 GitHub "About" 短描述 (Description)
 
-### 🇨🇳 🇺🇸 中英双语（推荐）
-> **Serverless, 100% free, and open-source Evernote alternative on Cloudflare with native MCP. | 无需服务器、0费用、原生支持 AI Agent 的开源自托管『印象笔记』**
-* *字符数*：192 字符（显示完美，不被截断）
+### 🇨🇳 🇺🇸 中英雙語（推薦）
+> **Serverless, 100% free, and open-source Evernote alternative on Cloudflare with native MCP. | 無需服務器、0費用、原生支持 AI Agent 的開源自託管『印象筆記』**
+* *字符數*：192 字符（顯示完美，不被截斷）
 
-### 🇺🇸 纯英文备选（最简版）
+### 🇺🇸 純英文備選（最簡版）
 > **Serverless, 100% free, and open-source Evernote alternative self-hosted on Cloudflare. AI-native with Remote MCP support.**
 
 ---
 
-## 💡 README 顶栏高亮横幅 (Banner)
+## 💡 README 頂欄高亮橫幅 (Banner)
 
 ### 🇨🇳 中文
 ```markdown
-> 💡 **终身免服务器，100% 免费**
-> EdgeEver 可以直接运行在 Cloudflare 免费额度内，无需购买服务器，个人日常使用 **0 费用、0 运维**；也可以把同一套应用通过 Docker 部署到 VPS、NAS 或家庭服务器，数据与运行环境始终由你掌控。
+> 💡 **終身免服務器，100% 免費**
+> EdgeEver 可以直接運行在 Cloudflare 免費額度內，無需購買服務器，個人日常使用 **0 費用、0 運維**；也可以把同一套應用通過 Docker 部署到 VPS、NAS 或家庭服務器，數據與運行環境始終由你掌控。
 ```
 
 ### 🇺🇸 英文
@@ -43,8 +43,8 @@
 
 ---
 
-## 📢 社区推广（如掘金、V2EX）核心卖点词
+## 📢 社區推廣（如掘金、V2EX）核心賣點詞
 
-* **三零特性**：零服务器开销、零运维负担、零订阅费用。
-* **白嫖配额**：每天 10 万次免费 Workers 调用，15 万条 D1 笔记行数，10GB 免费 R2 附件存储。
-* **AI 大脑**：原生集成 Model Context Protocol (MCP)，将你的笔记瞬间转化为 Agent 的外部记忆库。
+* **三零特性**：零服務器開銷、零運維負擔、零訂閱費用。
+* **白嫖配額**：每天 10 萬次免費 Workers 調用，15 萬條 D1 筆記行數，10GB 免費 R2 附件存儲。
+* **AI 大腦**：原生集成 Model Context Protocol (MCP)，將你的筆記瞬間轉化爲 Agent 的外部記憶庫。

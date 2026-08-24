@@ -24,10 +24,10 @@ describe("copy current note ID", () => {
 
   test("copies the raw memo ID from both native mobile clients", () => {
     expect(androidDetailSource).toContain("Clipboard.setStringAsync(memo.id)");
-    expect(androidDetailSource).toContain('resolvedLocale === "en-US" ? "Copy note ID" : "复制笔记 ID"');
+    expect(androidDetailSource).toContain('resolvedLocale === "en-US" ? "Copy note ID" : "複製筆記 ID"');
     expect(androidDetailSource).toContain("disabled={!canCopyMemoId}");
     expect(iosDetailSource).toContain("UIPasteboard.general.string = memo.id");
-    expect(iosDetailSource).toContain('env.preferences.t("复制笔记 ID", en: "Copy note ID")');
+    expect(iosDetailSource).toContain('env.preferences.t("複製筆記 ID", en: "Copy note ID")');
   });
 
   test("does not present temporary local IDs as agent-readable IDs", () => {

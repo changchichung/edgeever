@@ -45,7 +45,7 @@ export type TiptapDoc = {
   content: TiptapNode[];
 };
 
-export const DEFAULT_MEMO_TITLE = "无标题笔记";
+export const DEFAULT_MEMO_TITLE = "無標題筆記";
 
 export const resolveMergedMemoTitle = (
   inputTitle: string | null | undefined,
@@ -60,7 +60,7 @@ export const resolveMergedMemoTitle = (
   const customTitle = sourceMemos
     .map((memo) => memo.title?.trim())
     .find((title): title is string => Boolean(title && title !== DEFAULT_MEMO_TITLE));
-  return customTitle ?? `合并笔记 ${date.toLocaleDateString("zh-CN")}`;
+  return customTitle ?? `合併筆記 ${date.toLocaleDateString("zh-CN")}`;
 };
 
 export const emptyDoc = (): TiptapDoc => ({
@@ -336,7 +336,7 @@ const stripEditorOnlyNodes = (doc: unknown): unknown => {
     return {
       type: "blockquote",
       content: [
-        { type: "paragraph", content: [{ type: "text", text: label ? `[${label}]` : "[主题化组件]" }] },
+        { type: "paragraph", content: [{ type: "text", text: label ? `[${label}]` : "[主題化組件]" }] },
         ...content.map(stripEditorOnlyNodes),
       ],
     };

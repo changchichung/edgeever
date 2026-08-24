@@ -99,8 +99,8 @@ test("keeps the caret and rebases edits made while autosave sync is in flight", 
 
   try {
     await page.goto("/");
-    await page.getByRole("button", { name: "全部笔记", exact: true }).click();
-    await page.getByPlaceholder("搜索笔记").fill(marker);
+    await page.getByRole("button", { name: "全部筆記", exact: true }).click();
+    await page.getByPlaceholder("搜索筆記").fill(marker);
     await page.locator(`[data-memo-id="${memoId}"]`).locator("button").first().click();
     await page.getByRole("button", { name: "清空搜索", exact: true }).click();
 

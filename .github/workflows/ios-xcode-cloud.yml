@@ -286,10 +286,10 @@ jobs:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.EDGEEVER_APPLE_API_KEY_ID }}
           APP_STORE_CONNECT_API_KEY_P8_BASE64: ${{ secrets.EDGEEVER_APPLE_API_KEY_BASE64 }}
           APP_STORE_RELEASE_NOTES_ZH: |-
-            新增精美的笔记分享图片导出，支持 PNG/JPEG、8 款海报主题、排版与品牌样式调节。
-            支持通过 @ 建议快速链接笔记，并可从编辑器直接打开引用。
-            新增插入当前日期或时间的编辑器斜杠命令。
-            提升同步占位记录协调时的编辑内容保留可靠性。
+            新增精美的筆記分享圖片導出，支持 PNG/JPEG、8 款海報主題、排版與品牌樣式調節。
+            支持通過 @ 建議快速鏈接筆記，並可從編輯器直接打開引用。
+            新增插入當前日期或時間的編輯器斜槓命令。
+            提升同步佔位記錄協調時的編輯內容保留可靠性。
           APP_STORE_RELEASE_NOTES_EN: |-
             Export polished shareable note images as PNG or JPEG with eight poster themes, typography controls, and brand styling.
             Link notes with @ suggestions and open references directly from the editor.

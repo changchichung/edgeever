@@ -227,22 +227,22 @@ const MobileEditorStartupOverlay = ({
     <View accessibilityLiveRegion="polite" style={styles.richEditorLoading}>
       {!timedOut ? <ActivityIndicator color="#16a06e" size="large" /> : null}
       <Text style={styles.richEditorLoadingTitle}>
-        {translate(timedOut ? "编辑器启动时间过长" : "正在启动编辑器")}
+        {translate(timedOut ? "編輯器啓動時間過長" : "正在啓動編輯器")}
       </Text>
       <Text style={styles.mutedText}>
         {translate(timedOut
-          ? "本地编辑器未能及时启动，可以重试或返回，当前草稿不会丢失。"
-          : "正在准备本地编辑器，笔记内容是安全的。")}
+          ? "本地編輯器未能及時啓動，可以重試或返回，當前草稿不會丟失。"
+          : "正在準備本地編輯器，筆記內容是安全的。")}
       </Text>
       {timedOut ? (
         <Pressable
-          accessibilityLabel={translate("重试")}
+          accessibilityLabel={translate("重試")}
           accessibilityRole="button"
           onPress={onRetry}
           style={styles.actionButton}
         >
           <RotateCcw color="#0f172a" size={16} />
-          <Text style={styles.actionButtonText}>{translate("重试")}</Text>
+          <Text style={styles.actionButtonText}>{translate("重試")}</Text>
         </Pressable>
       ) : null}
     </View>
@@ -262,12 +262,12 @@ const alertProtectedImageLoadFailure = (
     ? String(failure.status)
     : locale === "en-US"
       ? "network error"
-      : "网络错误";
+      : "網絡錯誤";
   Alert.alert(
-    locale === "en-US" ? "Image failed to load" : "图片加载失败",
+    locale === "en-US" ? "Image failed to load" : "圖片加載失敗",
     locale === "en-US"
       ? `Could not load a note image (${statusLabel}). Check the network and try again.`
-      : `笔记中的图片未能加载（${statusLabel}）。请检查网络后重试。`
+      : `筆記中的圖片未能加載（${statusLabel}）。請檢查網絡後重試。`
   );
 };
 
@@ -668,7 +668,7 @@ export const WorkspaceScreen = ({
   const allVisibleMemosSelected = canToggleVisibleSelection && visibleMemos.every((memo) => selectedMemoIds.has(memo.id));
   const nextSelectionPinValue = selectedMemos.some((memo) => !memo.isPinned);
   const defaultMemoNotebookId = notebooks.find(
-    (notebook) => notebook.id === "nb_inbox" || notebook.slug === "inbox" || notebook.name === "等待分类"
+    (notebook) => notebook.id === "nb_inbox" || notebook.slug === "inbox" || notebook.name === "等待分類"
   )?.id ?? "";
   const createMemoNotebookId =
     activeNotebookId !== ALL_NOTES_ID && notebooks.some((notebook) => notebook.id === activeNotebookId)
@@ -728,8 +728,8 @@ export const WorkspaceScreen = ({
       .then((draft) => {
         openIncomingClipDraft(draft);
         Alert.alert(
-          "正文剪藏失败",
-          `${message} 已保留文章链接，你可以稍后重新分享重试。`,
+          "正文剪藏失敗",
+          `${message} 已保留文章鏈接，你可以稍後重新分享重試。`,
         );
       })
       .finally(finishIncomingShare);
@@ -743,7 +743,7 @@ export const WorkspaceScreen = ({
     if (incomingShareError && sharedImages.some((image) => !image.uri.startsWith("file:"))) {
       if (processedShareUrlRef.current !== "invalid-binary-share") {
         processedShareUrlRef.current = "invalid-binary-share";
-        Alert.alert("无法读取分享图片", incomingShareError.message || "请重新分享后再试。");
+        Alert.alert("無法讀取分享圖片", incomingShareError.message || "請重新分享後再試。");
         onIncomingShareHandledRef.current?.();
       }
       return;
@@ -757,7 +757,7 @@ export const WorkspaceScreen = ({
       if (notebooks.length === 0) {
         if (notebooksQuery.isSuccess) {
           processedShareUrlRef.current = shareKey;
-          Alert.alert("无法保存图片", "请先在 EdgeEver 中创建一个笔记本。");
+          Alert.alert("無法保存圖片", "請先在 EdgeEver 中創建一個筆記本。");
           onIncomingShareHandledRef.current?.();
         }
         return;
@@ -771,7 +771,7 @@ export const WorkspaceScreen = ({
       setCreateSeed({
         contentMarkdown: "",
         tagsText: "",
-        title: sharedImages.length === 1 ? "分享的图片" : `分享的图片（${sharedImages.length} 张）`,
+        title: sharedImages.length === 1 ? "分享的圖片" : `分享的圖片（${sharedImages.length} 張）`,
       });
       setActiveView("notes");
       setMemoView("notebook");
@@ -785,8 +785,8 @@ export const WorkspaceScreen = ({
       if (incomingSharePayloads.length > 0 && processedShareUrlRef.current !== "invalid-share") {
         processedShareUrlRef.current = "invalid-share";
         Alert.alert(
-          "无法读取分享内容",
-          incomingShareError?.message || "分享内容里没有可识别的网页链接或图片。",
+          "無法讀取分享內容",
+          incomingShareError?.message || "分享內容裏沒有可識別的網頁鏈接或圖片。",
         );
         onIncomingShareHandledRef.current?.();
         return;
@@ -800,7 +800,7 @@ export const WorkspaceScreen = ({
     if (notebooks.length === 0) {
       if (notebooksQuery.isSuccess) {
         processedShareUrlRef.current = sourceUrl;
-        Alert.alert("无法保存剪藏", "请先在 EdgeEver 中创建一个笔记本。");
+        Alert.alert("無法保存剪藏", "請先在 EdgeEver 中創建一個筆記本。");
         onIncomingShareHandledRef.current?.();
       }
       return;
@@ -824,7 +824,7 @@ export const WorkspaceScreen = ({
       })
       .catch(() => {
         if (active) {
-          Alert.alert("剪藏失败", "无法读取分享的网页，请稍后重试。");
+          Alert.alert("剪藏失敗", "無法讀取分享的網頁，請稍後重試。");
         }
       })
       .finally(() => {
@@ -1106,7 +1106,7 @@ export const WorkspaceScreen = ({
       if (context?.reopenMemoId) {
         setSelectedMemoId(context.reopenMemoId);
       }
-      Alert.alert("删除失败", error instanceof Error ? error.message : "请检查网络后重试");
+      Alert.alert("刪除失敗", error instanceof Error ? error.message : "請檢查網絡後重試");
     },
   });
 
@@ -1141,7 +1141,7 @@ export const WorkspaceScreen = ({
       });
     },
     onError: () => {
-      Alert.alert("分享失败", "无法创建分享链接，请检查网络后重试。");
+      Alert.alert("分享失敗", "無法創建分享鏈接，請檢查網絡後重試。");
     },
   });
 
@@ -1201,7 +1201,7 @@ export const WorkspaceScreen = ({
       restoreMemoListCache(context?.cacheSnapshot);
       setSelectionMode(context?.previousSelectionMode ?? false);
       setSelectedMemoIds(context?.previousSelectedMemoIds ?? new Set());
-      Alert.alert("删除失败", error instanceof Error ? error.message : "请检查网络后重试");
+      Alert.alert("刪除失敗", error instanceof Error ? error.message : "請檢查網絡後重試");
     },
   });
 
@@ -1215,10 +1215,10 @@ export const WorkspaceScreen = ({
       deleteMemoMutation.mutate({ memo, permanent: false });
       return;
     }
-    Alert.alert("永久删除笔记", "这个操作不可恢复。", [
+    Alert.alert("永久刪除筆記", "這個操作不可恢復。", [
       { text: "取消", style: "cancel" },
       {
-        text: "永久删除",
+        text: "永久刪除",
         style: "destructive",
         onPress: () => deleteMemoMutation.mutate({ memo, permanent: true }),
       },
@@ -1226,7 +1226,7 @@ export const WorkspaceScreen = ({
   };
 
   const handleRenameResource = async (memo: MemoDetail, target: MobileResourceTarget, filename: string) => {
-    if (!client) throw new Error("当前无法连接实例，请稍后重试");
+    if (!client) throw new Error("當前無法連接實例，請稍後重試");
     const { resource } = await client.renameResource(target.resourceId, filename);
     const contentJson = renameMobileResourceInDoc(
       memo.contentJson,
@@ -1241,7 +1241,7 @@ export const WorkspaceScreen = ({
   };
 
   const handleDeleteResource = async (memo: MemoDetail, target: MobileResourceTarget) => {
-    if (!client) throw new Error("当前无法连接实例，请稍后重试");
+    if (!client) throw new Error("當前無法連接實例，請稍後重試");
     await client.deleteResource(target.resourceId);
     const contentJson = deleteMobileResourceFromDoc(memo.contentJson, target);
     await localUpdateMemoMutation.mutateAsync({
@@ -1254,13 +1254,13 @@ export const WorkspaceScreen = ({
     try {
       const text = await getMobileConflictDraftClipboardText(syncQueueScope, memo.id);
       if (!text?.trim()) {
-        Alert.alert("复制失败", "没有可复制的本地草稿。");
+        Alert.alert("複製失敗", "沒有可複製的本地草稿。");
         return;
       }
       await Clipboard.setStringAsync(text);
-      Alert.alert("已复制", "本地草稿已复制到剪贴板。");
+      Alert.alert("已複製", "本地草稿已複製到剪貼板。");
     } catch (error) {
-      Alert.alert("复制失败", error instanceof Error ? error.message : "请重试");
+      Alert.alert("複製失敗", error instanceof Error ? error.message : "請重試");
     }
   }, [syncQueueScope]);
 
@@ -1285,25 +1285,25 @@ export const WorkspaceScreen = ({
         queryClient.invalidateQueries({ queryKey: ["mobile", "memo", "trash", memo.id] }),
       ]);
     } catch (error) {
-      Alert.alert("采用云端版本失败", error instanceof Error ? error.message : "请检查网络后重试");
+      Alert.alert("採用雲端版本失敗", error instanceof Error ? error.message : "請檢查網絡後重試");
     }
   }, [client, dataScope, queryClient, refreshSyncQueueItems, syncQueueScope]);
 
   const handleMemoSyncConflict = useCallback((memo: MemoDetail) => {
     Alert.alert(
-      "同步冲突",
-      "云端笔记已在其他标签页、设备，或离线期间被更新，本地草稿无法直接覆盖。可先复制本地草稿，再采用云端版本后继续编辑。",
+      "同步衝突",
+      "雲端筆記已在其他標籤頁、設備，或離線期間被更新，本地草稿無法直接覆蓋。可先複製本地草稿，再採用雲端版本後繼續編輯。",
       [
         { text: "取消", style: "cancel" },
         {
-          text: "复制本地草稿",
+          text: "複製本地草稿",
           onPress: () => {
             void handleCopyConflictDraft(memo);
           },
         },
-        { text: "查看历史", onPress: () => setRevisionMemo(memo) },
+        { text: "查看歷史", onPress: () => setRevisionMemo(memo) },
         {
-          text: "采用云端并重新加载",
+          text: "採用雲端並重新加載",
           style: "destructive",
           onPress: () => {
             void handleAdoptCloudVersion(memo);
@@ -1319,10 +1319,10 @@ export const WorkspaceScreen = ({
       deleteMemosMutation.mutate({ memoIds: selectedMemoIdList, permanent: false });
       return;
     }
-    Alert.alert(`永久删除 ${selectedMemoIdList.length} 条笔记`, "这个操作不可恢复。", [
+    Alert.alert(`永久刪除 ${selectedMemoIdList.length} 條筆記`, "這個操作不可恢復。", [
       { text: "取消", style: "cancel" },
       {
-        text: "永久删除",
+        text: "永久刪除",
         style: "destructive",
         onPress: () => deleteMemosMutation.mutate({ memoIds: selectedMemoIdList, permanent: true }),
       },
@@ -1448,7 +1448,7 @@ export const WorkspaceScreen = ({
         isSaving={updateMemoMutation.isPending || localUpdateMemoMutation.isPending}
         isSharing={shareMemoMutation.isPending}
         memo={selectedMemo}
-        notebookName={notebooks.find((notebook) => notebook.id === selectedMemo?.notebookId)?.name ?? "未分类"}
+        notebookName={notebooks.find((notebook) => notebook.id === selectedMemo?.notebookId)?.name ?? "未分類"}
         onClose={closeDetail}
         onDelete={handleDeleteMemo}
         onDeleteResource={handleDeleteResource}
@@ -1521,7 +1521,7 @@ export const WorkspaceScreen = ({
           <View style={styles.shareImportCard}>
             <ActivityIndicator color="#059669" size="large" />
             <Text style={styles.shareImportTitle}>正在剪藏文章</Text>
-            <Text style={styles.shareImportDescription}>正在提取标题、正文和图片链接…</Text>
+            <Text style={styles.shareImportDescription}>正在提取標題、正文和圖片鏈接…</Text>
           </View>
           {incomingClipCaptureUrl ? (
             <MobileWebClipCapture
@@ -1549,8 +1549,8 @@ export const WorkspaceScreen = ({
         canEnterSelection={visibleMemos.length > 0}
         memoListDensity={memoListDensity}
         memoSortMode={memoSortMode}
-        listDescription={`${searchActive ? searchQuery.data?.pages[0]?.totalCount ?? searchResults.length : memosQuery.data?.pages[0]?.totalCount ?? memos.length} 条笔记`}
-        listTitle={memoView === "trash" ? "回收站" : activeNotebook?.name ?? "全部笔记"}
+        listDescription={`${searchActive ? searchQuery.data?.pages[0]?.totalCount ?? searchResults.length : memosQuery.data?.pages[0]?.totalCount ?? memos.length} 條筆記`}
+        listTitle={memoView === "trash" ? "回收站" : activeNotebook?.name ?? "全部筆記"}
         onClose={() => setNotesActionsOpen(false)}
         onEnterSelection={() => {
           setNotesActionsOpen(false);
@@ -1576,9 +1576,9 @@ export const WorkspaceScreen = ({
           setSelectionMoreOpen(false);
           toggleVisibleSelection();
         }}
-        pinLabel={nextSelectionPinValue ? "置顶" : "取消置顶"}
+        pinLabel={nextSelectionPinValue ? "置頂" : "取消置頂"}
         selectedCount={selectedMemoIds.size}
-        selectionToggleLabel={allVisibleMemosSelected ? "全不选当前列表" : "全选当前列表"}
+        selectionToggleLabel={allVisibleMemosSelected ? "全不選當前列表" : "全選當前列表"}
         visible
       /> : null}
 
@@ -1602,11 +1602,11 @@ export const WorkspaceScreen = ({
         <BottomNavItem
           active={activeView === "notes"}
           icon={<Home color={activeView === "notes" ? "#0f172a" : "#64748b"} size={20} />}
-          label="首页"
+          label="首頁"
           onPress={showAllNotes}
         />
         <Pressable
-          accessibilityLabel="新建笔记"
+          accessibilityLabel="新建筆記"
           accessibilityRole="button"
           disabled={!canCreateMemo}
           onLongPress={() => {
@@ -1701,8 +1701,8 @@ const NotebookPickerModal = ({
     ? filterNotebookOptionsById(notebookOptions, getMobileNotebookSearchVisibleIds(notebooks, searchText))
     : filterCollapsedNotebookOptions(notebookOptions, collapsedNotebookIds);
   const activeNotebookName = activeNotebookId === ALL_NOTES_ID
-    ? "全部笔记"
-    : notebooks.find((notebook) => notebook.id === activeNotebookId)?.name ?? "全部笔记";
+    ? "全部筆記"
+    : notebooks.find((notebook) => notebook.id === activeNotebookId)?.name ?? "全部筆記";
   const allNotebookBranchesExpanded = childNotebookIds.size > 0 && Array.from(childNotebookIds).every((notebookId) => !collapsedNotebookIds.has(notebookId));
 
   useEffect(() => {
@@ -1737,10 +1737,10 @@ const NotebookPickerModal = ({
           <View style={styles.actionSheetHandle} />
           <View style={styles.notebookPickerHeader}>
             <View style={styles.notebookPickerHeaderText}>
-              <Text style={styles.actionSheetTitle}>切换笔记本</Text>
-              <Text style={styles.panelLabel}>{translate(`当前：${activeNotebookName}`)}</Text>
+              <Text style={styles.actionSheetTitle}>切換筆記本</Text>
+              <Text style={styles.panelLabel}>{translate(`當前：${activeNotebookName}`)}</Text>
             </View>
-            <Pressable accessibilityLabel="关闭" accessibilityRole="button" onPress={onClose} style={styles.notebookPickerCloseButton}>
+            <Pressable accessibilityLabel="關閉" accessibilityRole="button" onPress={onClose} style={styles.notebookPickerCloseButton}>
               <X color="#0f172a" size={20} />
             </Pressable>
           </View>
@@ -1754,11 +1754,11 @@ const NotebookPickerModal = ({
           <View style={styles.notebookPickerSearchBox}>
             <Search color="#64748b" size={18} />
             <TextInput
-              accessibilityLabel="搜索笔记本"
+              accessibilityLabel="搜索筆記本"
               autoCapitalize="none"
               autoCorrect={false}
               onChangeText={setSearchText}
-              placeholder="搜索笔记本"
+              placeholder="搜索筆記本"
               placeholderTextColor="#94a3b8"
               style={styles.notebookPickerSearchInput}
               value={searchText}
@@ -1771,7 +1771,7 @@ const NotebookPickerModal = ({
           </View>
 
           <Pressable
-            accessibilityLabel={activeNotebookId === ALL_NOTES_ID ? "当前：全部笔记" : "切换到全部笔记"}
+            accessibilityLabel={activeNotebookId === ALL_NOTES_ID ? "當前：全部筆記" : "切換到全部筆記"}
             accessibilityRole="button"
             accessibilityState={{ selected: activeNotebookId === ALL_NOTES_ID }}
             onLayout={(event) => selectedScroll.onRowLayout(ALL_NOTES_ID, event)}
@@ -1780,22 +1780,22 @@ const NotebookPickerModal = ({
           >
             <View style={styles.moveNotebookText}>
               <Text numberOfLines={1} style={styles.panelValue}>
-                全部笔记
+                全部筆記
               </Text>
             </View>
             {activeNotebookId === ALL_NOTES_ID ? <Check color="#0f172a" size={18} /> : null}
           </Pressable>
 
           <View style={styles.notebookPickerSectionHeader}>
-            <Text style={styles.label}>{searchQuery ? "匹配的笔记本" : "笔记本"}</Text>
+            <Text style={styles.label}>{searchQuery ? "匹配的筆記本" : "筆記本"}</Text>
             {!searchQuery && childNotebookIds.size > 0 ? (
               <Pressable
-                accessibilityLabel={allNotebookBranchesExpanded ? "收起全部笔记本" : "展开全部笔记本"}
+                accessibilityLabel={allNotebookBranchesExpanded ? "收起全部筆記本" : "展開全部筆記本"}
                 accessibilityRole="button"
                 onPress={toggleAllNotebookBranches}
                 style={styles.notebookPickerToggleAll}
               >
-                <Text style={styles.notebookPickerToggleAllText}>{allNotebookBranchesExpanded ? "收起全部" : "展开全部"}</Text>
+                <Text style={styles.notebookPickerToggleAllText}>{allNotebookBranchesExpanded ? "收起全部" : "展開全部"}</Text>
               </Pressable>
             ) : null}
           </View>
@@ -1807,7 +1807,7 @@ const NotebookPickerModal = ({
             >
               {childNotebookIds.has(notebook.id) && !searchQuery ? (
                 <Pressable
-                  accessibilityLabel={`${collapsedNotebookIds.has(notebook.id) ? "展开" : "收起"} ${notebook.name}`}
+                  accessibilityLabel={`${collapsedNotebookIds.has(notebook.id) ? "展開" : "收起"} ${notebook.name}`}
                   accessibilityRole="button"
                   accessibilityState={{ expanded: !collapsedNotebookIds.has(notebook.id) }}
                   onPress={() => toggleNotebookCollapsed(notebook.id)}
@@ -1819,7 +1819,7 @@ const NotebookPickerModal = ({
                 <View style={styles.notebookTreeTogglePlaceholder} />
               )}
               <Pressable
-                accessibilityLabel={`${activeNotebookId === notebook.id ? "当前" : "切换到"} ${notebook.name}`}
+                accessibilityLabel={`${activeNotebookId === notebook.id ? "當前" : "切換到"} ${notebook.name}`}
                 accessibilityRole="button"
                 accessibilityState={{ selected: activeNotebookId === notebook.id }}
                 onPress={() => onSelect(notebook.id)}
@@ -1835,7 +1835,7 @@ const NotebookPickerModal = ({
           {visibleNotebookOptions.length === 0 ? (
             <View style={styles.emptyInlinePanel}>
               <Folder color="#94a3b8" size={28} />
-              <Text style={styles.mutedText}>没有匹配的笔记本</Text>
+              <Text style={styles.mutedText}>沒有匹配的筆記本</Text>
             </View>
           ) : null}
           </ScrollView>
@@ -1892,7 +1892,7 @@ const SmartTagButton = ({
         .map((suggestion) => suggestion.name);
       if (additions.length === 0) {
         setStatus("idle");
-        Alert.alert(translate("智能标签"), translate("没有找到适合这篇笔记的新标签。"));
+        Alert.alert(translate("智能標籤"), translate("沒有找到適合這篇筆記的新標籤。"));
         return;
       }
       onChange(Array.from(new Set([...selectedTags, ...additions])).slice(0, 24));
@@ -1905,12 +1905,12 @@ const SmartTagButton = ({
       if (controller.signal.aborted) return;
       setStatus("idle");
       Alert.alert(
-        translate("智能标签生成失败"),
+        translate("智能標籤生成失敗"),
         error instanceof ApiRequestError && error.code === "ai_not_configured"
-          ? translate("请先在“AI 集成”中配置默认模型。")
+          ? translate("請先在“AI 集成”中配置默認模型。")
           : error instanceof Error
             ? error.message
-            : translate("AI 标签建议生成失败。")
+            : translate("AI 標籤建議生成失敗。")
       );
     } finally {
       if (controllerRef.current === controller) controllerRef.current = null;
@@ -1918,10 +1918,10 @@ const SmartTagButton = ({
   };
 
   const accessibilityLabel = status === "loading"
-    ? translate("正在生成智能标签")
+    ? translate("正在生成智能標籤")
     : status === "success"
-      ? translate("智能标签已添加")
-      : translate("智能标签");
+      ? translate("智能標籤已添加")
+      : translate("智能標籤");
 
   return (
     <Pressable
@@ -1991,19 +1991,19 @@ const TagPickerModal = ({
           <View style={styles.actionSheetHandle} />
           <View style={styles.notebookPickerHeader}>
             <View style={styles.notebookPickerHeaderText}>
-              <Text style={styles.actionSheetTitle}>{translate("选择标签")}</Text>
-              <Text style={styles.panelLabel}>{translate("点选已有标签，或输入名称创建新标签")}</Text>
+              <Text style={styles.actionSheetTitle}>{translate("選擇標籤")}</Text>
+              <Text style={styles.panelLabel}>{translate("點選已有標籤，或輸入名稱創建新標籤")}</Text>
             </View>
-            <Pressable accessibilityLabel="关闭" accessibilityRole="button" onPress={onClose} style={styles.notebookPickerCloseButton}>
+            <Pressable accessibilityLabel="關閉" accessibilityRole="button" onPress={onClose} style={styles.notebookPickerCloseButton}>
               <X color="#0f172a" size={20} />
             </Pressable>
           </View>
 
           <ScrollView contentContainerStyle={styles.notebookPickerContent} keyboardShouldPersistTaps="handled" style={styles.notebookPickerScroll}>
             {selectedTags.length > 0 ? (
-              <View accessibilityLabel="已选标签" style={styles.tagPickerSelectedList}>
+              <View accessibilityLabel="已選標籤" style={styles.tagPickerSelectedList}>
                 {selectedTags.map((tag) => (
-                  <Pressable key={tag} accessibilityLabel={`移除标签 ${tag}`} accessibilityRole="button" onPress={() => toggleTag(tag)} style={styles.tagPickerChip}>
+                  <Pressable key={tag} accessibilityLabel={`移除標籤 ${tag}`} accessibilityRole="button" onPress={() => toggleTag(tag)} style={styles.tagPickerChip}>
                     <Text style={styles.tagPickerChipText}>#{tag}</Text>
                     <X color="#047857" size={14} />
                   </Pressable>
@@ -2014,19 +2014,19 @@ const TagPickerModal = ({
             <View style={styles.notebookPickerSearchBox}>
               <Search color="#64748b" size={18} />
               <TextInput
-                accessibilityLabel="搜索或输入新标签"
+                accessibilityLabel="搜索或輸入新標籤"
                 autoCapitalize="none"
                 autoCorrect={false}
                 onChangeText={setSearchText}
                 onSubmitEditing={createTag}
-                placeholder="搜索或输入新标签"
+                placeholder="搜索或輸入新標籤"
                 placeholderTextColor="#94a3b8"
                 returnKeyType="done"
                 style={styles.notebookPickerSearchInput}
                 value={searchText}
               />
               {normalizedSearch && !exactMatch && selectedTags.length < 24 ? (
-                <Pressable accessibilityLabel={`新建标签 ${normalizedSearch}`} accessibilityRole="button" onPress={createTag}>
+                <Pressable accessibilityLabel={`新建標籤 ${normalizedSearch}`} accessibilityRole="button" onPress={createTag}>
                   <Text style={styles.tagPickerCreateText}>{translate("新建")}</Text>
                 </Pressable>
               ) : null}
@@ -2037,14 +2037,14 @@ const TagPickerModal = ({
             ) : visibleTags.length === 0 ? (
               <View style={styles.emptyInlinePanel}>
                 <Tag color="#94a3b8" size={28} />
-                <Text style={styles.mutedText}>{translate("没有匹配的现有标签，可直接新建")}</Text>
+                <Text style={styles.mutedText}>{translate("沒有匹配的現有標籤，可直接新建")}</Text>
               </View>
             ) : visibleTags.map((tag) => {
               const selected = selectedTags.includes(tag.name);
               return (
                 <Pressable
                   key={tag.name}
-                  accessibilityLabel={`标签 ${tag.name}`}
+                  accessibilityLabel={`標籤 ${tag.name}`}
                   accessibilityRole="button"
                   accessibilityState={{ selected }}
                   onPress={() => toggleTag(tag.name)}
@@ -2054,7 +2054,7 @@ const TagPickerModal = ({
                     {selected ? <Check color="#ffffff" size={14} /> : null}
                   </View>
                   <Text numberOfLines={1} style={styles.tagPickerRowText}>#{tag.name}</Text>
-                  <Text style={styles.panelLabel}>{translate(`${tag.memoCount} 条笔记`)}</Text>
+                  <Text style={styles.panelLabel}>{translate(`${tag.memoCount} 條筆記`)}</Text>
                 </Pressable>
               );
             })}
@@ -2134,7 +2134,7 @@ const CreateMemoModal = ({
   const editorStartup = useMobileEditorStartupGuard({ active: draftLoaded && Boolean(baseUrl), ready: editorReady });
   const { pickUploadAsset, uploadSourcePicker } = useMobileEditorUploadAsset();
   const targetNotebookId = notebookId || fallbackNotebookId;
-  const selectedNotebookName = notebooks.find((notebook) => notebook.id === targetNotebookId)?.name ?? "选择笔记本";
+  const selectedNotebookName = notebooks.find((notebook) => notebook.id === targetNotebookId)?.name ?? "選擇筆記本";
   const titleRef = useRef(title);
   const tagsTextRef = useRef(tagsText);
   const targetNotebookIdRef = useRef(targetNotebookId);
@@ -2287,9 +2287,9 @@ const CreateMemoModal = ({
       tagsText: tagsTextRef.current,
     };
     if (createMemoSeedHasContent(current)) {
-      Alert.alert(translate("应用模板？"), translate("当前内容将被模板内容替换。"), [
+      Alert.alert(translate("應用模板？"), translate("當前內容將被模板內容替換。"), [
         { text: translate("取消"), style: "cancel" },
-        { text: translate("替换"), style: "destructive", onPress: () => applyTemplateSeed(seed) },
+        { text: translate("替換"), style: "destructive", onPress: () => applyTemplateSeed(seed) },
       ]);
       return;
     }
@@ -2314,7 +2314,7 @@ const CreateMemoModal = ({
   const createMutation = useMutation({
     mutationFn: async () => {
       if (!targetNotebookId) {
-        throw new Error("请先创建一个笔记本");
+        throw new Error("請先創建一個筆記本");
       }
       const materializedMemo = materializedMemoRef.current;
       if (materializedMemo) {
@@ -2420,7 +2420,7 @@ const CreateMemoModal = ({
       return materializedMemoRef.current;
     }
     if (!client || !targetNotebookIdRef.current) {
-      throw new Error("当前无法连接实例，请稍后重试");
+      throw new Error("當前無法連接實例，請稍後重試");
     }
     setImageOperation("creating");
     const response = await client.createMemo({
@@ -2459,10 +2459,10 @@ const CreateMemoModal = ({
       const form = new FormData();
       form.append("file", new ExpoFile(uploadAsset.uri));
       const { resource } = await client!.uploadMemoResource(memo.id, form);
-      applyMobileEditorUpload(editorRef, resource, uploadId, uploadAsset.name || (resource.kind === "image" ? "图片" : "附件"));
+      applyMobileEditorUpload(editorRef, resource, uploadId, uploadAsset.name || (resource.kind === "image" ? "圖片" : "附件"));
     } catch (error) {
       cancelMobileEditorUpload(editorRef, uploadId);
-      Alert.alert("附件上传失败", error instanceof Error ? error.message : "请检查网络连接后重试");
+      Alert.alert("附件上傳失敗", error instanceof Error ? error.message : "請檢查網絡連接後重試");
     } finally {
       setImageOperation("idle");
     }
@@ -2598,7 +2598,7 @@ const CreateMemoModal = ({
         </Pressable>
         <View style={styles.createMemoHeaderActions}>
           <Text style={[styles.createMemoStatus, (submitStarted || createMutation.isPending) && styles.createMemoStatusActive]}>
-            {imageOperation === "creating" ? "正在创建" : imageOperation === "uploading" ? "正在上传" : submitStarted || createMutation.isPending || dirty ? "保存中" : editorReady ? "已保存" : "准备中"}
+            {imageOperation === "creating" ? "正在創建" : imageOperation === "uploading" ? "正在上傳" : submitStarted || createMutation.isPending || dirty ? "保存中" : editorReady ? "已保存" : "準備中"}
           </Text>
           <Pressable
             accessibilityLabel={translate("模板")}
@@ -2610,7 +2610,7 @@ const CreateMemoModal = ({
             <Text style={[styles.createMemoTemplateButtonText, !canUseTemplate && styles.createMemoDoneTextDisabled]}>{translate("模板")}</Text>
           </Pressable>
           <Pressable
-            accessibilityLabel="完成新建笔记"
+            accessibilityLabel="完成新建筆記"
             disabled={!canSubmitCreateMemo}
             onPress={() => void submitCreateMemo()}
             style={[styles.createMemoDoneButton, !canSubmitCreateMemo && styles.createMemoDoneButtonDisabled]}
@@ -2623,7 +2623,7 @@ const CreateMemoModal = ({
       <View style={styles.createMemoMain}>
         <TextInput
           autoCorrect
-          accessibilityLabel="笔记标题"
+          accessibilityLabel="筆記標題"
           onChangeText={(value) => {
             setTitle(value);
             markDirty();
@@ -2635,13 +2635,13 @@ const CreateMemoModal = ({
         />
 
         <View style={styles.createMemoMetaRow}>
-          <Pressable accessibilityLabel="所在笔记本" accessibilityRole="button" onPress={() => setNotebookPickerOpen(true)} style={styles.createMemoNotebookButton}>
+          <Pressable accessibilityLabel="所在筆記本" accessibilityRole="button" onPress={() => setNotebookPickerOpen(true)} style={styles.createMemoNotebookButton}>
             <Text numberOfLines={1} style={styles.createMemoNotebookText}>{selectedNotebookName}</Text>
             <ChevronDown color="#64748b" size={14} />
           </Pressable>
-          <Pressable accessibilityLabel="选择笔记标签" accessibilityRole="button" onPress={() => setTagPickerOpen(true)} style={styles.createMemoTagsButton}>
+          <Pressable accessibilityLabel="選擇筆記標籤" accessibilityRole="button" onPress={() => setTagPickerOpen(true)} style={styles.createMemoTagsButton}>
             <Text numberOfLines={1} style={[styles.createMemoTagsInput, !tagsText && styles.createMemoTagsPlaceholder]}>
-              {tagsText || "添加标签"}
+              {tagsText || "添加標籤"}
             </Text>
             <ChevronDown color="#94a3b8" size={14} />
           </Pressable>
@@ -2663,7 +2663,7 @@ const CreateMemoModal = ({
         </View>
 
         {createMutation.error ? (
-          <Text style={styles.errorText}>{createMutation.error instanceof Error ? createMutation.error.message : "创建失败"}</Text>
+          <Text style={styles.errorText}>{createMutation.error instanceof Error ? createMutation.error.message : "創建失敗"}</Text>
         ) : null}
       </View>
       <NotebookPickerModal
@@ -2777,10 +2777,10 @@ const RevisionHistoryModal = ({
   });
 
   const requestRestoreRevision = (revision: MemoRevision) => {
-    Alert.alert("恢复到这个历史版本", "当前内容会被这个历史版本替换，恢复后仍会产生新的历史记录。", [
+    Alert.alert("恢復到這個歷史版本", "當前內容會被這個歷史版本替換，恢復後仍會產生新的歷史記錄。", [
       { text: "取消", style: "cancel" },
       {
-        text: "恢复",
+        text: "恢復",
         onPress: () => restoreRevisionMutation.mutate(revision),
       },
     ]);
@@ -2793,11 +2793,11 @@ const RevisionHistoryModal = ({
           <View style={styles.managementHeaderText}>
             <View style={styles.managementTitleRow}>
               <History color="#059669" size={19} />
-              <Text style={styles.managementTitle}>版本历史</Text>
+              <Text style={styles.managementTitle}>版本歷史</Text>
             </View>
             <Text numberOfLines={1} style={styles.managementSubtitle}>{memo?.title?.trim() || DEFAULT_MEMO_TITLE}</Text>
           </View>
-          <IconButton accessibilityLabel="关闭" onPress={onClose}>
+          <IconButton accessibilityLabel="關閉" onPress={onClose}>
             <X color="#0f172a" size={20} />
           </IconButton>
         </View>
@@ -2805,34 +2805,34 @@ const RevisionHistoryModal = ({
         <ScrollView contentContainerStyle={styles.revisionHistoryContent}>
           <View style={styles.revisionSummaryRow}>
             <View style={styles.revisionSummaryText}>
-              <Text style={styles.settingsRowTitle}>{selectedRevision ? `版本 ${selectedRevision.revision}` : "未选择历史版本"}</Text>
-              <Text style={styles.settingsRowDescription}>选择历史记录后可预览并恢复。</Text>
+              <Text style={styles.settingsRowTitle}>{selectedRevision ? `版本 ${selectedRevision.revision}` : "未選擇歷史版本"}</Text>
+              <Text style={styles.settingsRowDescription}>選擇歷史記錄後可預覽並恢復。</Text>
             </View>
             {selectedRevision ? (
-              <ActionButton disabled={restoreRevisionMutation.isPending || Boolean(memo?.isDeleted)} label={restoreRevisionMutation.isPending ? "恢复中" : "恢复该版本"} onPress={() => requestRestoreRevision(selectedRevision)}>
+              <ActionButton disabled={restoreRevisionMutation.isPending || Boolean(memo?.isDeleted)} label={restoreRevisionMutation.isPending ? "恢復中" : "恢復該版本"} onPress={() => requestRestoreRevision(selectedRevision)}>
                 <RotateCcw color="#0f172a" size={16} />
               </ActionButton>
             ) : null}
           </View>
 
-          <Text style={styles.revisionTimelineLabel}>历史记录</Text>
+          <Text style={styles.revisionTimelineLabel}>歷史記錄</Text>
           {revisionsQuery.isLoading ? (
             <View style={styles.revisionTimelineState}>
-              <Text style={styles.mutedText}>加载中</Text>
+              <Text style={styles.mutedText}>加載中</Text>
             </View>
           ) : revisionsQuery.isError ? (
             <View style={styles.revisionTimelineState}>
-              <Text style={styles.errorText}>加载失败</Text>
+              <Text style={styles.errorText}>加載失敗</Text>
               <Text style={styles.revisionTimelineError}>
-                {revisionsQuery.error instanceof Error ? revisionsQuery.error.message : "请稍后重试"}
+                {revisionsQuery.error instanceof Error ? revisionsQuery.error.message : "請稍後重試"}
               </Text>
-              <ActionButton label="重试" onPress={() => void revisionsQuery.refetch()}>
+              <ActionButton label="重試" onPress={() => void revisionsQuery.refetch()}>
                 <RotateCcw color="#0f172a" size={16} />
               </ActionButton>
             </View>
           ) : revisions.length === 0 ? (
             <View style={styles.revisionTimelineState}>
-              <Text style={styles.mutedText}>暂无历史版本</Text>
+              <Text style={styles.mutedText}>暫無歷史版本</Text>
             </View>
           ) : (
             <View style={styles.revisionTimeline}>
@@ -2853,11 +2853,11 @@ const RevisionHistoryModal = ({
 
           {selectedRevision ? (
             <View style={styles.revisionPreviewCard}>
-              <Text selectable style={styles.revisionPreviewText}>{selectedRevision.contentMarkdown || "空笔记"}</Text>
+              <Text selectable style={styles.revisionPreviewText}>{selectedRevision.contentMarkdown || "空筆記"}</Text>
             </View>
           ) : null}
           {restoreRevisionMutation.error ? (
-            <Text style={styles.errorText}>{restoreRevisionMutation.error instanceof Error ? restoreRevisionMutation.error.message : "恢复失败"}</Text>
+            <Text style={styles.errorText}>{restoreRevisionMutation.error instanceof Error ? restoreRevisionMutation.error.message : "恢復失敗"}</Text>
           ) : null}
         </ScrollView>
       </SafeAreaView>
@@ -2922,8 +2922,8 @@ const RichEditorModal = ({
   const [resourceTarget, setResourceTarget] = useState<MobileResourceTarget | null>(null);
   const editorStartup = useMobileEditorStartupGuard({ active: Boolean(memo && baseUrl), ready });
   const { pickUploadAsset, uploadSourcePicker } = useMobileEditorUploadAsset();
-  const notebookLabel = notebooks.find((notebook) => notebook.id === notebookId)?.name ?? "未分类";
-  const saveLabel = error ? "保存失败" : saving ? "保存中" : uploading ? "上传中" : dirty ? (draftRestored ? "本地草稿" : "未保存") : ready ? "已保存" : "加载中";
+  const notebookLabel = notebooks.find((notebook) => notebook.id === notebookId)?.name ?? "未分類";
+  const saveLabel = error ? "保存失敗" : saving ? "保存中" : uploading ? "上傳中" : dirty ? (draftRestored ? "本地草稿" : "未保存") : ready ? "已保存" : "加載中";
   const titleRef = useRef(title);
   const tagsTextRef = useRef(tagsText);
   const notebookIdRef = useRef(notebookId);
@@ -3018,7 +3018,7 @@ const RichEditorModal = ({
       setDraftRestored(false);
       return savedMemo;
     } catch (saveError) {
-      setError(saveError instanceof Error ? saveError.message : "保存失败");
+      setError(saveError instanceof Error ? saveError.message : "保存失敗");
       return null;
     } finally {
       savingRef.current = false;
@@ -3062,7 +3062,7 @@ const RichEditorModal = ({
       return;
     }
     if (memo.id.startsWith("local:")) {
-      Alert.alert("正在同步新笔记", "首次同步完成后即可上传本地图片；图片链接现在就可以直接粘贴到正文。");
+      Alert.alert("正在同步新筆記", "首次同步完成後即可上傳本地圖片；圖片鏈接現在就可以直接粘貼到正文。");
       return;
     }
     const asset = await pickUploadAsset();
@@ -3084,10 +3084,10 @@ const RichEditorModal = ({
       const form = new FormData();
       form.append("file", new ExpoFile(uploadAsset.uri));
       const { resource } = await client.uploadMemoResource(memo.id, form);
-      applyMobileEditorUpload(editorRef, resource, uploadId, uploadAsset.name || (resource.kind === "image" ? "图片" : "附件"));
+      applyMobileEditorUpload(editorRef, resource, uploadId, uploadAsset.name || (resource.kind === "image" ? "圖片" : "附件"));
     } catch (uploadError) {
       cancelMobileEditorUpload(editorRef, uploadId);
-      setError(uploadError instanceof Error ? uploadError.message : "附件上传失败");
+      setError(uploadError instanceof Error ? uploadError.message : "附件上傳失敗");
     } finally {
       uploadingRef.current = false;
       setUploading(false);
@@ -3204,7 +3204,7 @@ const RichEditorModal = ({
           <View style={styles.createMemoHeaderActions}>
             <Text numberOfLines={1} style={[styles.createMemoStatus, styles.richEditorHeaderStatus, (saving || uploading || dirty) && styles.createMemoStatusActive, error && styles.richEditorStatusError]}>{saveLabel}</Text>
             <Pressable
-              accessibilityLabel="完成编辑"
+              accessibilityLabel="完成編輯"
               accessibilityRole="button"
               disabled={saving || uploading || !ready}
               onPress={() => void requestClose()}
@@ -3229,13 +3229,13 @@ const RichEditorModal = ({
               value={title}
             />
             <View style={[styles.createMemoMetaRow, styles.richStandaloneMetaRow]}>
-              <Pressable accessibilityLabel="所在笔记本" accessibilityRole="button" onPress={() => setNotebookPickerOpen(true)} style={styles.createMemoNotebookButton}>
+              <Pressable accessibilityLabel="所在筆記本" accessibilityRole="button" onPress={() => setNotebookPickerOpen(true)} style={styles.createMemoNotebookButton}>
                 <Text numberOfLines={1} style={styles.createMemoNotebookText}>{notebookLabel}</Text>
                 <ChevronDown color="#64748b" size={14} />
               </Pressable>
-              <Pressable accessibilityLabel="选择笔记标签" accessibilityRole="button" onPress={() => setTagPickerOpen(true)} style={[styles.createMemoTagsButton, styles.richStandaloneTagsInput]}>
+              <Pressable accessibilityLabel="選擇筆記標籤" accessibilityRole="button" onPress={() => setTagPickerOpen(true)} style={[styles.createMemoTagsButton, styles.richStandaloneTagsInput]}>
                 <Text numberOfLines={1} style={[styles.createMemoTagsInput, !tagsText && styles.createMemoTagsPlaceholder]}>
-                  {tagsText || "添加标签"}
+                  {tagsText || "添加標籤"}
                 </Text>
                 <ChevronDown color="#94a3b8" size={14} />
               </Pressable>
@@ -3252,17 +3252,17 @@ const RichEditorModal = ({
                 title={title}
               />
             </View>
-            {draftRestored ? <Text style={styles.richEditorDraftNotice}>已恢复上次未完成的本地草稿</Text> : null}
+            {draftRestored ? <Text style={styles.richEditorDraftNotice}>已恢復上次未完成的本地草稿</Text> : null}
             <View style={styles.richEditorFrame}>
               {editorElement}
               {!ready ? <MobileEditorStartupOverlay onRetry={retryEditorStartup} timedOut={editorStartup.timedOut} /> : null}
             </View>
             {error ? <Text style={styles.richEditorInlineError}>{error}</Text> : null}
-            {startupMs !== null && __DEV__ ? <Text style={styles.richEditorPerf}>本地编辑器启动：{startupMs}ms</Text> : null}
+            {startupMs !== null && __DEV__ ? <Text style={styles.richEditorPerf}>本地編輯器啓動：{startupMs}ms</Text> : null}
           </View>
         ) : (
           <View style={styles.centerState}>
-            <Text style={styles.errorText}>缺少笔记数据，无法打开富文本编辑器</Text>
+            <Text style={styles.errorText}>缺少筆記數據，無法打開富文本編輯器</Text>
           </View>
         )}
         <NotebookPickerModal
@@ -3339,10 +3339,10 @@ const MoveSelectionModal = ({
           <View style={styles.actionSheetHandle} />
           <View style={styles.listActionSheetHeader}>
             <View style={styles.listActionSheetHeaderText}>
-              <Text style={styles.actionSheetTitle}>移动到笔记本</Text>
-              <Text style={styles.actionSheetSubtitle}>{selectedCount > 0 ? `已选择 ${selectedCount} 条` : "选择笔记"}</Text>
+              <Text style={styles.actionSheetTitle}>移動到筆記本</Text>
+              <Text style={styles.actionSheetSubtitle}>{selectedCount > 0 ? `已選擇 ${selectedCount} 條` : "選擇筆記"}</Text>
             </View>
-            <Pressable accessibilityLabel="关闭" accessibilityRole="button" onPress={onClose} style={styles.sheetCloseButton}>
+            <Pressable accessibilityLabel="關閉" accessibilityRole="button" onPress={onClose} style={styles.sheetCloseButton}>
               <X color="#0f172a" size={18} />
             </Pressable>
           </View>
@@ -3353,7 +3353,7 @@ const MoveSelectionModal = ({
                 autoCapitalize="none"
                 autoCorrect={false}
                 onChangeText={setSearchText}
-                placeholder="搜索笔记本"
+                placeholder="搜索筆記本"
                 placeholderTextColor="#94a3b8"
                 style={styles.searchInput}
                 value={searchText}
@@ -3403,7 +3403,7 @@ const NotebookParentSelector = ({
   options: NotebookOption[];
 }) => (
   <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.parentSelectList}>
-    <OptionPill active={currentParentId === null} label="顶层" onPress={() => onChange(null)} />
+    <OptionPill active={currentParentId === null} label="頂層" onPress={() => onChange(null)} />
     {options.map(({ depth, notebook }) => (
       <OptionPill
         active={currentParentId === notebook.id}
@@ -3467,7 +3467,7 @@ const NotebookTreeOptionRows = ({
     return (
       <View style={styles.emptyInlinePanel}>
         <Folder color="#94a3b8" size={emptyIconSize} />
-        <Text style={styles.mutedText}>没有匹配的笔记本</Text>
+        <Text style={styles.mutedText}>沒有匹配的筆記本</Text>
       </View>
     );
   }
@@ -3501,7 +3501,7 @@ const NotebookTreeOptionRows = ({
             <Text numberOfLines={1} style={[styles.panelValue, compact && selectedNotebookId === notebook.id && styles.moveNotebookTextCompactActive]}>
               {showDepthPrefix && depth > 0 ? `${"· ".repeat(depth)}${notebook.name}` : notebook.name}
             </Text>
-            {showMemoCount ? <Text style={styles.panelLabel}>{notebook.memoCount} 条笔记</Text> : null}
+            {showMemoCount ? <Text style={styles.panelLabel}>{notebook.memoCount} 條筆記</Text> : null}
           </Pressable>
           {selectedNotebookId === notebook.id ? <Check color={compact ? "#059669" : "#0f172a"} size={18} /> : null}
         </View>
@@ -3530,7 +3530,7 @@ const NotebookPicker = ({
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={setSearchText}
-          placeholder="搜索笔记本"
+          placeholder="搜索筆記本"
           placeholderTextColor="#94a3b8"
           style={styles.searchInput}
           value={searchText}

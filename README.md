@@ -3,7 +3,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/tianma-if/edgeever?style=social)](https://github.com/tianma-if/edgeever/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/tianma-if/edgeever?style=social)](https://github.com/tianma-if/edgeever/network/members)
 
-[简体中文](README.zh-CN.md) | English
+[簡體中文](README.zh-CN.md) | English
 
 > **EdgeEver: An open-source, AI-native, and portable self-hosted Evernote alternative.**
 

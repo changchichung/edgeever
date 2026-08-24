@@ -129,7 +129,7 @@ describe("Cloudflare deployment entrypoints", () => {
     const englishGuide = readRepositoryFile("docs/deploy-cloudflare-button.md");
     const chineseGuide = readRepositoryFile("docs/deploy-cloudflare-button.zh-CN.md");
     expect(englishGuide).toContain("Worker runtime Secret, not a Workers Builds variable");
-    expect(chineseGuide).toContain("Worker 运行时 Secret，不是 Workers Builds 构建变量");
+    expect(chineseGuide).toContain("Worker 運行時 Secret，不是 Workers Builds 構建變量");
   });
 
   test("Workers Builds receives configuration but never the runtime password", () => {
@@ -157,7 +157,7 @@ describe("Cloudflare deployment entrypoints", () => {
     expect(runner).toContain("repositoryWranglerConfigError(config, usesRepositoryConfig)");
     expect(runner).not.toContain("replace the database_id placeholder");
     expect(englishAgentDoc).toContain("automatically resolves the D1 UUID");
-    expect(chineseAgentDoc).toContain("自动查询 D1 UUID");
+    expect(chineseAgentDoc).toContain("自動查詢 D1 UUID");
   });
 
   test("rejects instance-specific values in the repository Wrangler config", () => {
@@ -407,14 +407,14 @@ describe("Cloudflare deployment entrypoints", () => {
     expect(workflow).toContain("fork_mode=mirror");
     expect(workflow).toContain("GITHUB_STEP_SUMMARY");
     expect(workflow).toContain("name: Sync Fork and trigger deployment");
-    expect(workflow).toContain("name: Report result / 输出结果");
-    expect(workflow).toContain("::notice title=Manual redeploy / 手动重新部署");
+    expect(workflow).toContain("name: Report result / 輸出結果");
+    expect(workflow).toContain("::notice title=Manual redeploy / 手動重新部署");
     expect(workflow).toContain("PUBLISH_OUTCOME: ${{ steps.publish.outcome }}");
     expect(workflow).toContain("DEPLOY_TRIGGER_OUTCOME: ${{ steps.deploy.outcome }}");
-    expect(workflow).toContain("| Git publish / Git 发布 |");
-    expect(workflow).toContain("| Deployment trigger / 部署触发 |");
-    expect(workflow).toContain("| Live deployment / 线上部署 |");
-    expect(workflow).toContain("Not verified by this workflow / 本工作流未验证");
+    expect(workflow).toContain("| Git publish / Git 發佈 |");
+    expect(workflow).toContain("| Deployment trigger / 部署觸發 |");
+    expect(workflow).toContain("| Live deployment / 線上部署 |");
+    expect(workflow).toContain("Not verified by this workflow / 本工作流未驗證");
     expect(workflow).toContain("EDGE_EVER_CLOUDFLARE_DEPLOY_HOOK_URL");
     expect(workflow).toContain("EDGE_EVER_PRESERVE_FORK_CHANGES");
     expect(workflow).toContain("PRESERVE_FORK_CHANGES");
@@ -775,7 +775,7 @@ describe("Cloudflare deployment entrypoints", () => {
     expect(englishReadme).not.toContain("Option C: Manual Deployment");
     expect(englishReadme).toContain("Fork https://github.com/tianma-if/edgeever");
     expect(chineseReadme).not.toContain("deploy.workers.cloudflare.com");
-    expect(chineseReadme).not.toContain("方案 C：手动部署");
+    expect(chineseReadme).not.toContain("方案 C：手動部署");
     expect(chineseReadme).toContain("Fork https://github.com/tianma-if/edgeever");
   });
 
@@ -790,24 +790,24 @@ describe("Cloudflare deployment entrypoints", () => {
       extractTextPrompt(englishReadme, "### Option A: Deploy with an AI Agent (Recommended)"),
     );
     expect(deploymentPrompts["zh-CN"]).toBe(
-      extractTextPrompt(chineseReadme, "### 方案一：AI Agent 一键部署（推荐）"),
+      extractTextPrompt(chineseReadme, "### 方案一：AI Agent 一鍵部署（推薦）"),
     );
     expect(siteDeploymentComponent).toContain('deploymentPrompts["en-US"]');
     expect(siteDeploymentComponent).toContain('deploymentPrompts["zh-CN"]');
     expect(siteDeploymentComponent).toContain('manualDeploymentCopy["en-US"]');
     expect(siteDeploymentComponent).toContain('manualDeploymentCopy["zh-CN"]');
     expect(siteDeploymentComponent).toContain("UnionPay");
-    expect(siteDeploymentComponent).toContain("银联（UnionPay）");
+    expect(siteDeploymentComponent).toContain("銀聯（UnionPay）");
     expect(siteDeploymentComponent).toContain("free storage allowance");
-    expect(siteDeploymentComponent).toContain("免费存储额度");
+    expect(siteDeploymentComponent).toContain("免費存儲額度");
     expect(siteDeploymentComponent).not.toContain("dual-currency credit card");
-    expect(siteDeploymentComponent).not.toContain("双币信用卡");
+    expect(siteDeploymentComponent).not.toContain("雙幣信用卡");
     expect(siteDeploymentComponent).not.toContain("China Merchants Bank");
-    expect(siteDeploymentComponent).not.toContain("招商和浦发");
+    expect(siteDeploymentComponent).not.toContain("招商和浦發");
 
     for (const [locale, readme, heading, separator] of [
       ["en-US", englishReadme, "### Option B: Manual Online Deployment", ": "],
-      ["zh-CN", chineseReadme, "### 方案二：手动在线部署", "："],
+      ["zh-CN", chineseReadme, "### 方案二：手動在線部署", "："],
     ] as const) {
       const section = normalizeMarkdownCopy(extractSection(readme, heading));
       const manualCopy = manualDeploymentCopy[locale];
@@ -832,7 +832,7 @@ describe("Cloudflare deployment entrypoints", () => {
     expect(englishAgentDoc).not.toContain("deploy:setup");
     expect(englishAgentDoc).not.toContain(".env.local");
     expect(chineseAgentDoc).toContain("Workers & Pages");
-    expect(chineseAgentDoc).toContain("默认作为部署镜像");
+    expect(chineseAgentDoc).toContain("默認作爲部署鏡像");
     expect(chineseAgentDoc).toContain("EDGE_EVER_PRESERVE_FORK_CHANGES");
     expect(chineseAgentDoc).not.toContain("bun run deploy:manual");
     expect(chineseAgentDoc).not.toContain("bun run deploy:manual");

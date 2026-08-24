@@ -1,45 +1,45 @@
 {
   "extensionName": {
-    "message": "EdgeEver 网页剪藏"
+    "message": "EdgeEver 網頁剪藏"
   },
   "extensionDescription": {
-    "message": "将当前网页或选中的内容保存到你自托管的 EdgeEver 实例。"
+    "message": "將當前網頁或選中的內容保存到你自託管的 EdgeEver 實例。"
   },
   "actionTitle": {
     "message": "保存到 EdgeEver"
   },
   "webClipper": {
-    "message": "网页剪藏"
+    "message": "網頁剪藏"
   },
   "popupDescription": {
-    "message": "剪藏当前网页或选中的内容到你的 EdgeEver。"
+    "message": "剪藏當前網頁或選中的內容到你的 EdgeEver。"
   },
   "saveCurrentPage": {
-    "message": "剪藏当前网页"
+    "message": "剪藏當前網頁"
   },
   "pluginSettings": {
-    "message": "插件设置"
+    "message": "插件設置"
   },
   "readingAndSaving": {
-    "message": "正在读取网页并保存……"
+    "message": "正在讀取網頁並保存……"
   },
   "completePluginConfiguration": {
-    "message": "请先完成插件配置"
+    "message": "請先完成插件配置"
   },
   "savedToEdgeEver": {
     "message": "已保存到 EdgeEver。"
   },
   "saveFailed": {
-    "message": "保存失败。"
+    "message": "保存失敗。"
   },
   "optionsTitle": {
-    "message": "EdgeEver Web Clipper 设置"
+    "message": "EdgeEver Web Clipper 設置"
   },
   "diagnosticsTitle": {
-    "message": "关于与诊断信息"
+    "message": "關於與診斷信息"
   },
   "diagnosticsDescription": {
-    "message": "查看插件、浏览器、系统和连接信息。不会包含 API Token。"
+    "message": "查看插件、瀏覽器、系統和連接信息。不會包含 API Token。"
   },
   "extensionVersion": {
     "message": "插件版本"
@@ -48,82 +48,82 @@
     "message": "Manifest 版本"
   },
   "browserVersion": {
-    "message": "浏览器"
+    "message": "瀏覽器"
   },
   "systemVersion": {
-    "message": "系统"
+    "message": "系統"
   },
   "extensionId": {
     "message": "插件 ID"
   },
   "instanceOrigin": {
-    "message": "实例 Origin"
+    "message": "實例 Origin"
   },
   "instancePermission": {
-    "message": "实例访问权限"
+    "message": "實例訪問權限"
   },
   "copyDiagnostics": {
-    "message": "复制诊断信息"
+    "message": "複製診斷信息"
   },
   "diagnosticsCopied": {
-    "message": "诊断信息已复制。"
+    "message": "診斷信息已複製。"
   },
   "diagnosticsCopyFailed": {
-    "message": "复制失败，请检查浏览器剪贴板权限。"
+    "message": "複製失敗，請檢查瀏覽器剪貼板權限。"
   },
   "permissionGranted": {
-    "message": "已授权"
+    "message": "已授權"
   },
   "permissionNotGranted": {
-    "message": "未授权"
+    "message": "未授權"
   },
   "permissionNotConfigured": {
-    "message": "未配置实例"
+    "message": "未配置實例"
   },
   "notConfigured": {
     "message": "未配置"
   },
   "invalidInstanceAddress": {
-    "message": "地址无效"
+    "message": "地址無效"
   },
   "unknownValue": {
     "message": "未知"
   },
   "instanceAddress": {
-    "message": "EdgeEver 实例地址"
+    "message": "EdgeEver 實例地址"
   },
   "tokenPlaceholder": {
-    "message": "从 EdgeEver 设置中创建"
+    "message": "從 EdgeEver 設置中創建"
   },
   "defaultNotebook": {
-    "message": "默认笔记本"
+    "message": "默認筆記本"
   },
   "autoFirstNotebook": {
-    "message": "连接后自动使用第一个笔记本"
+    "message": "連接後自動使用第一個筆記本"
   },
   "testConnection": {
-    "message": "测试连接"
+    "message": "測試連接"
   },
   "saveSettings": {
-    "message": "保存设置"
+    "message": "保存設置"
   },
   "projectAndSource": {
-    "message": "GitHub 项目与源码"
+    "message": "GitHub 項目與源碼"
   },
   "reportIssue": {
-    "message": "反馈问题"
+    "message": "反饋問題"
   },
   "privacyPolicy": {
-    "message": "隐私政策"
+    "message": "隱私政策"
   },
   "connecting": {
-    "message": "正在连接……"
+    "message": "正在連接……"
   },
   "connectionSuccessOne": {
-    "message": "连接成功，共 1 个笔记本。"
+    "message": "連接成功，共 1 個筆記本。"
   },
   "connectionSuccessMany": {
-    "message": "连接成功，共 $COUNT$ 个笔记本。",
+    "message": "連接成功，共 $COUNT$ 個筆記本。",
     "placeholders": {
       "count": {
         "content": "$1"
@@ -131,22 +131,22 @@
     }
   },
   "connectionFailed": {
-    "message": "连接失败。"
+    "message": "連接失敗。"
   },
   "settingsSaved": {
-    "message": "设置已保存。"
+    "message": "設置已保存。"
   },
   "settingsSaveFailed": {
-    "message": "保存失败。"
+    "message": "保存失敗。"
   },
   "missingSettingsDetails": {
-    "message": "请先在插件设置中填写 EdgeEver 地址和 API Token。"
+    "message": "請先在插件設置中填寫 EdgeEver 地址和 API Token。"
   },
   "instancePermissionRequired": {
-    "message": "需要允许插件访问你的 EdgeEver 实例。"
+    "message": "需要允許插件訪問你的 EdgeEver 實例。"
   },
   "requestFailed": {
-    "message": "EdgeEver 请求失败（$STATUS$）。",
+    "message": "EdgeEver 請求失敗（$STATUS$）。",
     "placeholders": {
       "status": {
         "content": "$1"
@@ -154,25 +154,25 @@
     }
   },
   "sourceLabel": {
-    "message": "来源"
+    "message": "來源"
   },
   "capturedAtLabel": {
-    "message": "抓取时间"
+    "message": "抓取時間"
   },
   "noAvailableNotebooks": {
-    "message": "EdgeEver 中没有可用的笔记本。"
+    "message": "EdgeEver 中沒有可用的筆記本。"
   },
   "currentPageNotFound": {
-    "message": "找不到当前页面。"
+    "message": "找不到當前頁面。"
   },
   "captureTimeout": {
-    "message": "网页内容提取在 15 秒内未完成，页面可能过大或仍在加载。请刷新页面后重试。"
+    "message": "網頁內容提取在 15 秒內未完成，頁面可能過大或仍在加載。請刷新頁面後重試。"
   },
   "pageAccessDenied": {
-    "message": "插件无法读取此页面。请确认当前不是浏览器内置页、扩展商店页或受限页面。"
+    "message": "插件無法讀取此頁面。請確認當前不是瀏覽器內置頁、擴展商店頁或受限頁面。"
   },
   "captureScriptFailed": {
-    "message": "网页提取脚本执行失败：$DETAIL$",
+    "message": "網頁提取腳本執行失敗：$DETAIL$",
     "placeholders": {
       "detail": {
         "content": "$1"
@@ -180,13 +180,13 @@
     }
   },
   "captureUnknownError": {
-    "message": "未返回具体错误"
+    "message": "未返回具體錯誤"
   },
   "instanceNetworkFailed": {
-    "message": "无法连接 EdgeEver 实例。请检查实例地址、网络连接和跨域设置。"
+    "message": "無法連接 EdgeEver 實例。請檢查實例地址、網絡連接和跨域設置。"
   },
   "saveFailedWithReason": {
-    "message": "保存到 EdgeEver 失败：$DETAIL$",
+    "message": "保存到 EdgeEver 失敗：$DETAIL$",
     "placeholders": {
       "detail": {
         "content": "$1"
@@ -194,6 +194,6 @@
     }
   },
   "emptyPageContent": {
-    "message": "（网页没有可提取的正文内容）"
+    "message": "（網頁沒有可提取的正文內容）"
   }
 }

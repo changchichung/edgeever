@@ -58,14 +58,14 @@ bun run lint:extension:firefox
 
 The reviewable source is the repository source before Vite bundling. Third-party packages are installed from the npm registry through the committed Bun lockfile.
 
-## 中文商店说明
+## 中文商店說明
 
-EdgeEver 网页裁剪插件可将当前网页或选中的文字直接保存到用户配置的自托管 EdgeEver 实例。
+EdgeEver 網頁裁剪插件可將當前網頁或選中的文字直接保存到用戶配置的自託管 EdgeEver 實例。
 
-- 提取适合阅读的文章正文，也可只保存当前选区。
-- 在浏览器本地将 HTML 转换为 Markdown。
-- 可选择默认 EdgeEver 笔记本。
-- 数据直接发送到用户自己的实例，不经过 EdgeEver 中转服务。
-- 不包含广告、分析、追踪或遥测。
+- 提取適合閱讀的文章正文，也可只保存當前選區。
+- 在瀏覽器本地將 HTML 轉換爲 Markdown。
+- 可選擇默認 EdgeEver 筆記本。
+- 數據直接發送到用戶自己的實例，不經過 EdgeEver 中轉服務。
+- 不包含廣告、分析、追蹤或遙測。
 
-使用前，请在插件设置中填写 EdgeEver 实例地址和 API Token。插件只会在用户点击“裁剪当前网页”后读取并发送网页内容。
+使用前，請在插件設置中填寫 EdgeEver 實例地址和 API Token。插件只會在用戶點擊“裁剪當前網頁”後讀取併發送網頁內容。

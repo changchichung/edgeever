@@ -63,7 +63,7 @@ describe("mobile app scope", () => {
 
   test("keeps version history reachable from an active note", () => {
     expect(memoDetailSource).toMatch(
-      /\{memo && !memo\.isDeleted \? \(\s*<Pressable\s+accessibilityLabel="版本历史"/
+      /\{memo && !memo\.isDeleted \? \(\s*<Pressable\s+accessibilityLabel="版本歷史"/
     );
     expect(memoDetailSource).toContain('syncStatus === "conflict"');
     expect(memoDetailSource).toContain("onResolveSyncConflict");
@@ -116,7 +116,7 @@ describe("mobile app scope", () => {
       workspaceSource.indexOf("const RichEditorModal =")
     );
     const titleInput = createMemoSource.match(
-      /<TextInput\s+autoCorrect\s+accessibilityLabel="笔记标题"[\s\S]*?\/>/
+      /<TextInput\s+autoCorrect\s+accessibilityLabel="筆記標題"[\s\S]*?\/>/
     )?.[0];
 
     expect(createMemoSource).toMatch(/<LocalTiptapEditor\s+autoFocus\s/);

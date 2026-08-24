@@ -15,29 +15,29 @@ export const MobileUpdateCard = () => {
   const busy = status === "checking" || status === "downloading" || status === "installing";
   const styles = resolveMobileThemeStyles(baseStyles, resolvedTheme);
   const checkLabel = status === "checking"
-    ? (english ? "Checking…" : "正在检查…")
-    : (english ? "Check for updates" : "检查更新");
+    ? (english ? "Checking…" : "正在檢查…")
+    : (english ? "Check for updates" : "檢查更新");
   const openLabel = status === "downloading"
-    ? (english ? `Downloading ${Math.round((downloadProgress ?? 0) * 100)}%` : `正在下载 ${Math.round((downloadProgress ?? 0) * 100)}%`)
+    ? (english ? `Downloading ${Math.round((downloadProgress ?? 0) * 100)}%` : `正在下載 ${Math.round((downloadProgress ?? 0) * 100)}%`)
     : status === "installing"
-      ? (english ? "Opening installer…" : "正在打开安装器…")
+      ? (english ? "Opening installer…" : "正在打開安裝器…")
     : status === "ready"
-      ? (english ? "Restart to apply" : "重启以应用")
+      ? (english ? "Restart to apply" : "重啓以應用")
       : updateKind === "ota"
-        ? (english ? "Download update" : "下载更新")
-        : (english ? "Download & install" : "下载并安装");
+        ? (english ? "Download update" : "下載更新")
+        : (english ? "Download & install" : "下載並安裝");
 
   return (
     <View style={styles.card}>
       <View style={styles.copy}>
-        <Text style={styles.title}>{english ? "App updates" : "应用更新"}</Text>
+        <Text style={styles.title}>{english ? "App updates" : "應用更新"}</Text>
         <Text style={styles.description}>
           {english
             ? "EdgeEver automatically checks for compatible in-app updates and newer installable versions."
-            : "EdgeEver 会自动检查兼容的应用内热更新和新版安装包。"}
+            : "EdgeEver 會自動檢查兼容的應用內熱更新和新版安裝包。"}
         </Text>
         <Text style={styles.version}>
-          {english ? "Current version" : "当前版本"}: v{Updates.runtimeVersion ?? Constants.expoConfig?.version ?? "unknown"}
+          {english ? "Current version" : "當前版本"}: v{Updates.runtimeVersion ?? Constants.expoConfig?.version ?? "unknown"}
         </Text>
       </View>
       {hasUpdate ? (
@@ -64,7 +64,7 @@ export const MobileUpdateCard = () => {
       </Pressable>
       {!isSupported ? (
         <Text style={styles.hint}>
-          {english ? "Available in installed release builds." : "此功能会在已安装的正式版中启用。"}
+          {english ? "Available in installed release builds." : "此功能會在已安裝的正式版中啓用。"}
         </Text>
       ) : null}
     </View>

@@ -176,7 +176,7 @@ export const CustomEditorThemeDialog = ({
 
           {/* Custom CSS Textarea */}
           <label className="grid gap-1 text-xs font-semibold text-slate-700">
-            {t("settings.customEditorTheme.customCss", "Custom CSS (高级自定义样式表)")}
+            {t("settings.customEditorTheme.customCss", "Custom CSS (高級自定義樣式表)")}
             <textarea
               value={draft.customCss || ""}
               onChange={(event) => setDraft((current) => ({ ...current, customCss: event.target.value }))}

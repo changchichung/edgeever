@@ -3,7 +3,7 @@
 ## Product details
 
 - Name: `EdgeEver Web Clipper`
-- Primary language: `中文（简体）`
+- Primary language: `中文（簡體）`
 - Category: `Workflow & Planning`
 - Homepage: `https://edgeever.org/`
 - Support URL: `https://github.com/tianma-if/edgeever/issues`
@@ -11,7 +11,7 @@
 
 ## Localized listings
 
-- `中文（简体）`: Primary language
+- `中文（簡體）`: Primary language
 - `English`: Localized listing
 
 Select the matching language in the Chrome Web Store developer dashboard and enter the corresponding copy below. Store listing localization is separate from the extension's packaged `_locales` messages.
@@ -23,27 +23,27 @@ Select the matching language in the Chrome Web Store developer dashboard and ent
 - Screenshot: `store-assets/screenshot-options-1280x800.jpg`
 - Small promo tile: `store-assets/promo-small-440x280.jpg`
 
-### 中文（简体）
+### 中文（簡體）
 
 #### Summary
 
-将当前网页或选中内容保存到你自托管的 EdgeEver 实例。
+將當前網頁或選中內容保存到你自託管的 EdgeEver 實例。
 
 #### Detailed description
 
-EdgeEver Web Clipper 可以把当前网页或你选中的内容保存到自托管的 EdgeEver 实例。
+EdgeEver Web Clipper 可以把當前網頁或你選中的內容保存到自託管的 EdgeEver 實例。
 
 主要功能：
 
-- 自动提取文章正文，并转换为便于搜索和编辑的 Markdown。
-- 优先保存你在页面中选中的内容。
-- 在笔记中保留原始标题、来源网址和剪藏时间。
-- 可选择默认笔记本，并自动添加 `web-clip` 标签。
-- 网页内容直接发送到你配置的 EdgeEver 实例，不经过开发者的中转服务器。
+- 自動提取文章正文，並轉換爲便於搜索和編輯的 Markdown。
+- 優先保存你在頁面中選中的內容。
+- 在筆記中保留原始標題、來源網址和剪藏時間。
+- 可選擇默認筆記本，並自動添加 `web-clip` 標籤。
+- 網頁內容直接發送到你配置的 EdgeEver 實例，不經過開發者的中轉服務器。
 
-使用前，请在插件设置中填写 EdgeEver 实例地址和 API Token。插件只会在你点击“剪藏当前网页”后读取当前标签页，并仅向你授权的 EdgeEver 实例申请网络访问权限。
+使用前，請在插件設置中填寫 EdgeEver 實例地址和 API Token。插件只會在你點擊“剪藏當前網頁”後讀取當前標籤頁，並僅向你授權的 EdgeEver 實例申請網絡訪問權限。
 
-EdgeEver 是开源、自托管的现代笔记工作区。项目主页与源代码：https://github.com/tianma-if/edgeever
+EdgeEver 是開源、自託管的現代筆記工作區。項目主頁與源代碼：https://github.com/tianma-if/edgeever
 
 ### English
 

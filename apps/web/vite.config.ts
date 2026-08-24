@@ -154,7 +154,7 @@ export default defineConfig({
       manifest: {
         name: "EdgeEver",
         short_name: "EdgeEver",
-        description: "EdgeEver：基于 Cloudflare 全家桶自托管的开源印象笔记。",
+        description: "EdgeEver：基於 Cloudflare 全家桶自託管的開源印象筆記。",
         start_url: "/",
         scope: "/",
         display: "standalone",

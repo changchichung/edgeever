@@ -106,7 +106,7 @@ export const parseAiTagSuggestionNames = (text: string) => {
       .filter(Boolean)
       .slice(0, MAX_AI_TAG_SUGGESTIONS);
   }
-  if (/^(?:没有|无)(?:找到)?(?:合适|适合|可用|相关)?(?:的)?(?:新)?标签[。.!！]?$/.test(trimmedText)
+  if (/^(?:沒有|無)(?:找到)?(?:合適|適合|可用|相關)?(?:的)?(?:新)?標籤[。.!！]?$/.test(trimmedText)
     || /^(?:no|none|no suitable|no relevant) tags?[.!]?$/i.test(trimmedText)) {
     return [];
   }
@@ -119,7 +119,7 @@ export const parseAiTagSuggestionNames = (text: string) => {
   const delimitedTags = trimmedText
     .replace(/^```(?:text|markdown)?\s*/i, "")
     .replace(/\s*```$/, "")
-    .replace(/^(?:建议)?标签\s*[:：]\s*/i, "")
+    .replace(/^(?:建議)?標籤\s*[:：]\s*/i, "")
     .split(/[\r\n,，、;；]+/)
     .map((tag) => tag.trim().replace(/^#/, "").trim())
     .filter(Boolean);

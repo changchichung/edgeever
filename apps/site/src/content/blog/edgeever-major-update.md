@@ -1,10 +1,10 @@
 ---
 draft: false
-title: "EdgeEver 当前能力概览：Cloudflare 自托管、开放 API 与 MCP"
-snippet: "基于核心仓库 README、文档和代码同步整理 EdgeEver 当前已经实现的产品能力。"
+title: "EdgeEver 當前能力概覽：Cloudflare 自託管、開放 API 與 MCP"
+snippet: "基於核心倉庫 README、文檔和代碼同步整理 EdgeEver 當前已經實現的產品能力。"
 image: {
     src: "/images/major-update.jpg",
-    alt: "EdgeEver 产品能力概览"
+    alt: "EdgeEver 產品能力概覽"
 }
 publishDate: "2026-07-02 00:40"
 category: "Product"
@@ -12,68 +12,68 @@ author: "EdgeEver Team"
 tags: [updates, pwa, mcp, editor]
 ---
 
-这篇文章同步核心仓库中已经明确存在的能力。EdgeEver 当前定位是：开源、自托管、Cloudflare-native 的现代笔记工作区，保留经典印象笔记的三栏体验，并提供 REST API、OpenAPI schema 和 Remote MCP endpoint。
+這篇文章同步核心倉庫中已經明確存在的能力。EdgeEver 當前定位是：開源、自託管、Cloudflare-native 的現代筆記工作區，保留經典印象筆記的三欄體驗，並提供 REST API、OpenAPI schema 和 Remote MCP endpoint。
 
-以下内容来自同级 `edgeever` 核心仓库的 README、文档和实现结构。
+以下內容來自同級 `edgeever` 核心倉庫的 README、文檔和實現結構。
 
 ---
 
-### 1. 经典三栏笔记工作区
+### 1. 經典三欄筆記工作區
 
-EdgeEver 保留熟悉的三栏布局：
+EdgeEver 保留熟悉的三欄佈局：
 
-- 笔记本树
-- 笔记列表
-- 主编辑区
+- 筆記本樹
+- 筆記列表
+- 主編輯區
 
-它支持无限级嵌套笔记本、笔记本拖拽排序和调整层级、多选移动笔记、多选合并笔记，以及富文本编辑。
+它支持無限級嵌套筆記本、筆記本拖拽排序和調整層級、多選移動筆記、多選合併筆記，以及富文本編輯。
 
-### 2. 开放内容模型
+### 2. 開放內容模型
 
-EdgeEver 同时保存三种内容形态：
+EdgeEver 同時保存三種內容形態：
 
 ```text
-content_json      TipTap/ProseMirror 文档，编辑器权威格式
-content_markdown  API、Agent、导入导出使用
+content_json      TipTap/ProseMirror 文檔，編輯器權威格式
+content_markdown  API、Agent、導入導出使用
 content_text      搜索、摘要和索引使用
 ```
 
-这样的设计让前端编辑器、REST API、MCP、导入导出和搜索索引可以各自使用合适的数据形态。
+這樣的設計讓前端編輯器、REST API、MCP、導入導出和搜索索引可以各自使用合適的數據形態。
 
-### 3. Cloudflare-native 自托管
+### 3. Cloudflare-native 自託管
 
-当前部署形态是一个 Cloudflare Worker：
+當前部署形態是一個 Cloudflare Worker：
 
-- `/api/*` 由 Hono API 处理
-- 前端静态资源由 Workers Assets 提供
-- D1 保存 notebooks、memos、memo_contents、resources 元数据等
-- R2 保存图片和附件对象
+- `/api/*` 由 Hono API 處理
+- 前端靜態資源由 Workers Assets 提供
+- D1 保存 notebooks、memos、memo_contents、resources 元數據等
+- R2 保存圖片和附件對象
 
-核心 README 中给出的个人使用估算是：短笔记可达 15 万条，200KB 图片约可存放 5 万张。实际用量和费用仍以 Cloudflare 账号计划与官方定价为准。
+核心 README 中給出的個人使用估算是：短筆記可達 15 萬條，200KB 圖片約可存放 5 萬張。實際用量和費用仍以 Cloudflare 賬號計劃與官方定價爲準。
 
-### 4. Web 端图片压缩与 PWA
+### 4. Web 端圖片壓縮與 PWA
 
-网页端上传图片前，可以在浏览器本地把 PNG、JPEG、WebP、AVIF 尝试压缩为 WebP，并将最长边限制在 `2560px` 以内。如果压缩结果不比原图小，则保留原图。服务端不会额外执行 Cloudflare Images 式处理。
+網頁端上傳圖片前，可以在瀏覽器本地把 PNG、JPEG、WebP、AVIF 嘗試壓縮爲 WebP，並將最長邊限制在 `2560px` 以內。如果壓縮結果不比原圖小，則保留原圖。服務端不會額外執行 Cloudflare Images 式處理。
 
-EdgeEver 也支持 PWA 安装，前端使用 Workbox 和 Dexie 支撑离线草稿与本地同步队列。
+EdgeEver 也支持 PWA 安裝，前端使用 Workbox 和 Dexie 支撐離線草稿與本地同步隊列。
 
-### 5. REST API、OpenAPI 与 MCP
+### 5. REST API、OpenAPI 與 MCP
 
 EdgeEver 提供：
 
 - REST API
 - `/api/openapi.json`
 - Remote MCP endpoint
-- CLI 与 MCP stdio bridge 脚本
+- CLI 與 MCP stdio bridge 腳本
 
-在 EdgeEver 左下角个人中心的 MCP 设置里创建 API Token 后，可以复制 Token 或完整 MCP 配置交给 AI Agent，让它读取和整理你的笔记。
+在 EdgeEver 左下角個人中心的 MCP 設置裏創建 API Token 後，可以複製 Token 或完整 MCP 配置交給 AI Agent，讓它讀取和整理你的筆記。
 
 ### 6. 更新到最新版
 
-如果你是通过 Fork 部署的：
+如果你是通過 Fork 部署的：
 
-1. 打开你自己的 EdgeEver Fork 仓库。
-2. 点击 GitHub 页面上的 **Sync fork**，同步官方仓库的最新代码。
-3. 已配置 Cloudflare Workers Builds 时，产生的 push 会自动构建、执行 D1 migration 并发布，无需回到本地重新部署。
+1. 打開你自己的 EdgeEver Fork 倉庫。
+2. 點擊 GitHub 頁面上的 **Sync fork**，同步官方倉庫的最新代碼。
+3. 已配置 Cloudflare Workers Builds 時，產生的 push 會自動構建、執行 D1 migration 併發布，無需回到本地重新部署。
 
-如果是较早安装的实例、尚未连接 Workers Builds，请先按 [Cloudflare Workers Builds 自动部署](/manual-deploy#开启自动更新) 完成一次连接；之后再使用 **Sync fork** 更新。
+如果是較早安裝的實例、尚未連接 Workers Builds，請先按 [Cloudflare Workers Builds 自動部署](/manual-deploy#開啓自動更新) 完成一次連接；之後再使用 **Sync fork** 更新。

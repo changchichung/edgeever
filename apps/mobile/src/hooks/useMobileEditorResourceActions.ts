@@ -53,16 +53,16 @@ export const useMobileEditorResourceActions = ({
   }, [baseUrl, client, onLoadFailure, resourceCacheRef, sessionBaseUrl, token]);
 
   const downloadResource = useCallback(async (target: MobileResourceTarget) => {
-    if (!client) throw unavailable("The attachment client is unavailable.", "当前无法读取附件。");
+    if (!client) throw unavailable("The attachment client is unavailable.", "當前無法讀取附件。");
     await openMobileResource(client, target);
   }, [client, unavailable]);
 
   const saveResourceAs = useCallback(async (target: MobileResourceTarget) => {
-    if (!client) throw unavailable("The resource client is unavailable.", "当前无法读取资源。");
+    if (!client) throw unavailable("The resource client is unavailable.", "當前無法讀取資源。");
     const result = await saveMobileResourceAs(client, target);
     if (result.kind === "saf") {
       Alert.alert(
-        resolvedLocale === "en-US" ? "Downloaded" : "下载成功",
+        resolvedLocale === "en-US" ? "Downloaded" : "下載成功",
         resolvedLocale === "en-US" ? `Saved ${result.filename}` : `已保存：${result.filename}`,
       );
     }
@@ -70,7 +70,7 @@ export const useMobileEditorResourceActions = ({
 
   const requireMutableClient = useCallback(() => {
     if (!client || !canMutate()) {
-      throw unavailable("Wait for this note to sync first.", "请等待笔记同步完成。");
+      throw unavailable("Wait for this note to sync first.", "請等待筆記同步完成。");
     }
     return client;
   }, [canMutate, client, unavailable]);

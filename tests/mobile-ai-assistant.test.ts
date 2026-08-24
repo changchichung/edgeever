@@ -64,10 +64,10 @@ describe("native mobile AI note assistant", () => {
   });
 
   test("keeps the assistant reachable from each native note action menu", () => {
-    expect(androidDetailSource).toContain('label={resolvedLocale === "en-US" ? "AI note assistant" : "AI 笔记助手"}');
+    expect(androidDetailSource).toContain('label={resolvedLocale === "en-US" ? "AI note assistant" : "AI 筆記助手"}');
     expect(androidDetailSource).toContain("setAiAssistantOpen(true)");
     expect(androidDetailSource).toContain("<MobileAiAssistantModal");
-    expect(iosDetailSource).toContain('env.preferences.t("AI 笔记助手", en: "AI note assistant")');
+    expect(iosDetailSource).toContain('env.preferences.t("AI 筆記助手", en: "AI note assistant")');
     expect(iosDetailSource).toContain("AiAssistantSheet(memo: memo)");
   });
 

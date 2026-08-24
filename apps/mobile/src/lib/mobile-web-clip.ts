@@ -171,8 +171,8 @@ export const buildMobileWebClipDraftFromRenderedPage = (
     sourceUrl,
     tagsText: isWeChatArticleUrl(sourceUrl) ? "web-clip, wechat" : "web-clip",
     contentMarkdown: [
-      `来源：[${escapeMarkdownText(sourceUrl)}](${sourceUrl})`,
-      `剪藏时间：${capturedAt.toISOString()}`,
+      `來源：[${escapeMarkdownText(sourceUrl)}](${sourceUrl})`,
+      `剪藏時間：${capturedAt.toISOString()}`,
       "---",
       body,
     ].join("\n\n"),
@@ -214,7 +214,7 @@ export const htmlToMarkdown = (html: string, baseUrl?: string) => {
     if (!resolvedSrc) {
       return "";
     }
-    const alt = normalizeInlineText(readAttribute(tag, "alt") || "图片");
+    const alt = normalizeInlineText(readAttribute(tag, "alt") || "圖片");
     return `\n\n![${escapeMarkdownText(alt)}](${resolvedSrc})\n\n`;
   });
 
@@ -262,10 +262,10 @@ const buildFallbackDraft = (sourceUrl: string, capturedAt: Date): MobileWebClipD
   sourceUrl,
   tagsText: isWeChatArticleUrl(sourceUrl) ? "web-clip, wechat" : "web-clip",
   contentMarkdown: [
-    `来源：[${escapeMarkdownText(sourceUrl)}](${sourceUrl})`,
-    `剪藏时间：${capturedAt.toISOString()}`,
+    `來源：[${escapeMarkdownText(sourceUrl)}](${sourceUrl})`,
+    `剪藏時間：${capturedAt.toISOString()}`,
     "",
-    "正文暂时无法抓取，来源链接已保留，可稍后重试。",
+    "正文暫時無法抓取，來源鏈接已保留，可稍後重試。",
   ].join("\n\n"),
 });
 
@@ -273,7 +273,7 @@ const hostnameTitle = (value: string) => {
   try {
     return new URL(value).hostname;
   } catch {
-    return "网页剪藏";
+    return "網頁剪藏";
   }
 };
 

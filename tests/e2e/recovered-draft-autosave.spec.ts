@@ -31,8 +31,8 @@ const writeRecoveredDraft = (
 }), draft);
 
 const openMemo = async (page: Page, memoId: string, title: string) => {
-  await page.getByRole("button", { name: "全部笔记", exact: true }).click();
-  await page.getByPlaceholder("搜索笔记").fill(title);
+  await page.getByRole("button", { name: "全部筆記", exact: true }).click();
+  await page.getByPlaceholder("搜索筆記").fill(title);
   await page.locator(`[data-memo-id="${memoId}"]`).locator("button").first().click();
 };
 

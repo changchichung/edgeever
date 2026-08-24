@@ -1,53 +1,53 @@
-# AI Agent 在线部署 EdgeEver 约定
+# AI Agent 在線部署 EdgeEver 約定
 
-本文档为 AI Agent（以及自动化部署工具）在 Cloudflare 上在线部署 EdgeEver 的标准操作规范与约定。
+本文檔爲 AI Agent（以及自動化部署工具）在 Cloudflare 上在線部署 EdgeEver 的標準操作規範與約定。
 
-> 💡 **核心原则**：纯 Serverless 架构部署，基于 Cloudflare 免费配额运行，无需购买 VPS 或配置 Docker/SSL 证书。
+> 💡 **核心原則**：純 Serverless 架構部署，基於 Cloudflare 免費配額運行，無需購買 VPS 或配置 Docker/SSL 證書。
 
 ---
 
-## 自动化部署标准步骤
+## 自動化部署標準步驟
 
-1. **Fork 仓库**
-   - Fork `tianma-if/edgeever` 到目标 GitHub 账户。
+1. **Fork 倉庫**
+   - Fork `tianma-if/edgeever` 到目標 GitHub 賬戶。
 
-2. **启用工作流**
-   - 在 Fork 仓库的 **Actions** 标签页中，启用 **Update deployed EdgeEver** 自动更新工作流（公共 Fork 上定时任务默认关闭，必须手动启用）。
-   - 普通 Fork 默认作为部署镜像，无需配置任何更新变量：工作流会把所选上游 Release 的产品代码快照应用到 `main`，再触发 Cloudflare。
-   - 更新器会把 Fork 自己的完整 `.github/workflows/**` 目录及两个更新辅助脚本作为稳定的本地引导层保留。官方打包、签名、测试与 Release 工作流继续通过 `tianma-if/edgeever` 仓库门禁限制执行，也不会被下游产品更新改写。
-   - 只有明确维护了应用代码修改的 Fork，才应创建 Actions 仓库变量 `EDGE_EVER_PRESERVE_FORK_CHANGES=true`。启用后改为 merge，并由仓库所有者处理未来冲突；普通部署无需设置。
+2. **啓用工作流**
+   - 在 Fork 倉庫的 **Actions** 標籤頁中，啓用 **Update deployed EdgeEver** 自動更新工作流（公共 Fork 上定時任務默認關閉，必須手動啓用）。
+   - 普通 Fork 默認作爲部署鏡像，無需配置任何更新變量：工作流會把所選上游 Release 的產品代碼快照應用到 `main`，再觸發 Cloudflare。
+   - 更新器會把 Fork 自己的完整 `.github/workflows/**` 目錄及兩個更新輔助腳本作爲穩定的本地引導層保留。官方打包、簽名、測試與 Release 工作流繼續通過 `tianma-if/edgeever` 倉庫門禁限制執行，也不會被下游產品更新改寫。
+   - 只有明確維護了應用代碼修改的 Fork，才應創建 Actions 倉庫變量 `EDGE_EVER_PRESERVE_FORK_CHANGES=true`。啓用後改爲 merge，並由倉庫所有者處理未來衝突；普通部署無需設置。
 
-3. **Cloudflare 项目导入**
-   - 登录 Cloudflare **Workers & Pages** 控制台，导入该 Fork 仓库。
-   - 配置项目使用仓库根目录、生产环境 `main` 分支，并读取仓库根目录下的 `wrangler.toml`。
+3. **Cloudflare 項目導入**
+   - 登錄 Cloudflare **Workers & Pages** 控制台，導入該 Fork 倉庫。
+   - 配置項目使用倉庫根目錄、生產環境 `main` 分支，並讀取倉庫根目錄下的 `wrangler.toml`。
 
-4. **资源与凭据 (Resources & Secrets)**
-   - 创建名称严格为 `edgeever` 的 D1 数据库。
-   - 创建名称严格为 `edgeever-resources` 的 R2 存储桶。
-   - **Worker Secret**：添加密钥 `EDGE_EVER_AUTH_PASSWORD`，值为初始管理员登录密码。
-   - 该密码只配置为 Worker 运行时 Secret，不要复制到 Workers Builds 构建变量；标准部署入口会复用并验证已存在的 Secret。
-   - 不要修改 `wrangler.toml`，也不要在控制台重复添加 binding。部署命令会根据标准资源名称生成 `DB` 与 `RESOURCES` binding。
-   - 对按旧版文档部署的已有 Worker，不要要求用户重命名或重新配置自定义 R2 存储桶。没有显式覆盖时，部署会自动保留线上 `RESOURCES` binding 与管理员用户名。
+4. **資源與憑據 (Resources & Secrets)**
+   - 創建名稱嚴格爲 `edgeever` 的 D1 數據庫。
+   - 創建名稱嚴格爲 `edgeever-resources` 的 R2 存儲桶。
+   - **Worker Secret**：添加密鑰 `EDGE_EVER_AUTH_PASSWORD`，值爲初始管理員登錄密碼。
+   - 該密碼只配置爲 Worker 運行時 Secret，不要複製到 Workers Builds 構建變量；標準部署入口會複用並驗證已存在的 Secret。
+   - 不要修改 `wrangler.toml`，也不要在控制台重複添加 binding。部署命令會根據標準資源名稱生成 `DB` 與 `RESOURCES` binding。
+   - 對按舊版文檔部署的已有 Worker，不要要求用戶重命名或重新配置自定義 R2 存儲桶。沒有顯式覆蓋時，部署會自動保留線上 `RESOURCES` binding 與管理員用戶名。
 
 5. **配置 Workers Builds 命令**
-   - 在 Cloudflare 项目的构建设置中，填入以下标准命令：
+   - 在 Cloudflare 項目的構建設置中，填入以下標準命令：
 
      ```text
      Build command: bun install --frozen-lockfile && EDGE_EVER_DEPLOYMENT_TRIGGER=main_push EDGE_EVER_DEPLOYMENT_METHOD=cloudflare_workers_builds bun run build:cloudflare
      Deploy command: bun run deploy:cloudflare-builds
      ```
 
-   - 部署命令会根据 `edgeever` 数据库名称自动查询 D1 UUID，并把所有实例参数仅写入临时生成的 Wrangler 配置。受版本控制的 `wrangler.toml` 必须保持不变；若把实例专属配置提交到该文件，部署会直接拒绝，避免 Fork 因基础设施配置产生分叉。
-   - 请确保 Workers Builds API Token 具有 D1 读取和编辑权限。高级非敏感自定义参数应放在 `EDGE_EVER_*` Workers Builds 构建变量中。如使用其他数据库名称，设置 `EDGE_EVER_D1_DATABASE_NAME`；仅在无法自动查询 UUID 时设置 `EDGE_EVER_D1_DATABASE_ID`。密码始终属于运行时 Secret。
+   - 部署命令會根據 `edgeever` 數據庫名稱自動查詢 D1 UUID，並把所有實例參數僅寫入臨時生成的 Wrangler 配置。受版本控制的 `wrangler.toml` 必須保持不變；若把實例專屬配置提交到該文件，部署會直接拒絕，避免 Fork 因基礎設施配置產生分叉。
+   - 請確保 Workers Builds API Token 具有 D1 讀取和編輯權限。高級非敏感自定義參數應放在 `EDGE_EVER_*` Workers Builds 構建變量中。如使用其他數據庫名稱，設置 `EDGE_EVER_D1_DATABASE_NAME`；僅在無法自動查詢 UUID 時設置 `EDGE_EVER_D1_DATABASE_ID`。密碼始終屬於運行時 Secret。
 
-6. **启动首次构建与服务验证**
-   - 触发启动首次构建，待构建部署完成后，进行如下自动化验证：
-     - 检查 `https://<你的 Worker 域名>/api/health` 返回 `200` 状态码且 JSON 内容为 `{"ok": true}`。
-     - 检查 `https://<你的 Worker 域名>/api/openapi.json` 能够正常加载 OpenAPI 规范。
-     - 使用用户名 `admin` 和 `EDGE_EVER_AUTH_PASSWORD` 验证登录 API；若高级部署设置了 `EDGE_EVER_AUTH_USERNAME` 构建变量，则改用对应用户名。
+6. **啓動首次構建與服務驗證**
+   - 觸發啓動首次構建，待構建部署完成後，進行如下自動化驗證：
+     - 檢查 `https://<你的 Worker 域名>/api/health` 返回 `200` 狀態碼且 JSON 內容爲 `{"ok": true}`。
+     - 檢查 `https://<你的 Worker 域名>/api/openapi.json` 能夠正常加載 OpenAPI 規範。
+     - 使用用戶名 `admin` 和 `EDGE_EVER_AUTH_PASSWORD` 驗證登錄 API；若高級部署設置了 `EDGE_EVER_AUTH_USERNAME` 構建變量，則改用對應用戶名。
 
-7. **验证上游更新通道**
-   - 在 Fork 的 **Actions** 中手动运行一次 **Update deployed EdgeEver**。即使 Fork 已对齐，手动运行也会重新发布所选版本，确保 Cloudflare 收到新的构建事件。
-   - 打开 Job **Summary**，确认 Fork mode 为 `mirror`，并显示上游目标（stable Release 或 edge `main`），以及「已发布更新」或明确的「已对齐」结果。
-   - 若发生了 push，确认 Cloudflare **Deployments** 构建的是对应的 `main` commit。
-   - 普通部署 Fork 不应修改部署文件，日常升级也不要依赖 GitHub **Sync fork**；本工作流就是唯一需要的同步路径。只有旧 Fork 必须取得新版更新工作流本身时，才使用一次 **Sync fork**，之后继续使用 **Update deployed EdgeEver**。
+7. **驗證上游更新通道**
+   - 在 Fork 的 **Actions** 中手動運行一次 **Update deployed EdgeEver**。即使 Fork 已對齊，手動運行也會重新發布所選版本，確保 Cloudflare 收到新的構建事件。
+   - 打開 Job **Summary**，確認 Fork mode 爲 `mirror`，並顯示上游目標（stable Release 或 edge `main`），以及「已發佈更新」或明確的「已對齊」結果。
+   - 若發生了 push，確認 Cloudflare **Deployments** 構建的是對應的 `main` commit。
+   - 普通部署 Fork 不應修改部署文件，日常升級也不要依賴 GitHub **Sync fork**；本工作流就是唯一需要的同步路徑。只有舊 Fork 必須取得新版更新工作流本身時，才使用一次 **Sync fork**，之後繼續使用 **Update deployed EdgeEver**。

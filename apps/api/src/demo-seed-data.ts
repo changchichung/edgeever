@@ -8,11 +8,11 @@ import {
 export { decodeDemoAttachment };
 
 export const DEMO_SEED_NOTEBOOKS = [
-  { id: "nb_inbox", parentId: null, name: "等待分类", slug: "inbox", icon: "notebook", color: "#0f766e", sortOrder: 10 },
-  { id: "nb_projects", parentId: null, name: "工作项目", slug: "work-projects", icon: "notebook", color: "#2563eb", sortOrder: 20 },
-  { id: "nb_learning", parentId: null, name: "学习资料", slug: "learning-resources", icon: "notebook", color: "#7c3aed", sortOrder: 30 },
-  { id: "nb_creative", parentId: null, name: "灵感创作", slug: "creative-ideas", icon: "notebook", color: "#db2777", sortOrder: 40 },
-  { id: "nb_personal", parentId: null, name: "生活个人", slug: "personal-life", icon: "notebook", color: "#ea580c", sortOrder: 50 },
+  { id: "nb_inbox", parentId: null, name: "等待分類", slug: "inbox", icon: "notebook", color: "#0f766e", sortOrder: 10 },
+  { id: "nb_projects", parentId: null, name: "工作項目", slug: "work-projects", icon: "notebook", color: "#2563eb", sortOrder: 20 },
+  { id: "nb_learning", parentId: null, name: "學習資料", slug: "learning-resources", icon: "notebook", color: "#7c3aed", sortOrder: 30 },
+  { id: "nb_creative", parentId: null, name: "靈感創作", slug: "creative-ideas", icon: "notebook", color: "#db2777", sortOrder: 40 },
+  { id: "nb_personal", parentId: null, name: "生活個人", slug: "personal-life", icon: "notebook", color: "#ea580c", sortOrder: 50 },
   { id: "nb_demo_features", parentId: "nb_projects", name: "功能演示", slug: "demo-features", icon: "notebook", color: "#0891b2", sortOrder: 21 },
   { id: "nb_demo_features_en", parentId: "nb_projects", name: "Feature Demos", slug: "feature-demos", icon: "notebook", color: "#0e7490", sortOrder: 22 },
 ];
@@ -21,204 +21,204 @@ export const DEMO_SEED_MEMOS_ZH = [
   {
     id: "memo_demo_overview",
     notebookId: "nb_demo_features",
-    title: "🌿 欢迎使用 EdgeEver：为极客与创作者打造的现代开源知识库",
+    title: "🌿 歡迎使用 EdgeEver：爲極客與創作者打造的現代開源知識庫",
     tags: ["overview", "guide", "features", "ai-agent"],
     isPinned: true,
     markdown:
-      `> **EdgeEver** 是一款兼具**经典三栏美学**与 **AI 原生动力**的开源 Serverless / 容器化个人知识库。它既找回了极客们钟爱的经典印象笔记式双视图与树状目录，又以零服务器成本、完全数据自主、全端原生覆盖与深度 MCP 智能体协同，重新定义了下一代个人第二大脑。
+      `> **EdgeEver** 是一款兼具**經典三欄美學**與 **AI 原生動力**的開源 Serverless / 容器化個人知識庫。它既找回了極客們鍾愛的經典印象筆記式雙視圖與樹狀目錄，又以零服務器成本、完全數據自主、全端原生覆蓋與深度 MCP 智能體協同，重新定義了下一代個人第二大腦。
 
 ---
 
-## ⚡ 1. 为什么选择 EdgeEver？
+## ⚡ 1. 爲什麼選擇 EdgeEver？
 
-*提示：在编辑器模式下，你可以直接点击任意表格单元格进行行内编辑，或右键快捷插入/删除行列。*
+*提示：在編輯器模式下，你可以直接點擊任意表格單元格進行行內編輯，或右鍵快捷插入/刪除行列。*
 
-| 核心维度 | 传统商业云笔记 (如 Evernote) | 本地离线知识库 (如 Obsidian) | EdgeEver 极客知识库 |
+| 核心維度 | 傳統商業雲筆記 (如 Evernote) | 本地離線知識庫 (如 Obsidian) | EdgeEver 極客知識庫 |
 | :--- | :--- | :--- | :--- |
-| **云端托管成本** | 商业订阅高昂（$10+/月） | 官方云同步收费（$5+/月） | **100% 永久免费 (Cloudflare 免费额度 / Docker 自建)** |
-| **数据资产所有权** | 专有格式封闭，导出困难 | 本地 Markdown，移动端同步繁琐 | **完全自主掌控 (D1 SQLite 数据库 / R2 / 无损 ZIP 导出)** |
-| **写作与编辑体验** | 仅富文本，排版易错乱 | 纯 Markdown，缺乏沉浸所见即所得 | **双视图自由切换 (所见即所得富文本 ⇄ Markdown 源码)** |
-| **自媒体排版分发** | 无样式优化，格式丢失 | 需借助外部排版扩展或工具 | **一键复制到微信公众号 / Substack / Medium / WordPress** |
-| **社交卡片分享** | 截图粗糙或无排版设计 | 需第三方插件实现 | **内置 8 款精美海报主题，支持自定义字体与 PNG/JPEG 导出** |
-| **AI 原生集成生态** | 封闭收费，仅限特定功能 | 需配置复杂的第三方插件 | **原生内置 MCP 服务端点 (\`/mcp\`) 与行内 AI 智能体协同** |
-| **全平台多端覆盖** | 限制免费设备登录数量 | 多端同步与移动端体验门槛高 | **Web / PWA / Android / iOS / macOS / Windows (即将推出)** |
+| **雲端託管成本** | 商業訂閱高昂（$10+/月） | 官方雲同步收費（$5+/月） | **100% 永久免費 (Cloudflare 免費額度 / Docker 自建)** |
+| **數據資產所有權** | 專有格式封閉，導出困難 | 本地 Markdown，移動端同步繁瑣 | **完全自主掌控 (D1 SQLite 數據庫 / R2 / 無損 ZIP 導出)** |
+| **寫作與編輯體驗** | 僅富文本，排版易錯亂 | 純 Markdown，缺乏沉浸所見即所得 | **雙視圖自由切換 (所見即所得富文本 ⇄ Markdown 源碼)** |
+| **自媒體排版分發** | 無樣式優化，格式丟失 | 需藉助外部排版擴展或工具 | **一鍵複製到微信公衆號 / Substack / Medium / WordPress** |
+| **社交卡片分享** | 截圖粗糙或無排版設計 | 需第三方插件實現 | **內置 8 款精美海報主題，支持自定義字體與 PNG/JPEG 導出** |
+| **AI 原生集成生態** | 封閉收費，僅限特定功能 | 需配置複雜的第三方插件 | **原生內置 MCP 服務端點 (\`/mcp\`) 與行內 AI 智能體協同** |
+| **全平臺多端覆蓋** | 限制免費設備登錄數量 | 多端同步與移動端體驗門檻高 | **Web / PWA / Android / iOS / macOS / Windows (即將推出)** |
 
 ---
 
-## 🏗️ 2. 全景架构与生态联动
+## 🏗️ 2. 全景架構與生態聯動
 
-通过下面的 Mermaid 架构图，你可以清晰了解 EdgeEver 如何将多端客户端、零成本云基础设施与 AI Agent 紧密串联：
+通過下面的 Mermaid 架構圖，你可以清晰瞭解 EdgeEver 如何將多端客戶端、零成本雲基礎設施與 AI Agent 緊密串聯：
 
 \`\`\`mermaid
 flowchart TD
-    subgraph MultiClients["全端客户端矩阵"]
-        C1["Web / PWA (离线草稿 & 增量同步)"]
+    subgraph MultiClients["全端客戶端矩陣"]
+        C1["Web / PWA (離線草稿 & 增量同步)"]
         C2["macOS 桌面端 (Electron + Rust Sidecar)"]
         C3["Android 原生 App (Expo + SQLite)"]
         C4["iOS 原生 App (SwiftUI + GRDB)"]
-        C5["浏览器剪藏插件 (Chrome / Edge / Firefox)"]
+        C5["瀏覽器剪藏插件 (Chrome / Edge / Firefox)"]
     end
 
-    subgraph CoreEngine["业务与数据服务层"]
+    subgraph CoreEngine["業務與數據服務層"]
         API["Hono API 引擎 (Cloudflare Workers / Docker)"]
         MCP["原生 MCP Endpoint (/mcp 2026-07-28 & 2025)"]
-        D1[("D1 / SQLite 数据库 (双向同步 & 修订版本)")]
-        R2[("R2 / S3 资源存储 (图片与多媒体附件)")]
+        D1[("D1 / SQLite 數據庫 (雙向同步 & 修訂版本)")]
+        R2[("R2 / S3 資源存儲 (圖片與多媒體附件)")]
     end
 
-    subgraph AIAgents["AI 智能体与外部生态"]
+    subgraph AIAgents["AI 智能體與外部生態"]
         A1["Claude Code / Cursor / Antigravity"]
-        A2["行内 AI 助手 (OpenAI / Gemini / DeepSeek)"]
-        A3["Notion 数据库 / 飞书多维表格联动"]
+        A2["行內 AI 助手 (OpenAI / Gemini / DeepSeek)"]
+        A3["Notion 數據庫 / 飛書多維表格聯動"]
     end
 
-    MultiClients <==>|REST API & 同步游标| API
+    MultiClients <==>|REST API & 同步游標| API
     API <==> D1 & R2
     MCP <==> D1 & R2
     A1 <==>|MCP Tools / SSE| MCP
-    A2 -.->|BYOK 密钥直连| MultiClients
-    A1 -.->|双向数据同步| A3
+    A2 -.->|BYOK 密鑰直連| MultiClients
+    A1 -.->|雙向數據同步| A3
 \`\`\`
 
 ---
 
-## 🎨 3. 极致创作体验与排版美学
+## 🎨 3. 極致創作體驗與排版美學
 
-EdgeEver 将高效与优雅融入每一处交互细节，助你专注于思考与表达：
+EdgeEver 將高效與優雅融入每一處交互細節，助你專注于思考與表達：
 
-### 🖥️ 双视图编辑器与沉浸模式
-- **自由切换视图**：点击右上角 \`</>\` 按钮或使用快捷键，可在**所见即所得富文本**与 **Markdown 源码**间无缝切换，实时双向保真。
-- **左侧可折叠大纲**：自动解析文档 \`H1-H3\` 标题层级，支持点击平滑滚动跳转，助你轻松把控万字长文。
-- **Zen 专注模式**：按下 \`Cmd/Ctrl + Shift + F\`，隐藏所有侧边栏与干扰元素，进入纯粹写作心流。
-- **阅读保护模式 (Reading Protection)**：日常翻阅或查阅笔记时，按下 \`Cmd/Ctrl + E\` 即可一键开启只读保护，锁定当前编辑状态，避免沉浸阅读时误触键盘或意外改动笔记内容；再次按下即可随手切回编辑。
+### 🖥️ 雙視圖編輯器與沉浸模式
+- **自由切換視圖**：點擊右上角 \`</>\` 按鈕或使用快捷鍵，可在**所見即所得富文本**與 **Markdown 源碼**間無縫切換，實時雙向保真。
+- **左側可摺疊大綱**：自動解析文檔 \`H1-H3\` 標題層級，支持點擊平滑滾動跳轉，助你輕鬆把控萬字長文。
+- **Zen 專注模式**：按下 \`Cmd/Ctrl + Shift + F\`，隱藏所有側邊欄與干擾元素，進入純粹寫作心流。
+- **閱讀保護模式 (Reading Protection)**：日常翻閱或查閱筆記時，按下 \`Cmd/Ctrl + E\` 即可一鍵開啓只讀保護，鎖定當前編輯狀態，避免沉浸閱讀時誤觸鍵盤或意外改動筆記內容；再次按下即可隨手切回編輯。
 
-### 🎭 精选排版主题与一键自媒体发布
-- **内置排版主题**：支持一键切换 \`WeChat Classic Green (微信经典绿)\`、\`Modern Mint (薄荷青)\`、\`Minimal Emerald (极简祖母绿)\`、\`Outline Emerald (大纲祖母绿)\` 等风格。
-- **一键排版复制**：专为内容创作者设计。点击顶部工具栏的**微信公众号图标**，系统自动将当前笔记转为内联 CSS 样式的优雅富文本，直接粘贴至微信公众号后台、Substack 或 WordPress，排版与代码高亮完美保真。
+### 🎭 精選排版主題與一鍵自媒體發佈
+- **內置排版主題**：支持一鍵切換 \`WeChat Classic Green (微信經典綠)\`、\`Modern Mint (薄荷青)\`、\`Minimal Emerald (極簡祖母綠)\`、\`Outline Emerald (大綱祖母綠)\` 等風格。
+- **一鍵排版複製**：專爲內容創作者設計。點擊頂部工具欄的**微信公衆號圖標**，系統自動將當前筆記轉爲內聯 CSS 樣式的優雅富文本，直接粘貼至微信公衆號後臺、Substack 或 WordPress，排版與代碼高亮完美保真。
 
-### 🖼️ 8 套精美社交分享海报 (Poster Cards)
-点击右上角“分享为卡片”，即可将任意笔记或片段渲染为高清分享海报，支持：
-- **8 大主题风格**：\`Slate (岩灰)\`、\`Aurora (极光青)\`、\`Sunset (落日暖橙)\`、\`Midnight (暗夜极客)\`、\`Mint (清爽薄荷)\`、\`Notepad (复古便签)\`、\`Xuan (宣纸水墨)\`、\`Lavender (薰衣草紫)\`。
-- **排版定制**：支持无衬线 (Sans)、宋体/明朝 (Serif)、等宽代码 (Mono) 字体切换，自由选择紧凑、标准或宽幅卡片，一键导出为高清晰度 PNG 或 JPEG 图片。
+### 🖼️ 8 套精美社交分享海報 (Poster Cards)
+點擊右上角“分享爲卡片”，即可將任意筆記或片段渲染爲高清分享海報，支持：
+- **8 大主題風格**：\`Slate (巖灰)\`、\`Aurora (極光青)\`、\`Sunset (落日暖橙)\`、\`Midnight (暗夜極客)\`、\`Mint (清爽薄荷)\`、\`Notepad (復古便籤)\`、\`Xuan (宣紙水墨)\`、\`Lavender (薰衣草紫)\`。
+- **排版定製**：支持無襯線 (Sans)、宋體/明朝 (Serif)、等寬代碼 (Mono) 字體切換，自由選擇緊湊、標準或寬幅卡片，一鍵導出爲高清晰度 PNG 或 JPEG 圖片。
 
 ---
 
-## ⌨️ 4. 效率工具箱：斜杠指令、双链与数学公式
+## ⌨️ 4. 效率工具箱：斜槓指令、雙鏈與數學公式
 
-### 🪄 斜杠指令 (Slash Commands)
-在正文空白行输入 \`/\` 或直接按下 \`空格键\`，即可呼出快捷指令菜单：
-- 快速插入 \`H1/H2/H3\` 标题、引用、分割线、代码块与富文本表格；
-- 输入 \`/date\`、\`/time\` 或 \`/now\` 快速插入当前标准时间戳；
-- 插入附件、图片或调起行内 AI 智能助手。
+### 🪄 斜槓指令 (Slash Commands)
+在正文空白行輸入 \`/\` 或直接按下 \`空格鍵\`，即可呼出快捷指令菜單：
+- 快速插入 \`H1/H2/H3\` 標題、引用、分割線、代碼塊與富文本表格；
+- 輸入 \`/date\`、\`/time\` 或 \`/now\` 快速插入當前標準時間戳；
+- 插入附件、圖片或調起行內 AI 智能助手。
 
-### 🔗 知识双链与笔记引用
-在编辑器中输入 \`@\` 或插入 \`#memo=<笔记ID>\` 链接，即可建立笔记间的双向关联，点击即可在工作区内快速打开关联笔记，构建结构化网状知识库。
+### 🔗 知識雙鏈與筆記引用
+在編輯器中輸入 \`@\` 或插入 \`#memo=<筆記ID>\` 鏈接，即可建立筆記間的雙向關聯，點擊即可在工作區內快速打開關聯筆記，構建結構化網狀知識庫。
 
-### 📐 KaTeX 专业数学公式渲染
-EdgeEver 原生支持 LaTeX 数学表达式，无论是行内微积分还是多行物理方程，均可毫秒级高保真渲染：
+### 📐 KaTeX 專業數學公式渲染
+EdgeEver 原生支持 LaTeX 數學表達式，無論是行內微積分還是多行物理方程，均可毫秒級高保真渲染：
 
-- **行内公式**：例如质能方程 $E = mc^2$，以及正态分布概率密度函数 $f(x) = \\frac{1}{\\sigma \\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$。
-- **多行独立公式块**：
+- **行內公式**：例如質能方程 $E = mc^2$，以及正態分佈概率密度函數 $f(x) = \\frac{1}{\\sigma \\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$。
+- **多行獨立公式塊**：
 $$
 \\oint_{\\partial \\Omega} \\mathbf{E} \\cdot d\\mathbf{S} = \\frac{1}{\\varepsilon_0} \\iiint_{\\Omega} \\rho \\, dV, \\quad \\oint_{\\partial \\Omega} \\mathbf{B} \\cdot d\\mathbf{S} = 0
 $$
 
-### ✅ 交互式待办清单 (Task Lists)
-- [x] 体验 EdgeEver 双视图与大纲导航
-- [x] 探索 8 款编辑器主题与 8 套社交海报卡片
-- [ ] 尝试使用斜杠指令 \`/\` 插入当前日期与结构化表格
-- [ ] 配置个人 AI API Key，体验行内智能总结与续写
-- [ ] 开启 MCP 协议，让 AI Agent 协助整理工作区
+### ✅ 交互式待辦清單 (Task Lists)
+- [x] 體驗 EdgeEver 雙視圖與大綱導航
+- [x] 探索 8 款編輯器主題與 8 套社交海報卡片
+- [ ] 嘗試使用斜槓指令 \`/\` 插入當前日期與結構化表格
+- [ ] 配置個人 AI API Key，體驗行內智能總結與續寫
+- [ ] 開啓 MCP 協議，讓 AI Agent 協助整理工作區
 
 ---
 
-## 🤖 5. AI 原生协同与 MCP 智能体生态
+## 🤖 5. AI 原生協同與 MCP 智能體生態
 
-EdgeEver 走在 AI 时代前沿，将大语言模型与智能体深度融入知识管理生命周期：
+EdgeEver 走在 AI 時代前沿，將大語言模型與智能體深度融入知識管理生命週期：
 
 \`\`\`mermaid
 sequenceDiagram
     autonumber
-    actor User as 创作者 / 知识工作者
-    participant Client as EdgeEver 多端应用
-    participant MCP as EdgeEver MCP 服务端点
+    actor User as 創作者 / 知識工作者
+    participant Client as EdgeEver 多端應用
+    participant MCP as EdgeEver MCP 服務端點
     participant Agent as AI Agent (Claude / Cursor / Antigravity)
-    participant Database as Notion / 飞书多维表格
+    participant Database as Notion / 飛書多維表格
 
-    User->>Client: 快速记录碎片想法与会议灵感
-    Agent->>MCP: tools/call memo_search (检索近期未整理笔记)
-    MCP-->>Agent: 返回结构化 Markdown 笔记内容与标签
-    Agent->>Agent: 理解内容、自动提炼核心摘要并归类标签
-    Agent->>MCP: tools/call memo_update (写回智能总结与增强标签)
-    Agent->>Database: 同步结构化字段至个人知识总库
-    Client-->>User: 客户端毫秒级感知更新，笔记井井有条
+    User->>Client: 快速記錄碎片想法與會議靈感
+    Agent->>MCP: tools/call memo_search (檢索近期未整理筆記)
+    MCP-->>Agent: 返回結構化 Markdown 筆記內容與標籤
+    Agent->>Agent: 理解內容、自動提煉核心摘要並歸類標籤
+    Agent->>MCP: tools/call memo_update (寫回智能總結與增強標籤)
+    Agent->>Database: 同步結構化字段至個人知識總庫
+    Client-->>User: 客戶端毫秒級感知更新，筆記井井有條
 \`\`\`
 
-### 1️⃣ 行内 AI 助手 (Inline AI Assistant)
-在正文空白行直接按下 **\`空格键 (Space)\`**、输入 **\`/ai\`**、通过 **\`/\`** 斜杠指令菜单，或选中文本点击浮动工具栏中的 **AI 按钮**，即可即时呼出 AI 写作助手面板：
-- **精炼总结与要点提取**：一键压缩提炼全文核心结论、提取待办事项与关键行动项；
-- **格式保真智能翻译**：在严格保留原有 Markdown、数学公式、链接与代码块的前提下，精准翻译多国语言；
-- **内容重塑与风格改写**：支持改进表达、修正错别字与语法、转为社交媒体（如小红书/推特）风格，或按上下文顺滑续写；
-- **BYOK 隐私直连 (Bring Your Own Key)**：支持直连 OpenAI、Anthropic Claude、Google Gemini、DeepSeek 及各类 OpenAI 兼容的中继 API，数据完全由端侧直发，不经过任何第三方中转。
+### 1️⃣ 行內 AI 助手 (Inline AI Assistant)
+在正文空白行直接按下 **\`空格鍵 (Space)\`**、輸入 **\`/ai\`**、通過 **\`/\`** 斜槓指令菜單，或選中文本點擊浮動工具欄中的 **AI 按鈕**，即可即時呼出 AI 寫作助手面板：
+- **精煉總結與要點提取**：一鍵壓縮提煉全文核心結論、提取待辦事項與關鍵行動項；
+- **格式保真智能翻譯**：在嚴格保留原有 Markdown、數學公式、鏈接與代碼塊的前提下，精準翻譯多國語言；
+- **內容重塑與風格改寫**：支持改進表達、修正錯別字與語法、轉爲社交媒體（如小紅書/推特）風格，或按上下文順滑續寫；
+- **BYOK 隱私直連 (Bring Your Own Key)**：支持直連 OpenAI、Anthropic Claude、Google Gemini、DeepSeek 及各類 OpenAI 兼容的中繼 API，數據完全由端側直髮，不經過任何第三方中轉。
 
-### 2️⃣ 开放 MCP 协议 (Model Context Protocol)
-在**设置 → MCP 设置**中生成专属令牌，即可将 EdgeEver 接入 Claude Code、Cursor、Antigravity、OpenClaw 等主流 AI 编码助手与智能体平台：
-- **无缝读写**：支持标准 MCP 端点 \`/mcp\`（兼容最新的无状态 \`2026-07-28\` 协议与经典握手协议）；
-- **自动化流转**：AI Agent 可自动读取笔记、智能归档、批量打标，甚至与 Notion、飞书多维表格建立跨平台自动化同步。
+### 2️⃣ 開放 MCP 協議 (Model Context Protocol)
+在**設置 → MCP 設置**中生成專屬令牌，即可將 EdgeEver 接入 Claude Code、Cursor、Antigravity、OpenClaw 等主流 AI 編碼助手與智能體平臺：
+- **無縫讀寫**：支持標準 MCP 端點 \`/mcp\`（兼容最新的無狀態 \`2026-07-28\` 協議與經典握手協議）；
+- **自動化流轉**：AI Agent 可自動讀取筆記、智能歸檔、批量打標，甚至與 Notion、飛書多維表格建立跨平臺自動化同步。
 
 ---
 
-## 📱 6. 全平台原生覆盖、离线同步与智能剪藏
+## 📱 6. 全平臺原生覆蓋、離線同步與智能剪藏
 
 - **多端原生支持**：
-  - **Web / PWA**：支持现代浏览器全功能运行与离线安装；
-  - **Android 原生客户端**：基于 Expo 与 SQLite 构建，已上架 Google Play，并提供签名 APK 下载；
-  - **iOS 原生客户端**：基于 Swift / SwiftUI 与 GRDB 原生实现，流畅细腻，已上架 App Store；
-  - **macOS 桌面端**：Electron + Rust 高性能 Sidecar，支持 Apple Silicon 和 Intel Mac，内置静默后台更新；
-  - **Windows 桌面端**：已开发完毕，即将正式推出。
-- **浏览器网页剪藏 (Web Clipper)**：已在 Chrome、Edge 和 Firefox 官方扩展商店发布，一键剔除网页广告，将正文纯净沉淀为 Markdown 笔记。
-- **微信公众号一键剪藏**：在移动端系统分享菜单中，直接将微信文章分享到 EdgeEver，客户端将自动提取图文排版并转换为可编辑笔记。
-- **离线草稿与弹性同步**：地铁、飞行模式等无网络环境下自由编辑，重新联网后自动入队完成增量同步与冲突协调。
+  - **Web / PWA**：支持現代瀏覽器全功能運行與離線安裝；
+  - **Android 原生客戶端**：基於 Expo 與 SQLite 構建，已上架 Google Play，並提供簽名 APK 下載；
+  - **iOS 原生客戶端**：基於 Swift / SwiftUI 與 GRDB 原生實現，流暢細膩，已上架 App Store；
+  - **macOS 桌面端**：Electron + Rust 高性能 Sidecar，支持 Apple Silicon 和 Intel Mac，內置靜默後臺更新；
+  - **Windows 桌面端**：已開發完畢，即將正式推出。
+- **瀏覽器網頁剪藏 (Web Clipper)**：已在 Chrome、Edge 和 Firefox 官方擴展商店發佈，一鍵剔除網頁廣告，將正文純淨沉澱爲 Markdown 筆記。
+- **微信公衆號一鍵剪藏**：在移動端系統分享菜單中，直接將微信文章分享到 EdgeEver，客戶端將自動提取圖文排版並轉換爲可編輯筆記。
+- **離線草稿與彈性同步**：地鐵、飛行模式等無網絡環境下自由編輯，重新聯網後自動入隊完成增量同步與衝突協調。
 
 ---
 
-## 📦 7. 多媒体管理、无损备份与零成本自建
+## 📦 7. 多媒體管理、無損備份與零成本自建
 
-### 🖼️ 智能本地图片压缩
-在笔记中粘贴或拖入高分辨率图片时，前端会在本地自动将其转码压缩为 WebP 格式，在保证视觉无损的前提下**减少 50% - 90% 的体积**，大幅降低云端存储占用并提升跨端加载速度。
+### 🖼️ 智能本地圖片壓縮
+在筆記中粘貼或拖入高分辨率圖片時，前端會在本地自動將其轉碼壓縮爲 WebP 格式，在保證視覺無損的前提下**減少 50% - 90% 的體積**，大幅降低雲端存儲佔用並提升跨端加載速度。
 
 ![EdgeEver 官方 Logo](/api/v1/resources/res_demo_logo/blob)
 
-### 📎 多类型附件自由挂载
-支持在笔记中嵌入 PDF 文档、CSV 表格、压缩包及多媒体资源，点击即可在线预览或下载：
-- [📄 产品白皮书 PDF：edgeever-product-brief.pdf](/api/v1/resources/res_demo_product_brief_pdf/blob)
-- [📊 功能矩阵 CSV：feature-matrix.csv](/api/v1/resources/res_demo_feature_matrix_csv/blob)
-- [📦 示例附件压缩包：edgeever-attachment-demo.zip](/api/v1/resources/res_demo_attachment_bundle_zip/blob)
+### 📎 多類型附件自由掛載
+支持在筆記中嵌入 PDF 文檔、CSV 表格、壓縮包及多媒體資源，點擊即可在線預覽或下載：
+- [📄 產品白皮書 PDF：edgeever-product-brief.pdf](/api/v1/resources/res_demo_product_brief_pdf/blob)
+- [📊 功能矩陣 CSV：feature-matrix.csv](/api/v1/resources/res_demo_feature_matrix_csv/blob)
+- [📦 示例附件壓縮包：edgeever-attachment-demo.zip](/api/v1/resources/res_demo_attachment_bundle_zip/blob)
 
-### 🚀 两种自建部署方案：Serverless 与 Docker
-1. **Cloudflare Serverless（推荐，永久 100% 免费）**：基于 Workers + D1 数据库 + R2 对象存储构建，完全处于 Cloudflare 免费额度内，无需采购服务器，免运维、免证书续期。
-2. **Docker 一键自建（VPS / NAS / 家用服务器）**：
+### 🚀 兩種自建部署方案：Serverless 與 Docker
+1. **Cloudflare Serverless（推薦，永久 100% 免費）**：基於 Workers + D1 數據庫 + R2 對象存儲構建，完全處於 Cloudflare 免費額度內，無需採購服務器，免運維、免證書續期。
+2. **Docker 一鍵自建（VPS / NAS / 家用服務器）**：
    \`\`\`sh
-   # 国际 VPS / NAS 极速安装（GHCR 镜像）
+   # 國際 VPS / NAS 極速安裝（GHCR 鏡像）
    curl -fsSL https://edgeever.org/install.sh | bash
 
-   # 大陆地区 VPS / NAS 镜像加速（腾讯云 TCR 镜像）
+   # 大陸地區 VPS / NAS 鏡像加速（騰訊雲 TCR 鏡像）
    curl -fsSL https://edgeever-installer-1256854452.cos.ap-guangzhou.myqcloud.com/install.sh | bash -s -- --mirror tcr
    \`\`\`
-   单命令自动配置 Docker Compose 环境，并内置每日定时自动更新。
+   單命令自動配置 Docker Compose 環境，並內置每日定時自動更新。
 
-### 💾 绝对的数据自由：无损 ZIP 导入与导出
-在**个人中心 → 导入与导出**中，可随时将完整笔记库打包导出为结构清晰的 ZIP 压缩包。解压后即为包含标准 YAML Front Matter、相对路径附件图片与完整修订版本的纯 Markdown 文件树，随时可在 Obsidian、VS Code 等任意工具中无缝打开，永不担心平台绑定！
+### 💾 絕對的數據自由：無損 ZIP 導入與導出
+在**個人中心 → 導入與導出**中，可隨時將完整筆記庫打包導出爲結構清晰的 ZIP 壓縮包。解壓後即爲包含標準 YAML Front Matter、相對路徑附件圖片與完整修訂版本的純 Markdown 文件樹，隨時可在 Obsidian、VS Code 等任意工具中無縫打開，永不擔心平臺綁定！
 
 ---
 
-> 💡 **快速体验小贴士**：
-> 1. 点击右上角 **\`</>\`** 体验丝滑的双视图切换；
-> 2. 按下 **\`Cmd/Ctrl + E\`** 试一试阅读保护模式，锁定只读避免误改内容；
-> 3. 按下 **\`Cmd/Ctrl + O\`** 呼出快速切换器 (Quick Switcher)；
-> 4. 点击顶部 **微信图标**，体验一键带格式排版复制；
-> 5. 点击 **“分享为卡片”**，挑选一款你心仪的社交海报风格并导出；
-> 6. 随时在侧边栏或设置中点击 **“恢复 Demo 数据”**，一键重置演示工作区。
+> 💡 **快速體驗小貼士**：
+> 1. 點擊右上角 **\`</>\`** 體驗絲滑的雙視圖切換；
+> 2. 按下 **\`Cmd/Ctrl + E\`** 試一試閱讀保護模式，鎖定只讀避免誤改內容；
+> 3. 按下 **\`Cmd/Ctrl + O\`** 呼出快速切換器 (Quick Switcher)；
+> 4. 點擊頂部 **微信圖標**，體驗一鍵帶格式排版複製；
+> 5. 點擊 **“分享爲卡片”**，挑選一款你心儀的社交海報風格並導出；
+> 6. 隨時在側邊欄或設置中點擊 **“恢復 Demo 數據”**，一鍵重置演示工作區。
 `,
   },
 ];
@@ -228,9 +228,9 @@ export const DEMO_SEED_REVISIONS = [
     id: "rev_demo_revision_1",
     memoId: "memo_demo_overview",
     revision: 1,
-    title: "🌿 欢迎使用 EdgeEver：为极客与创作者打造的现代开源知识库",
+    title: "🌿 歡迎使用 EdgeEver：爲極客與創作者打造的現代開源知識庫",
     markdown:
-      "## 🌿 欢迎使用 EdgeEver（初版草稿）\n\n- 印象笔记经典三栏与自建 Serverless\n- 可视化表格与 Markdown 源码双向切换\n- 原生 MCP 与 AI 智能体协同",
+      "## 🌿 歡迎使用 EdgeEver（初版草稿）\n\n- 印象筆記經典三欄與自建 Serverless\n- 可視化表格與 Markdown 源碼雙向切換\n- 原生 MCP 與 AI 智能體協同",
   },
   {
     id: "rev_demo_revision_1_en",
