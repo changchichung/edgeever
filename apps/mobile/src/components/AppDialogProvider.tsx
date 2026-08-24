@@ -21,7 +21,7 @@ export const AppDialogProvider = ({ children }: { children: ReactNode }) => {
     }
     return request.buttons?.length
       ? request.buttons
-      : [{ text: translateCurrentMobileText("確定") } satisfies AlertButton];
+      : [{ text: translateCurrentMobileText("确定") } satisfies AlertButton];
   }, [request]);
   const cancelButton = buttons.find((button) => button.style === "cancel");
   const destructive = buttons.some((button) => button.style === "destructive");
@@ -52,7 +52,7 @@ export const AppDialogProvider = ({ children }: { children: ReactNode }) => {
       >
         <View style={[styles.backdrop, { paddingBottom: Math.max(20, insets.bottom + 12), paddingTop: Math.max(20, insets.top + 12) }]}>
           <Pressable
-            accessibilityLabel="關閉對話框"
+            accessibilityLabel="关闭对话框"
             accessibilityRole="button"
             onPress={() => {
               if (request?.options?.cancelable !== false) {
@@ -63,7 +63,7 @@ export const AppDialogProvider = ({ children }: { children: ReactNode }) => {
           />
           <View accessibilityViewIsModal style={styles.dialog}>
             <Pressable
-              accessibilityLabel="關閉"
+              accessibilityLabel="关闭"
               accessibilityRole="button"
               onPress={() => dismiss(Boolean(cancelButton))}
               style={styles.closeButton}
@@ -102,7 +102,7 @@ export const AppDialogProvider = ({ children }: { children: ReactNode }) => {
                       styles.buttonText,
                       isDestructive ? styles.buttonTextDanger : isCancel ? styles.buttonTextOutline : styles.buttonTextPrimary,
                     ]}>
-                      {button.text ?? translateCurrentMobileText("確定")}
+                      {button.text ?? translateCurrentMobileText("确定")}
                     </Text>
                   </Pressable>
                 );

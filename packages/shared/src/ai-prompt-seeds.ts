@@ -60,15 +60,15 @@ export const DEFAULT_AI_PROMPT_SEEDS: readonly AiPromptSeed[] = [
   seed(
     { key: "summarize", action: "summarize", parameterKind: "none", resultMode: "append" },
     {
-      name: "總結",
-      description: "壓縮全文，提煉主題、結論與可執行結果",
+      name: "总结",
+      description: "压缩全文，提炼主题、结论与可执行结果",
       instruction: [
-        "對筆記做真正的精簡總結，不要逐句改寫、同義複述或回聲式重寫。",
-        "識別中心主題、主要主張、關鍵結論與可執行結果。",
-        "省略重複、修辭、舉例、引語和次要細節，除非它們對理解關鍵結論必不可少。",
-        "較長筆記目標約爲原文 20–30% 篇幅，用 3–7 條簡潔 Markdown 要點；短筆記用 1–3 句即可。",
-        "不要大段照搬原文，也不要添加原文沒有的信息。",
-        "保持筆記原語言，只返回 Markdown 總結。",
+        "对笔记做真正的精简总结，不要逐句改写、同义复述或回声式重写。",
+        "识别中心主题、主要主张、关键结论与可执行结果。",
+        "省略重复、修辞、举例、引语和次要细节，除非它们对理解关键结论必不可少。",
+        "较长笔记目标约为原文 20–30% 篇幅，用 3–7 条简洁 Markdown 要点；短笔记用 1–3 句即可。",
+        "不要大段照搬原文，也不要添加原文没有的信息。",
+        "保持笔记原语言，只返回 Markdown 总结。",
       ].join(""),
     },
     {
@@ -87,9 +87,9 @@ export const DEFAULT_AI_PROMPT_SEEDS: readonly AiPromptSeed[] = [
   seed(
     { key: "translate", action: "translate", parameterKind: "target-language", resultMode: "both" },
     {
-      name: "翻譯",
-      description: "翻譯爲指定目標語言，保留結構與格式",
-      instruction: "將完整筆記翻譯成用戶指定的目標語言。保留原意、Markdown 結構、鏈接與代碼塊。只返回譯文，不要評論。",
+      name: "翻译",
+      description: "翻译为指定目标语言，保留结构与格式",
+      instruction: "将完整笔记翻译成用户指定的目标语言。保留原意、Markdown 结构、链接与代码块。只返回译文，不要评论。",
     },
     {
       name: "Translate",
@@ -100,9 +100,9 @@ export const DEFAULT_AI_PROMPT_SEEDS: readonly AiPromptSeed[] = [
   seed(
     { key: "improve-writing", action: "improve-writing", parameterKind: "none", resultMode: "both" },
     {
-      name: "潤色",
-      description: "校正語言並提升文字的清晰度與流暢度",
-      instruction: "潤色內容，修正錯別字、語法與標點，改善用詞、句式、清晰度和流暢度，但不要改變原意或刻意縮短內容。保持原語言與有用的 Markdown 格式。只返回潤色後的內容。",
+      name: "润色",
+      description: "校正语言并提升文字的清晰度与流畅度",
+      instruction: "润色内容，修正错别字、语法与标点，改善用词、句式、清晰度和流畅度，但不要改变原意或刻意缩短内容。保持原语言与有用的 Markdown 格式。只返回润色后的内容。",
     },
     {
       name: "Polish",
@@ -113,9 +113,9 @@ export const DEFAULT_AI_PROMPT_SEEDS: readonly AiPromptSeed[] = [
   seed(
     { key: "make-shorter", action: "make-shorter", parameterKind: "none", resultMode: "both" },
     {
-      name: "精煉表達",
-      description: "刪去重複與冗餘，讓表達更簡潔有力",
-      instruction: "精煉內容，刪除重複、空話和不必要的修飾，合併可以合併的句子，使表達簡潔、清晰、有力。保留所有關鍵事實、觀點與原意，不要添加新信息。保持原語言與有用的 Markdown 格式。只返回精煉後的內容。",
+      name: "精炼表达",
+      description: "删去重复与冗余，让表达更简洁有力",
+      instruction: "精炼内容，删除重复、空话和不必要的修饰，合并可以合并的句子，使表达简洁、清晰、有力。保留所有关键事实、观点与原意，不要添加新信息。保持原语言与有用的 Markdown 格式。只返回精炼后的内容。",
     },
     {
       name: "Make concise",
@@ -126,9 +126,9 @@ export const DEFAULT_AI_PROMPT_SEEDS: readonly AiPromptSeed[] = [
   seed(
     { key: "rewrite-proofread", action: "rewrite-proofread", parameterKind: "none", resultMode: "both" },
     {
-      name: "轉爲小紅書風格",
-      description: "改寫成自然、有吸引力的小紅書筆記",
-      instruction: "將內容改寫成適合小紅書發佈的筆記：生成吸引人的標題，使用自然、有親和力的口吻、短段落和清晰層次，可適量加入貼合語義的 Emoji，並在結尾給出 3–8 個相關話題標籤。保留原文的關鍵事實與觀點，不誇大效果，不編造經歷、數據或結論。只返回可直接發佈的內容。",
+      name: "转为小红书风格",
+      description: "改写成自然、有吸引力的小红书笔记",
+      instruction: "将内容改写成适合小红书发布的笔记：生成吸引人的标题，使用自然、有亲和力的口吻、短段落和清晰层次，可适量加入贴合语义的 Emoji，并在结尾给出 3–8 个相关话题标签。保留原文的关键事实与观点，不夸大效果，不编造经历、数据或结论。只返回可直接发布的内容。",
     },
     {
       name: "Convert to Xiaohongshu style",
@@ -139,9 +139,9 @@ export const DEFAULT_AI_PROMPT_SEEDS: readonly AiPromptSeed[] = [
   seed(
     { key: "simplify-language", action: "simplify-language", parameterKind: "none", resultMode: "both" },
     {
-      name: "轉爲推特風格",
-      description: "改寫成簡潔、有觀點的推文或推文串",
-      instruction: "將內容改寫成適合推特發佈的文本：開頭直接抓住重點，表達簡潔、有觀點、易讀。內容較短時輸出一條推文；無法在一條內保留關鍵信息時，輸出帶序號的精簡推文串。只在確有幫助時使用少量標籤。保留原文事實與立場，不製造噱頭或編造信息。只返回可直接發佈的內容。",
+      name: "转为推特风格",
+      description: "改写成简洁、有观点的推文或推文串",
+      instruction: "将内容改写成适合推特发布的文本：开头直接抓住重点，表达简洁、有观点、易读。内容较短时输出一条推文；无法在一条内保留关键信息时，输出带序号的精简推文串。只在确有帮助时使用少量标签。保留原文事实与立场，不制造噱头或编造信息。只返回可直接发布的内容。",
     },
     {
       name: "Convert to X (Twitter) style",

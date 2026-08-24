@@ -86,19 +86,19 @@ test.describe("dark mode visual contracts", () => {
     await expect(page.locator(".ProseMirror")).toBeVisible();
     expect(await auditVisibleTextContrast(page)).toEqual([]);
 
-    const titleInput = page.getByPlaceholder("無標題筆記", { exact: true });
+    const titleInput = page.getByPlaceholder("无标题笔记", { exact: true });
     await titleInput.focus();
     await expect(titleInput).toBeFocused();
     expect(await auditVisibleTextContrast(page)).toEqual([]);
 
-    await page.getByRole("button", { name: "個人中心", exact: true }).click();
+    await page.getByRole("button", { name: "个人中心", exact: true }).click();
     await expect(page.getByRole("heading", { name: "我的", exact: true })).toBeVisible();
     expect(await auditVisibleTextContrast(page)).toEqual([]);
   });
 
   test("notebook move picker keeps highlighted options dark and selected labels clean", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "選擇筆記", exact: true }).click();
+    await page.getByRole("button", { name: "选择笔记", exact: true }).click();
 
     const actionBar = page.locator("[data-memo-selection-action-bar]");
     const actionCard = actionBar.locator(":scope > div");

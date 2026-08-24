@@ -35,24 +35,24 @@ export const MOBILE_EDITOR_TOOLBAR_ACTIONS = [
 
 const MOBILE_EDITOR_COPY = {
   "zh-CN": {
-    placeholder: "開始記錄...",
-    toolbar: "編輯器工具欄",
+    placeholder: "开始记录...",
+    toolbar: "编辑器工具栏",
     actions: {
-      image: "上傳圖片",
+      image: "上传图片",
       bold: "加粗",
-      bulletList: "無序列表",
-      taskList: "任務清單",
-      increaseListIndent: "增加列表層級（Tab）",
-      decreaseListIndent: "減少列表層級（Shift + Tab）",
+      bulletList: "无序列表",
+      taskList: "任务清单",
+      increaseListIndent: "增加列表层级（Tab）",
+      decreaseListIndent: "减少列表层级（Shift + Tab）",
       blockquote: "引用",
-      horizontalRule: "分割線",
+      horizontalRule: "分割线",
     },
-    imageScale: "圖片顯示尺寸",
+    imageScale: "图片显示尺寸",
     imageSizes: {
-      small: "較小",
-      medium: "適中",
-      large: "較大",
-      full: "鋪滿",
+      small: "较小",
+      medium: "适中",
+      large: "较大",
+      full: "铺满",
     },
   },
   "en-US": {

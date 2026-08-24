@@ -3,7 +3,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/tianma-if/edgeever?style=social)](https://github.com/tianma-if/edgeever/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/tianma-if/edgeever?style=social)](https://github.com/tianma-if/edgeever/network/members)
 
-[簡體中文](README.zh-CN.md) | English
+[简体中文](README.zh-CN.md) | English
 
 > **EdgeEver: An open-source, AI-native, and portable self-hosted Evernote alternative.**
 
@@ -261,4 +261,3 @@ Docker runs the same frontend, API routes, services, authentication, MCP impleme
 ## Disclaimer
 
 EdgeEver is an independent open-source note-taking application developed and maintained by individuals and the community. It is not affiliated with, authorized, sponsored, or endorsed by Evernote Corporation or its affiliates.
-<!-- test auto deploy Mon 24 Aug 2026 09:37:36 AM CST -->

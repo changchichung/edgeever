@@ -177,7 +177,7 @@ type ImageExportRequest = {
 };
 let mode: "viewer" | "editor" = "viewer";
 let locale = "zh-CN";
-let currentPlaceholder = "開始輸入…";
+let currentPlaceholder = "开始输入…";
 let suppressChange = false;
 const resourceResolvers = new Map<string, (dataUrl: string | null) => void>();
 let resourceSeq = 0;
@@ -412,7 +412,7 @@ function createEdgeEverImageExtension() {
         actionButton.className = "edgeever-image-actions";
         actionButton.contentEditable = "false";
         actionButton.hidden = true;
-        actionButton.setAttribute("aria-label", "圖片操作");
+        actionButton.setAttribute("aria-label", "图片操作");
         actionButton.textContent = "⋯";
 
         const sizeControls = document.createElement("div");
@@ -420,7 +420,7 @@ function createEdgeEverImageExtension() {
         sizeControls.contentEditable = "false";
         sizeControls.hidden = true;
         sizeControls.setAttribute("role", "group");
-        sizeControls.setAttribute("aria-label", "圖片寬度");
+        sizeControls.setAttribute("aria-label", "图片宽度");
 
         const applyWidthAtPos = (width: number) => {
           const pos = getPos();
@@ -474,7 +474,7 @@ function createEdgeEverImageExtension() {
             loading.replaceChildren();
             const label = document.createElement("span");
             label.className = "edgeever-image-loading-label";
-            label.textContent = "圖片加載失敗";
+            label.textContent = "图片加载失败";
             loading.append(label);
             loading.hidden = false;
           } else if (phase === "loading") {
@@ -700,7 +700,7 @@ const toolbarEl = document.getElementById("toolbar")!;
 
 const editor = new Editor({
   element: editorEl,
-  extensions: buildExtensions("開始書寫…"),
+  extensions: buildExtensions("开始书写…"),
   editable: false,
   content: { type: "doc", content: [{ type: "paragraph" }] },
   onUpdate: ({ editor: ed }) => {
@@ -1075,14 +1075,14 @@ function setToolbarVisible(visible: boolean) {
     btn.textContent = action.label;
     btn.dataset.action = action.id;
     const labels: Record<string, [string, string]> = {
-      image: ["插入圖片", "Insert image"],
-      bold: ["粗體", "Bold"],
-      bullet: ["項目符號列表", "Bullet list"],
-      task: ["任務清單", "Task list"],
-      indent: ["增加列表縮進", "Increase list indent"],
-      outdent: ["減少列表縮進", "Decrease list indent"],
+      image: ["插入图片", "Insert image"],
+      bold: ["粗体", "Bold"],
+      bullet: ["项目符号列表", "Bullet list"],
+      task: ["任务清单", "Task list"],
+      indent: ["增加列表缩进", "Increase list indent"],
+      outdent: ["减少列表缩进", "Decrease list indent"],
       quote: ["引用", "Block quote"],
-      hr: ["分隔線", "Horizontal rule"],
+      hr: ["分隔线", "Horizontal rule"],
     };
     btn.setAttribute("aria-label", labels[action.id]?.[locale === "en-US" ? 1 : 0] ?? action.id);
     btn.addEventListener("click", () => {

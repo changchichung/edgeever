@@ -4954,21 +4954,21 @@ const RichEditorPane = ({
               type="button"
               onClick={() => setMobileImeDebugOpen((open) => !open)}
             >
-              IME 診斷：{mobileImeDebugEditorFocused ? "正文已聚焦" : "正文未聚焦"} · len {getMobilePlainTextValue().length}
+              IME 诊断：{mobileImeDebugEditorFocused ? "正文已聚焦" : "正文未聚焦"} · len {getMobilePlainTextValue().length}
             </button>
             <button
               className="rounded border border-amber-300 bg-white px-2 py-1 font-medium text-slate-700"
               type="button"
               onClick={() => void handleMobileClipboardInput()}
             >
-              粘貼
+              粘贴
             </button>
             <button
               className="rounded border border-amber-300 bg-white px-2 py-1 font-medium text-slate-700"
               type="button"
               onClick={handleMobilePromptInput}
             >
-              輸入
+              输入
             </button>
             <button
               className="rounded border border-amber-300 bg-white px-2 py-1 font-medium text-slate-700"
@@ -4987,7 +4987,7 @@ const RichEditorPane = ({
                 void navigator.clipboard?.writeText(mobileImeDebugLogText);
               }}
             >
-              複製
+              复制
             </button>
           </div>
           {mobileImeDebugOpen && (
@@ -4998,7 +4998,7 @@ const RichEditorPane = ({
               <div>save: {saveState} dirty={String(hasUnsavedChanges)}</div>
               <div className="mt-1 border-t border-amber-100 pt-1">
                 {mobileImeDebugEvents.length === 0 ? (
-                  <div>暫無事件。點正文或按鍵後這裏應該變化。</div>
+                  <div>暂无事件。点正文或按键后这里应该变化。</div>
                 ) : (
                   mobileImeDebugEvents.map((entry) => (
                     <div key={entry.id}>

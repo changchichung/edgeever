@@ -61,10 +61,10 @@ export class DesktopRendererErrorBoundary extends React.Component<{ children: Re
       <main className="flex min-h-screen items-center justify-center bg-slate-50 p-6 text-slate-900">
         <section className="w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" role="alert">
           <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-rose-50 text-xl text-rose-700">!</div>
-          <h1 className="text-lg font-semibold">{zh ? "EdgeEver 頁面出現異常" : "EdgeEver encountered a page error"}</h1>
+          <h1 className="text-lg font-semibold">{zh ? "EdgeEver 页面出现异常" : "EdgeEver encountered a page error"}</h1>
           <p className="mt-2 text-sm leading-6 text-slate-600">
             {zh
-              ? "問題已經記錄到這臺設備。你可以重新加載繼續使用，並在提交前檢查脫敏後的 GitHub Issue。"
+              ? "问题已经记录到这台设备。你可以重新加载继续使用，并在提交前检查脱敏后的 GitHub Issue。"
               : "The problem was recorded on this device. You can reload to continue and review the redacted GitHub Issue before submitting it."}
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
@@ -73,7 +73,7 @@ export class DesktopRendererErrorBoundary extends React.Component<{ children: Re
               type="button"
               onClick={() => window.location.reload()}
             >
-              {zh ? "重新加載" : "Reload"}
+              {zh ? "重新加载" : "Reload"}
             </button>
             {desktop ? (
               <button
@@ -83,8 +83,8 @@ export class DesktopRendererErrorBoundary extends React.Component<{ children: Re
                 onClick={() => void this.report()}
               >
                 {this.state.reporting
-                  ? (zh ? "正在打開…" : "Opening…")
-                  : (zh ? "報告到 GitHub" : "Report to GitHub")}
+                  ? (zh ? "正在打开…" : "Opening…")
+                  : (zh ? "报告到 GitHub" : "Report to GitHub")}
               </button>
             ) : null}
           </div>

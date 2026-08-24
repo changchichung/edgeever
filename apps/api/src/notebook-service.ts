@@ -242,7 +242,7 @@ export const deleteNotebookRecord = async (
   const current = await getNotebook(db, workspaceId, id);
   if (!current) throw new AppError("not_found", "Notebook not found", 404);
   if (id === "nb_inbox" || current.slug === "inbox") {
-    throw new AppError("bad_request", "等待分類不能刪除。", 400);
+    throw new AppError("bad_request", "等待分类不能删除。", 400);
   }
 
   const [childCount, memoCount] = await Promise.all([

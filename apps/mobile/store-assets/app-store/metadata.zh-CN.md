@@ -1,86 +1,86 @@
-# EdgeEver App Store 元數據（簡體中文）
+# EdgeEver App Store 元数据（简体中文）
 
 ## App 信息
 
-- 名稱：EdgeEver
-- 副標題：自託管筆記工作區
-- 主要類別：效率
-- 次要類別：工具
-- 內容版權：EdgeEver 默認不包含、展示或訪問第三方內容；用戶將 App 連接到自己控制的 EdgeEver 實例。
-- 隱私政策網址：https://edgeever.org/privacy
+- 名称：EdgeEver
+- 副标题：自托管笔记工作区
+- 主要类别：效率
+- 次要类别：工具
+- 内容版权：EdgeEver 默认不包含、展示或访问第三方内容；用户将 App 连接到自己控制的 EdgeEver 实例。
+- 隐私政策网址：https://edgeever.org/privacy
 
 ## 版本 1.0
 
-### 推廣文本
+### 推广文本
 
-連接你自己的開源 EdgeEver 工作區，在 Cloudflare 上隨時記錄、整理並同步筆記。
+连接你自己的开源 EdgeEver 工作区，在 Cloudflare 上随时记录、整理并同步笔记。
 
 ### 描述
 
-EdgeEver 是一款開源、自託管的筆記工作區，適合希望兼顧快速熟悉的寫作體驗與數據控制權的用戶。
+EdgeEver 是一款开源、自托管的笔记工作区，适合希望兼顾快速熟悉的写作体验与数据控制权的用户。
 
-將 App 連接到由你或你的組織運營的 EdgeEver 實例，即可在 iPhone 上使用筆記本、筆記、標籤、附件、搜索和回收站。
+将 App 连接到由你或你的组织运营的 EdgeEver 实例，即可在 iPhone 上使用笔记本、笔记、标签、附件、搜索和回收站。
 
 主要功能：
 
-• 快速瀏覽筆記本與筆記
-• 富文本筆記編輯
-• 多級嵌套筆記本與標籤
-• 全工作區搜索
-• 圖片與附件上傳
-• 弱網環境下的本地草稿和同步隊列
-• 會話憑據安全保存在設備上
-• 無廣告、無分析、無追蹤、無遙測
+• 快速浏览笔记本与笔记
+• 富文本笔记编辑
+• 多级嵌套笔记本与标签
+• 全工作区搜索
+• 图片与附件上传
+• 弱网环境下的本地草稿和同步队列
+• 会话凭据安全保存在设备上
+• 无广告、无分析、无追踪、无遥测
 
-EdgeEver 運行在你自己的 Cloudflare 賬號中，不存在集中保存或中轉用戶筆記與憑據的 EdgeEver 中央服務。使用本 App 前，請按照 edgeever.org 的說明部署 EdgeEver 實例，或連接由你的組織提供的實例。
+EdgeEver 运行在你自己的 Cloudflare 账号中，不存在集中保存或中转用户笔记与凭据的 EdgeEver 中央服务。使用本 App 前，请按照 edgeever.org 的说明部署 EdgeEver 实例，或连接由你的组织提供的实例。
 
-EdgeEver 是獨立項目，與 Evernote Corporation 及其關聯公司無隸屬、授權、贊助或背書關係。
+EdgeEver 是独立项目，与 Evernote Corporation 及其关联公司无隶属、授权、赞助或背书关系。
 
-### 關鍵詞
+### 关键词
 
-筆記,筆記本,自託管,寫作,知識庫,Cloudflare,開源,同步,效率,Markdown
+笔记,笔记本,自托管,写作,知识库,Cloudflare,开源,同步,效率,Markdown
 
-### 網址
+### 网址
 
-- 技術支持網址：https://edgeever.org/contact
-- 營銷網址：https://edgeever.org
+- 技术支持网址：https://edgeever.org/contact
+- 营销网址：https://edgeever.org
 
-### 版權
+### 版权
 
 2026 Zhengzhou Binggui Network Technology Co., Ltd.
 
-## App 審覈信息
+## App 审核信息
 
-- 演示實例網址：https://demo.edgeever.org
-- 用戶名：ee-demo
-- 密碼：demo#dZ6Q29Zjfor%
-- 聯繫人名字：Shihao
-- 聯繫人姓氏：Ma
-- 聯繫電話：+86 185 3927 0558
-- 聯繫郵箱：1245207870@qq.com
+- 演示实例网址：https://demo.edgeever.org
+- 用户名：ee-demo
+- 密码：demo#dZ6Q29Zjfor%
+- 联系人名字：Shihao
+- 联系人姓氏：Ma
+- 联系电话：+86 185 3927 0558
+- 联系邮箱：1245207870@qq.com
 
-### 審覈備註
+### 审核备注
 
-請先按下面的值登錄，不要只輸入 demo。
+请先按下面的值登录，不要只输入 demo。
 
-演示實例網址（請完整填入「實例地址」，必須是 HTTPS）：
+演示实例网址（请完整填入「实例地址」，必须是 HTTPS）：
 https://demo.edgeever.org
 
-用戶名：ee-demo
-密碼：demo#dZ6Q29Zjfor%
+用户名：ee-demo
+密码：demo#dZ6Q29Zjfor%
 
-登錄步驟：
-1. 打開 EdgeEver。
-2. 在「實例地址」中輸入 https://demo.edgeever.org
-3. 輸入上方用戶名和密碼。
-4. 點擊登錄，應進入帶有示例內容的筆記工作區。
+登录步骤：
+1. 打开 EdgeEver。
+2. 在「实例地址」中输入 https://demo.edgeever.org
+3. 输入上方用户名和密码。
+4. 点击登录，应进入带有示例内容的笔记工作区。
 
-請不要只輸入 demo，也不要使用任何 example.com 佔位符。
+请不要只输入 demo，也不要使用任何 example.com 占位符。
 
-EdgeEver 是自託管個人知識庫。用戶將 App 連接到自己的實例地址，不存在共享 SaaS 後端。公開演示實例供 App 審覈使用，每天北京時間約 03:00（19:00 UTC）重置，請勿在其中保存私人數據。
+EdgeEver 是自托管个人知识库。用户将 App 连接到自己的实例地址，不存在共享 SaaS 后端。公开演示实例供 App 审核使用，每天北京时间约 03:00（19:00 UTC）重置，请勿在其中保存私人数据。
 
-公開演示必須使用 HTTPS。HTTP 僅用於本機/局域網自託管，並會顯示明確警告。
+公开演示必须使用 HTTPS。HTTP 仅用于本机/局域网自托管，并会显示明确警告。
 
-App 不負責創建賬號。正式賬號由用戶所連接的自託管 EdgeEver 實例管理員創建和管理。筆記、附件、憑據與同步流量直接在設備和用戶選擇的實例之間傳輸，App 開發者不運營中轉或集中存儲服務。賬號及服務端數據刪除由實例管理員處理；用戶可以退出登錄以移除本地會話，並通過 iOS 設置刪除本地 App 數據。
+App 不负责创建账号。正式账号由用户所连接的自托管 EdgeEver 实例管理员创建和管理。笔记、附件、凭据与同步流量直接在设备和用户选择的实例之间传输，App 开发者不运营中转或集中存储服务。账号及服务端数据删除由实例管理员处理；用户可以退出登录以移除本地会话，并通过 iOS 设置删除本地 App 数据。
 
-App 僅使用操作系統和 HTTPS 庫提供的標準加密，不實現專有或非標準加密算法。
+App 仅使用操作系统和 HTTPS 库提供的标准加密，不实现专有或非标准加密算法。

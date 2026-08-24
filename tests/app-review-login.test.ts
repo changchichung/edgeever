@@ -38,6 +38,6 @@ describe("App Review login", () => {
       expect(read(path), path).toContain("https://demo.edgeever.org");
     }
     expect(read("apps/mobile/store-assets/app-store/metadata.en-US.md")).toContain("Username: ee-demo");
-    expect(read("apps/mobile/store-assets/app-store/metadata.zh-CN.md")).toContain("用戶名：ee-demo");
+    expect(read("apps/mobile/store-assets/app-store/metadata.zh-CN.md")).toContain("用户名：ee-demo");
   });
 });

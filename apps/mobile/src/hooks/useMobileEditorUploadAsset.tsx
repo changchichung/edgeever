@@ -28,15 +28,15 @@ const requestCameraAccess = async () => {
   }
 
   Alert.alert(
-    "需要相機權限",
+    "需要相机权限",
     permission.canAskAgain
-      ? "允許 EdgeEver 使用相機後，才能直接拍照插入筆記。"
-      : "相機權限已被關閉。請前往系統設置允許 EdgeEver 使用相機。",
+      ? "允许 EdgeEver 使用相机后，才能直接拍照插入笔记。"
+      : "相机权限已被关闭。请前往系统设置允许 EdgeEver 使用相机。",
     permission.canAskAgain
-      ? [{ text: "確定", style: "cancel" }]
+      ? [{ text: "确定", style: "cancel" }]
       : [
           { text: "取消", style: "cancel" },
-          { text: "前往設置", onPress: () => void Linking.openSettings() },
+          { text: "前往设置", onPress: () => void Linking.openSettings() },
         ]
   );
   return false;
@@ -85,7 +85,7 @@ const getPendingAndroidImage = async () => {
   if ("canceled" in pending) {
     return getImagePickerAsset(pending);
   }
-  throw new Error(pending.message || "系統未能恢復上次選擇的圖片，請重試");
+  throw new Error(pending.message || "系统未能恢复上次选择的图片，请重试");
 };
 
 const SourceRow = ({
@@ -121,7 +121,7 @@ const MobileEditorUploadSourcePicker = ({
   const styles = useMemo(() => resolveMobileThemeStyles(baseStyles, resolvedTheme), [resolvedTheme]);
   return (
     <Modal animationType="fade" onRequestClose={onClose} transparent visible={visible}>
-      <Pressable accessibilityLabel="關閉圖片來源選擇" onPress={onClose} style={styles.backdrop}>
+      <Pressable accessibilityLabel="关闭图片来源选择" onPress={onClose} style={styles.backdrop}>
         <Pressable
           accessibilityRole="none"
           onPress={(event) => event.stopPropagation()}
@@ -130,17 +130,17 @@ const MobileEditorUploadSourcePicker = ({
           <View style={styles.handle} />
           <View style={styles.header}>
             <View>
-              <Text accessibilityRole="header" style={styles.title}>添加圖片或附件</Text>
-              <Text style={styles.subtitle}>選擇拍照、相冊或設備文件</Text>
+              <Text accessibilityRole="header" style={styles.title}>添加图片或附件</Text>
+              <Text style={styles.subtitle}>选择拍照、相册或设备文件</Text>
             </View>
-            <Pressable accessibilityLabel="關閉" accessibilityRole="button" onPress={onClose} style={styles.closeButton}>
+            <Pressable accessibilityLabel="关闭" accessibilityRole="button" onPress={onClose} style={styles.closeButton}>
               <X color="#64748b" size={19} />
             </Pressable>
           </View>
           <View style={styles.content}>
             <SourceRow icon={<Camera color="#0f172a" size={20} />} label="拍照" onPress={() => onSelect("camera")} />
-            <SourceRow icon={<ImageIcon color="#0f172a" size={20} />} label="從相冊選擇" onPress={() => onSelect("library")} />
-            <SourceRow icon={<FileText color="#0f172a" size={20} />} label="選擇文件" onPress={() => onSelect("file")} />
+            <SourceRow icon={<ImageIcon color="#0f172a" size={20} />} label="从相册选择" onPress={() => onSelect("library")} />
+            <SourceRow icon={<FileText color="#0f172a" size={20} />} label="选择文件" onPress={() => onSelect("file")} />
           </View>
         </Pressable>
       </Pressable>

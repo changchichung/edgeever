@@ -622,19 +622,19 @@ export const NotebookPane = ({
               target="_blank"
               rel="noreferrer"
               className="flex min-h-11 w-full items-start gap-3 rounded-md px-3 py-2 text-left text-emerald-700 transition-colors duration-200 hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70"
-              title={t("pwa.sidebarInstallTitle") || "下載 EdgeEver 桌面客戶端"}
-              aria-label={t("pwa.sidebarInstallTitle") || "下載 EdgeEver 桌面客戶端"}
+              title={t("pwa.sidebarInstallTitle") || "下载 EdgeEver 桌面客户端"}
+              aria-label={t("pwa.sidebarInstallTitle") || "下载 EdgeEver 桌面客户端"}
             >
               <span className="flex h-4 w-4 shrink-0 items-center justify-center mt-0.5">
                 <Download className="h-4 w-4 text-emerald-600" />
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-semibold leading-4">
-                  {t("pwa.sidebarInstall") || "下載桌面客戶端"}
+                  {t("pwa.sidebarInstall") || "下载桌面客户端"}
                 </span>
                 <span className="mt-1 block whitespace-nowrap text-[11px] font-normal leading-4 text-slate-500">
                   {t("pwa.sidebarInstallAvailability") ||
-                    "Mac/iOS/安卓可用 · Windows 敬請期待"}
+                    "Mac/iOS/安卓可用 · Windows 敬请期待"}
                 </span>
               </span>
             </a>
@@ -645,13 +645,13 @@ export const NotebookPane = ({
                 <button
                   className="flex h-8 w-full items-center gap-3 rounded-md px-3 text-left text-sm font-medium leading-none text-slate-500 transition-colors duration-200 hover:bg-slate-50 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70"
                   type="button"
-                  title={t("pwa.sidebarClipperTitle") || "安裝 EdgeEver 瀏覽器剪藏插件"}
-                  aria-label={t("pwa.sidebarClipperTitle") || "安裝 EdgeEver 瀏覽器剪藏插件"}
+                  title={t("pwa.sidebarClipperTitle") || "安装 EdgeEver 浏览器剪藏插件"}
+                  aria-label={t("pwa.sidebarClipperTitle") || "安装 EdgeEver 浏览器剪藏插件"}
                 >
                   <span className="flex h-4 w-4 shrink-0 items-center justify-center">
                     <ExternalLink className="h-3.5 w-3.5 text-slate-400" />
                   </span>
-                  <span className="min-w-0 flex-1 truncate">{t("pwa.sidebarClipper") || "安裝瀏覽器剪藏插件"}</span>
+                  <span className="min-w-0 flex-1 truncate">{t("pwa.sidebarClipper") || "安装浏览器剪藏插件"}</span>
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" side="top" className="w-52">

@@ -43,19 +43,19 @@ export const getStartupPerformanceItems = () => {
   const nativeTiming = (performance as Performance & { rnStartupTiming?: NativeStartupTiming }).rnStartupTiming;
   const nativeStart = nativeTiming?.startTime ?? 0;
   const duration = (end?: number | null, start?: number | null) =>
-    typeof end === "number" && typeof start === "number" ? `${Math.max(0, end - start).toFixed(0)} ms` : "暫不可用";
+    typeof end === "number" && typeof start === "number" ? `${Math.max(0, end - start).toFixed(0)} ms` : "暂不可用";
   const sinceNativeStart = (name: StartupMark) => {
     const value = marks.get(name);
-    return typeof value === "number" ? `${Math.max(0, value - nativeStart).toFixed(0)} ms` : "尚未記錄";
+    return typeof value === "number" ? `${Math.max(0, value - nativeStart).toFixed(0)} ms` : "尚未记录";
   };
 
   return [
-    { label: "原生運行時啓動", value: duration(nativeTiming?.endTime, nativeTiming?.startTime) },
-    { label: "啓動至 JS 執行", value: duration(nativeTiming?.executeJavaScriptBundleEntryPointStart, nativeTiming?.startTime) },
-    { label: "啓動至會話/緩存就緒", value: sinceNativeStart("index-ready") },
-    { label: "啓動至工作區首幀", value: sinceNativeStart("workspace-first-commit") },
-    { label: "啓動至列表數據就緒", value: sinceNativeStart("workspace-data-ready") },
-    { label: "啓動至交互空閒", value: sinceNativeStart("workspace-interactive") },
-    { label: "最近一次本地編輯器啓動", value: latestEditorStartupMs === null ? "尚未記錄" : `${latestEditorStartupMs.toFixed(0)} ms` },
+    { label: "原生运行时启动", value: duration(nativeTiming?.endTime, nativeTiming?.startTime) },
+    { label: "启动至 JS 执行", value: duration(nativeTiming?.executeJavaScriptBundleEntryPointStart, nativeTiming?.startTime) },
+    { label: "启动至会话/缓存就绪", value: sinceNativeStart("index-ready") },
+    { label: "启动至工作区首帧", value: sinceNativeStart("workspace-first-commit") },
+    { label: "启动至列表数据就绪", value: sinceNativeStart("workspace-data-ready") },
+    { label: "启动至交互空闲", value: sinceNativeStart("workspace-interactive") },
+    { label: "最近一次本地编辑器启动", value: latestEditorStartupMs === null ? "尚未记录" : `${latestEditorStartupMs.toFixed(0)} ms` },
   ];
 };

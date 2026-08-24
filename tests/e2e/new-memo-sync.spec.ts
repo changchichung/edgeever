@@ -62,9 +62,9 @@ const holdNextMemoCreate = async (page: Page) => {
 };
 
 const editNewMemo = async (page: Page, title: string, content: string) => {
-  await page.getByRole("button", { name: "新建筆記", exact: true }).click();
+  await page.getByRole("button", { name: "新建笔记", exact: true }).click();
 
-  const titleInput = page.getByPlaceholder("無標題");
+  const titleInput = page.getByPlaceholder("无标题");
   const editor = page.locator(".ProseMirror[contenteditable='true']");
   await expect(titleInput).toBeEditable();
   await expect(editor).toBeEditable();
@@ -122,7 +122,7 @@ const finishSyncAndVerifyReload = async (
     const memoCard = page.locator(`[data-memo-id="${memoId}"]`);
     await expect(memoCard).toContainText(title);
     await memoCard.locator("button").first().click();
-    await expect(page.getByPlaceholder("無標題")).toHaveValue(title);
+    await expect(page.getByPlaceholder("无标题")).toHaveValue(title);
     await expect(page.locator(".ProseMirror[contenteditable='true']")).toContainText(content);
   } finally {
     await page.request.delete(`/api/v1/memos/${memoId}`);

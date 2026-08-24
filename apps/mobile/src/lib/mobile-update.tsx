@@ -54,10 +54,10 @@ export const MobileUpdateProvider = ({ children }: { children: ReactNode }) => {
     if (!isSupported) {
       if (userInitiated) {
         Alert.alert(
-          english ? "Updates unavailable" : "暫無法檢查更新",
+          english ? "Updates unavailable" : "暂无法检查更新",
           english
             ? "Update checks are available in installed release builds, not Expo Go or development builds."
-            : "檢查更新僅適用於已安裝的正式版，Expo Go 和開發版暫不支持。"
+            : "检查更新仅适用于已安装的正式版，Expo Go 和开发版暂不支持。"
         );
       }
       return Promise.resolve();
@@ -137,17 +137,17 @@ export const MobileUpdateProvider = ({ children }: { children: ReactNode }) => {
       }
       const sizeMb = Math.max(1, Math.ceil(installRelease.size / 1024 / 1024));
       Alert.alert(
-        english ? "Update available" : "發現新版本",
+        english ? "Update available" : "发现新版本",
         english
           ? `EdgeEver ${installRelease.version} is available. Download ${sizeMb} MB and install it now?`
-          : `EdgeEver ${installRelease.version} 已發佈。是否立即下載 ${sizeMb} MB 安裝包並更新？`,
+          : `EdgeEver ${installRelease.version} 已发布。是否立即下载 ${sizeMb} MB 安装包并更新？`,
         [
           {
             text: english ? "Cancel" : "取消",
             style: "cancel",
           },
           {
-            text: english ? "Download & install" : "下載並安裝",
+            text: english ? "Download & install" : "下载并安装",
             onPress: () => {
               setDownloadProgress(0);
               setStatus("downloading");
@@ -162,10 +162,10 @@ export const MobileUpdateProvider = ({ children }: { children: ReactNode }) => {
                 setDownloadProgress(null);
                 setStatus("available");
                 Alert.alert(
-                  english ? "Update failed" : "更新失敗",
+                  english ? "Update failed" : "更新失败",
                   english
                     ? "Could not download or open the installer. Try again later."
-                    : "無法下載安裝包或打開系統安裝器，請稍後重試。"
+                    : "无法下载安装包或打开系统安装器，请稍后重试。"
                 );
               });
             },
@@ -193,22 +193,22 @@ export const MobileUpdateProvider = ({ children }: { children: ReactNode }) => {
         if (english) {
           Alert.alert("No update", "No downloadable in-app update was found.");
         } else {
-          Alert.alert("暫無更新", "沒有可下載的應用內更新。");
+          Alert.alert("暂无更新", "没有可下载的应用内更新。");
         }
         return;
       }
 
       setStatus("ready");
       Alert.alert(
-        english ? "Update ready" : "更新已就緒",
-        english ? "Restart now to apply the update." : "重啓後即可應用更新。",
+        english ? "Update ready" : "更新已就绪",
+        english ? "Restart now to apply the update." : "重启后即可应用更新。",
         [
           {
-            text: english ? "Later" : "稍後",
+            text: english ? "Later" : "稍后",
             style: "cancel",
           },
           {
-            text: english ? "Restart" : "立即重啓",
+            text: english ? "Restart" : "立即重启",
             onPress: () => {
               void Updates.reloadAsync();
             },
@@ -218,10 +218,10 @@ export const MobileUpdateProvider = ({ children }: { children: ReactNode }) => {
     } catch {
       setStatus("available");
       Alert.alert(
-        english ? "Update failed" : "更新失敗",
+        english ? "Update failed" : "更新失败",
         english
           ? "Could not download the in-app update. Try again later."
-          : "無法下載應用內更新，請稍後再試。"
+          : "无法下载应用内更新，请稍后再试。"
       );
     }
   }, [english, installRelease, isSupported, status, updateKind]);

@@ -114,19 +114,19 @@ export const MobileUpdateToast = () => {
   }
 
   const title = status === "downloading"
-    ? (english ? "Downloading update" : "正在下載更新")
+    ? (english ? "Downloading update" : "正在下载更新")
     : status === "installing"
-      ? (english ? "Installer ready" : "安裝包已就緒")
-      : (english ? "Update available" : "發現新版本");
+      ? (english ? "Installer ready" : "安装包已就绪")
+      : (english ? "Update available" : "发现新版本");
   const detail = status === "downloading"
     ? `${Math.round((downloadProgress ?? 0) * 100)}%`
     : status === "installing"
-      ? (english ? "Opening the system installer" : "正在打開系統安裝器")
+      ? (english ? "Opening the system installer" : "正在打开系统安装器")
     : status === "ready"
-    ? (english ? "Restart in System info" : "可在系統信息中重啓")
+    ? (english ? "Restart in System info" : "可在系统信息中重启")
     : updateKind === "ota"
-      ? (english ? "Optional in-app update" : "可選的應用內更新")
-      : (english ? "See System info to update" : "可在系統信息中更新");
+      ? (english ? "Optional in-app update" : "可选的应用内更新")
+      : (english ? "See System info to update" : "可在系统信息中更新");
 
   const dismiss = () => {
     Animated.timing(opacity, {
@@ -155,7 +155,7 @@ export const MobileUpdateToast = () => {
     >
       <View style={styles.toast}>
         <Pressable
-          accessibilityHint={english ? "Opens the update action" : "打開更新操作"}
+          accessibilityHint={english ? "Opens the update action" : "打开更新操作"}
           accessibilityLabel={`${title}. ${detail}`}
           accessibilityRole="button"
           onPress={() => {
@@ -175,7 +175,7 @@ export const MobileUpdateToast = () => {
           </View>
         </Pressable>
         <Pressable
-          accessibilityLabel={english ? "Dismiss" : "關閉"}
+          accessibilityLabel={english ? "Dismiss" : "关闭"}
           accessibilityRole="button"
           hitSlop={8}
           onPress={dismiss}

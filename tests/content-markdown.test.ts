@@ -3,13 +3,13 @@ import { docToMarkdown, markdownToDoc } from "@edgeever/shared";
 
 describe("shared Markdown conversion", () => {
   test("parses adjacent headings, lists, quotes, and inline formatting into TipTap nodes", () => {
-    const doc = markdownToDoc(`## 1. 公司主體信息 (Organization Info)
-* **公司中文全稱**：鄭州市冰硅網絡科技有限公司
-* **公司英文名稱**：Example Co., Ltd.
-## 2. 聯繫方式 (Domain & Contact)
-* **項目官方網站**：[EdgeEver](https://www.edgeever.org)
+    const doc = markdownToDoc(`## 1. 公司主体信息 (Organization Info)
+* **公司中文全称**：郑州市冰硅网络科技有限公司
+* **公司英文名称**：Example Co., Ltd.
+## 2. 联系方式 (Domain & Contact)
+* **项目官方网站**：[EdgeEver](https://www.edgeever.org)
 > [!WARNING]
-> 請勿綁定其他賬號。`);
+> 请勿绑定其他账号。`);
 
     expect(doc.content.map((node) => node.type)).toEqual([
       "heading",
@@ -23,7 +23,7 @@ describe("shared Markdown conversion", () => {
     const firstText = firstList.content?.[0]?.content?.[0]?.content?.[0];
     expect(firstText).toEqual({
       type: "text",
-      text: "公司中文全稱",
+      text: "公司中文全称",
       marks: [{ type: "bold" }],
     });
 
@@ -37,14 +37,14 @@ describe("shared Markdown conversion", () => {
   });
 
   test("serializes TipTap marks and block nodes back to Markdown", () => {
-    const markdown = `# 標題
+    const markdown = `# 标题
 
-- **粗體**與*斜體*
-- [鏈接](https://example.com)
+- **粗体**与*斜体*
+- [链接](https://example.com)
 
 > 引用
 
-\`code\` 和 ~~刪除~~`;
+\`code\` 和 ~~删除~~`;
 
     expect(docToMarkdown(markdownToDoc(markdown))).toBe(markdown);
   });
@@ -54,7 +54,7 @@ describe("shared Markdown conversion", () => {
 const answer = 42;
 \`\`\`
 
-![示例](/api/v1/resources/res_1/blob "標題")`;
+![示例](/api/v1/resources/res_1/blob "标题")`;
 
     const doc = markdownToDoc(markdown);
     expect(doc.content.map((node) => node.type)).toEqual(["codeBlock", "image"]);

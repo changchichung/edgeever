@@ -1,73 +1,73 @@
-# 爲 EdgeEver 貢獻代碼
+# 为 EdgeEver 贡献代码
 
-簡體中文 | [English](CONTRIBUTING.md)
+简体中文 | [English](CONTRIBUTING.md)
 
-感謝您爲 EdgeEver 貢獻代碼。用於 Cloudflare 部署的 Fork 也可以提交代碼貢獻，但部署與開發必須使用不同的分支。
+感谢您为 EdgeEver 贡献代码。用于 Cloudflare 部署的 Fork 也可以提交代码贡献，但部署与开发必须使用不同的分支。
 
-## 將部署分支與貢獻分支分開
+## 将部署分支与贡献分支分开
 
-如果您的 Fork 用於部署 EdgeEver：
+如果您的 Fork 用于部署 EdgeEver：
 
-- 將 Fork 的 `main` 視爲僅用於部署的分支，並交由 **Update deployed EdgeEver** 管理。
-- 不要直接在這個 `main` 分支上開發功能。
-- 日常開發和部署更新時，不要通過 GitHub **Sync fork** 更新部署用的 `main`。
-- 每項代碼貢獻都應從官方倉庫最新的 `upstream/main` 創建獨立分支。
+- 将 Fork 的 `main` 视为仅用于部署的分支，并交由 **Update deployed EdgeEver** 管理。
+- 不要直接在这个 `main` 分支上开发功能。
+- 日常开发和部署更新时，不要通过 GitHub **Sync fork** 更新部署用的 `main`。
+- 每项代码贡献都应从官方仓库最新的 `upstream/main` 创建独立分支。
 
-部署更新工作流只會更新 Fork 的 `main`，不會修改您的貢獻分支。
+部署更新工作流只会更新 Fork 的 `main`，不会修改您的贡献分支。
 
-## 創建貢獻分支
+## 创建贡献分支
 
-克隆您的 Fork，並將官方倉庫添加爲 `upstream`：
+克隆您的 Fork，并将官方仓库添加为 `upstream`：
 
 ```sh
-git clone https://github.com/<您的賬號>/edgeever.git
+git clone https://github.com/<您的账号>/edgeever.git
 cd edgeever
 git remote add upstream https://github.com/tianma-if/edgeever.git
 git fetch upstream
 ```
 
-從官方最新的 `main` 創建新分支，不要從部署分支開始開發：
+从官方最新的 `main` 创建新分支，不要从部署分支开始开发：
 
 ```sh
-git switch -c feat/簡短說明 upstream/main
+git switch -c feat/简短说明 upstream/main
 ```
 
-完成修改並提交後，將貢獻分支推送到您的 Fork：
+完成修改并提交后，将贡献分支推送到您的 Fork：
 
 ```sh
-git push -u origin feat/簡短說明
+git push -u origin feat/简短说明
 ```
 
-然後創建以下 Pull Request：
+然后创建以下 Pull Request：
 
 ```text
-<您的賬號>/edgeever:feat/簡短說明
+<您的账号>/edgeever:feat/简短说明
     -> tianma-if/edgeever:main
 ```
 
-提交這個 Pull Request 時，您的 Fork `main` 不需要與官方 `main` 保持一致。GitHub 使用的是貢獻分支，而不是部署分支。
+提交这个 Pull Request 时，您的 Fork `main` 不需要与官方 `main` 保持一致。GitHub 使用的是贡献分支，而不是部署分支。
 
-## 爲開發中的貢獻同步上游代碼
+## 为开发中的贡献同步上游代码
 
-官方倉庫有新提交時，直接更新貢獻分支，不要改動部署用的 `main`：
+官方仓库有新提交时，直接更新贡献分支，不要改动部署用的 `main`：
 
 ```sh
 git fetch upstream
-git switch feat/簡短說明
+git switch feat/简短说明
 git rebase upstream/main
 ```
 
-如果該分支已經推送過，請安全地更新遠端貢獻分支：
+如果该分支已经推送过，请安全地更新远端贡献分支：
 
 ```sh
-git push --force-with-lease origin feat/簡短說明
+git push --force-with-lease origin feat/简短说明
 ```
 
-如有衝突，請在貢獻分支中解決，不要通過同步部署用的 `main` 來處理。
+如有冲突，请在贡献分支中解决，不要通过同步部署用的 `main` 来处理。
 
-## 驗證修改
+## 验证修改
 
-安裝依賴並運行與改動相關的檢查。核心驗證命令包括：
+安装依赖并运行与改动相关的检查。核心验证命令包括：
 
 ```sh
 bun install
@@ -77,8 +77,8 @@ bun run typecheck:mobile
 bun run build:web
 ```
 
-特定平臺的改動可能還需要額外檢查。
+特定平台的改动可能还需要额外检查。
 
-## 定製部署
+## 定制部署
 
-如果您希望將個人產品改動長期保留在部署用的 `main`，這屬於定製部署，而不是普通的代碼貢獻流程。定製部署需要設置 `EDGE_EVER_PRESERVE_FORK_CHANGES=true`，並自行維護與上游的合併。使用獨立分支貢獻代碼時不需要設置這個變量。
+如果您希望将个人产品改动长期保留在部署用的 `main`，这属于定制部署，而不是普通的代码贡献流程。定制部署需要设置 `EDGE_EVER_PRESERVE_FORK_CHANGES=true`，并自行维护与上游的合并。使用独立分支贡献代码时不需要设置这个变量。

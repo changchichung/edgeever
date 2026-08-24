@@ -24,13 +24,13 @@ export const readBlobAsUint8Array = async (blob: Blob): Promise<Uint8Array> => {
 
   return await new Promise<Uint8Array>((resolve, reject) => {
     const reader = new FileReader();
-    reader.onerror = () => reject(reader.error ?? new Error("資源讀取失敗"));
+    reader.onerror = () => reject(reader.error ?? new Error("资源读取失败"));
     reader.onloadend = () => {
       if (reader.result instanceof ArrayBuffer) {
         resolve(new Uint8Array(reader.result));
         return;
       }
-      reject(new Error("資源讀取失敗"));
+      reject(new Error("资源读取失败"));
     };
     reader.readAsArrayBuffer(blob);
   });
@@ -243,7 +243,7 @@ export const resolveExportFilename = (filename: string, mimeType: string) => {
 export class MobileResourceCancelledError extends Error {
   readonly code = "cancelled" as const;
 
-  constructor(message = "已取消下載") {
+  constructor(message = "已取消下载") {
     super(message);
     this.name = "MobileResourceCancelledError";
   }
@@ -272,7 +272,7 @@ const shareCachedResource = async (
 ) => {
   const Sharing = await import("expo-sharing");
   if (!(await Sharing.isAvailableAsync())) {
-    throw new Error("當前設備無法打開系統分享面板");
+    throw new Error("当前设备无法打开系统分享面板");
   }
   await Sharing.shareAsync(fileUri, {
     dialogTitle: options.dialogTitle,
@@ -307,7 +307,7 @@ export const saveMobileResourceAs = async (client: AttachmentClient, target: Mob
       const permission = await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
       if (!permission.granted) {
         // Do not return null — callers treated that as success and closed the sheet.
-        throw new MobileResourceCancelledError("已取消下載");
+        throw new MobileResourceCancelledError("已取消下载");
       }
       const destination = await FileSystem.StorageAccessFramework.createFileAsync(
         permission.directoryUri,
@@ -325,7 +325,7 @@ export const saveMobileResourceAs = async (client: AttachmentClient, target: Mob
       }
       // SAF is flaky on some OEM builds — fall back to the share sheet so download still works.
       await shareCachedResource(file.uri, {
-        dialogTitle: `下載 ${exportName}`,
+        dialogTitle: `下载 ${exportName}`,
         mimeType,
       });
       return { kind: "share" as const, uri: file.uri, filename: exportName };
@@ -333,7 +333,7 @@ export const saveMobileResourceAs = async (client: AttachmentClient, target: Mob
   }
 
   await shareCachedResource(file.uri, {
-    dialogTitle: `下載 ${exportName}`,
+    dialogTitle: `下载 ${exportName}`,
     mimeType,
   });
   return { kind: "share" as const, uri: file.uri, filename: exportName };

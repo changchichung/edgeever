@@ -32,9 +32,9 @@ const WECHAT_STYLES: Record<string, string> = {
 
 const THEME_BLOCK_LABELS: Record<string, string> = {
   intro: "引言",
-  "key-point": "重點觀點",
+  "key-point": "重点观点",
   callout: "提示",
-  chapter: "章節",
+  chapter: "章节",
 };
 
 const THEME_BLOCK_STYLES: Record<string, { block: string; label: string }> = {
@@ -152,7 +152,7 @@ const applyInlineStyles = (
     block.style.cssText = `${blockStyle}${block.style.cssText}`;
 
     const label = document.createElement("p");
-    label.textContent = THEME_BLOCK_LABELS[kind] || "主題組件";
+    label.textContent = THEME_BLOCK_LABELS[kind] || "主题组件";
     label.style.cssText = `${labelStyle} margin: 0;`;
     block.insertBefore(label, block.firstChild);
   });

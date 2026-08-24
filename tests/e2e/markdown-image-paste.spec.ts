@@ -36,12 +36,12 @@ test("converts a pasted Markdown image line in the main Web editor", async ({ pa
   const title = `Markdown image paste ${Date.now()}`;
   const memo = await createMemo(page, title);
   const source = "https://picui.ogmua.cn/s1/2026/08/12/6a7c64323d0a8.webp";
-  const markdown = `![圖片](${source} \"Issue 229\")`;
+  const markdown = `![图片](${source} \"Issue 229\")`;
 
   try {
     await page.goto("/");
-    await page.getByRole("button", { name: "全部筆記", exact: true }).click();
-    await page.getByPlaceholder("搜索筆記").fill(title);
+    await page.getByRole("button", { name: "全部笔记", exact: true }).click();
+    await page.getByPlaceholder("搜索笔记").fill(title);
     await page.locator(`[data-memo-id="${memo.id}"]`).locator("button").first().click();
 
     const editor = page.locator(".ProseMirror[contenteditable='true']");
@@ -50,7 +50,7 @@ test("converts a pasted Markdown image line in the main Web editor", async ({ pa
 
     const image = editor.locator(`img[src="${source}"]`);
     await expect(image).toHaveCount(1);
-    await expect(image).toHaveAttribute("alt", "圖片");
+    await expect(image).toHaveAttribute("alt", "图片");
     await expect(image).toHaveAttribute("title", "Issue 229");
     await expect(editor).not.toContainText(markdown);
 

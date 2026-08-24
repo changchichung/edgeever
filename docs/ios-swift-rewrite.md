@@ -93,7 +93,7 @@ Signed-off scope relative to `docs/mobile-native-parity.md` and today's `apps/mo
 | Capability | RN today | iOS Swift v1 |
 | --- | --- | --- |
 | Login + self-hosted instance | Implemented | **Required** |
-| Notebook hierarchy browse + select/filter | Implemented (select/hierarchy only; **no** create/rename/delete UI—`createNotebook`/`updateNotebook`/`deleteNotebook` unused in `apps/mobile/src`) | **Required** (select/filter/tree from mirror; empty set → “請先創建一個筆記本” / create elsewhere) |
+| Notebook hierarchy browse + select/filter | Implemented (select/hierarchy only; **no** create/rename/delete UI—`createNotebook`/`updateNotebook`/`deleteNotebook` unused in `apps/mobile/src`) | **Required** (select/filter/tree from mirror; empty set → “请先创建一个笔记本” / create elsewhere) |
 | Notebook create / rename / delete | Not in RN app UI | **Deferred** (desktop/PWA; not Gate A/B) |
 | Move memo to notebook | Implemented (content path / picker) | **Required** (via memo edit notebook field + outbox `memo.update` / create payload) |
 | Memo list, filter, sort, search | Implemented | **Required** |
@@ -362,7 +362,7 @@ sequenceDiagram
 
 #### New-note create path (RN-aligned)
 
-1. Require a target `notebookId` (default notebook from mirror; block if none with “請先創建一個筆記本”).
+1. Require a target `notebookId` (default notebook from mirror; block if none with “请先创建一个笔记本”).
 2. While composing: autosave **only** to `mobile_drafts` (`draft_key = new` for scope) at ~350 ms—**do not** allocate `local:`, **do not** enqueue `memo.create`, **do not** call `createMemo`.
 3. **Done without prior materialize:**
    - Allocate `temporaryId = "local:" + base36(time) + ":" + random`.
@@ -854,7 +854,7 @@ Codable models must accept the same JSON field names as TS (`contentJson`, `cont
 ```json
 {
   "notebookId": "…",
-  "title": "無標題筆記",
+  "title": "无标题笔记",
   "contentMarkdown": "hello",
   "tags": ["a"],
   "createdAt": "2026-08-06T00:00:00.000Z",
@@ -1062,7 +1062,7 @@ Port `listLocalMemos` filters: notebook / multi-notebook, trash flag (always fal
 | Sync metrics | Local counters: last bootstrap duration, last changes page count, outbox depth, conflict count |
 | Sync stuck diagnosis | **Debug-only** Settings action: “Export sync diagnostics” → JSON share sheet (`scope`, cursor, identity, outbox items with status/attempt/lastError/nextAttemptAt, last pull error). No secrets/tokens in export |
 | Crash reporting | Xcode Organizer / TestFlight crash reports; **first-week post-submit watch owner** named in PR 13 release checklist (default: engineer who submitted) |
-| Editor bridge failures | Log event name + error string; surface “編輯器加載失敗” retry UI |
+| Editor bridge failures | Log event name + error string; surface “编辑器加载失败” retry UI |
 | Network | Log status code + path (never Authorization header) |
 | Performance targets (adapt from parity doc) | Cold launch to shell &lt; 1.0s; warm list &lt; 0.5s; list scroll without sustained dropped frames; search 250ms debounce |
 
@@ -1134,7 +1134,7 @@ Two gates. **Never cut edit-gate bullets for share/revisions/resource-library.**
 - [ ] HTTPS default; `http://` allowed with warning (K22).
 - [ ] First sync bootstraps with progress; later launches incremental; cursor rewind + identity change rebuild without losing `local:` memos.
 - [ ] Notes list: notebook **hierarchy browse/select/filter**, search (250 ms debounce), sort modes, pin (online-first), soft delete.
-- [ ] Create requires notebook (default notebook when available); empty notebook set blocks with clear message (RN: create notebooks elsewhere / “請先創建一個筆記本”)—**no** in-app notebook create/rename/delete in v1.
+- [ ] Create requires notebook (default notebook when available); empty notebook set blocks with clear message (RN: create notebooks elsewhere / “请先创建一个笔记本”)—**no** in-app notebook create/rename/delete in v1.
 - [ ] **Move memo to notebook:** change notebook on create/edit via content outbox fields (not batch `moveMemos` API).
 - [ ] **New-note draft-until-commit:** typing before Done only writes `mobile_drafts` (`new`)—no list row / no `memo.create` until Done or materialize (RN create-sheet).
 - [ ] **Create offline (Done without materialize):** `local:` id in list; mirror + `memo.create` outbox; sync when online; id remap without duplicate rows.
