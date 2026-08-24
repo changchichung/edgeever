@@ -261,3 +261,4 @@ Docker runs the same frontend, API routes, services, authentication, MCP impleme
 ## Disclaimer
 
 EdgeEver is an independent open-source note-taking application developed and maintained by individuals and the community. It is not affiliated with, authorized, sponsored, or endorsed by Evernote Corporation or its affiliates.
+<!-- test auto deploy Mon 24 Aug 2026 09:37:36 AM CST -->
